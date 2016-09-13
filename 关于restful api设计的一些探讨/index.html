@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>RESTful简单介绍 - 日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RESTful介绍本文主要包含以下内容:
+
+为什么要用RESTful
+RESTful的定义
+RESTful的五个关键内容
+资源与URI(Resource URI)
+统一资源接口(Uniform Interface)
+资源的表述 (Representation)
+状态的转移 (State Transfer)
+超文本驱动 (Hypertext Driven)
+
+
+简单比较下REST和RPC两种API调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTful简单介绍">
+<meta property="og:url" content="http://yangsui.me/关于restful api设计的一些探讨/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="RESTful介绍本文主要包含以下内容:
+
+为什么要用RESTful
+RESTful的定义
+RESTful的五个关键内容
+资源与URI(Resource URI)
+统一资源接口(Uniform Interface)
+资源的表述 (Representation)
+状态的转移 (State Transfer)
+超文本驱动 (Hypertext Driven)
+
+
+简单比较下REST和RPC两种API调">
+<meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/rest/infoq-content-negotiation.png">
+<meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/rest/opt-cond-rest.png">
+<meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/rest/http-method-status.jpg">
+<meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/rest/rest-maturity-model.png">
+<meta property="og:updated_time" content="2016-06-08T09:36:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RESTful简单介绍">
+<meta name="twitter:description" content="RESTful介绍本文主要包含以下内容:
+
+为什么要用RESTful
+RESTful的定义
+RESTful的五个关键内容
+资源与URI(Resource URI)
+统一资源接口(Uniform Interface)
+资源的表述 (Representation)
+状态的转移 (State Transfer)
+超文本驱动 (Hypertext Driven)
+
+
+简单比较下REST和RPC两种API调">
+<meta name="twitter:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/rest/infoq-content-negotiation.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+          <a class="main-nav-link" href="/atom.xml">Rss</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-关于restful api设计的一些探讨" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RESTful简单介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/关于restful api设计的一些探讨/" class="article-date">
+  <time datetime="2016-06-08T07:34:35.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RESTful介绍"><a href="#RESTful介绍" class="headerlink" title="RESTful介绍"></a>RESTful介绍</h1><p>本文主要包含以下内容:</p>
+<ul>
+<li>为什么要用RESTful</li>
+<li>RESTful的定义</li>
+<li>RESTful的五个关键内容<ul>
+<li>资源与URI(Resource URI)</li>
+<li>统一资源接口(Uniform Interface)</li>
+<li>资源的表述 (Representation)</li>
+<li>状态的转移 (State Transfer)</li>
+<li>超文本驱动 (Hypertext Driven)</li>
+</ul>
+</li>
+<li>简单比较下REST和RPC两种API调用风格 </li>
+</ul>
+<p>需要注意的是本文只对RESTful进行简单的介绍, 很多内容可探讨的就比较多, 比如安全及授权, 超文本驱动, 所以只对这些内容做简单介绍. 另外文章中的很多内容在实际开发中会有所取舍, 因此本文不是实际开发中的规范, 但是对理解规范是有很大作用的. 另外, 权衡各方面利弊后, 我们会在短期内给出相应的开发规范.</p>
+<p>文中出现的错误或表述不清楚的地方, 欢迎大家指正.</p>
+<a id="more"></a>
+<h2 id="为什么要用RESTful"><a href="#为什么要用RESTful" class="headerlink" title="为什么要用RESTful"></a>为什么要用RESTful</h2><p>为什么要用RESTful, 知乎<a href="http://www.zhihu.com/question/28570307/answer/48358723" target="_blank" rel="external">毛草</a>网友说得比较好</p>
+<blockquote>
+<p>我倒不是说一定要把所有API按照RESTful的方式设计. </p>
+<p>但是, 第一这个东西现在流行; </p>
+<p>第二你设计接口的时候有规范太重要了. </p>
+<p>第三, 等你需要优化的时候再去改某些细节的东西也不迟. 就算你不用RESTful, 那也要制定一套完整的规范才行. 否则以后会死的.</p>
+<p>这也是RPC最大的问题. 自由是自由, 可是这种自由是以未来维护的复杂度作为代价的. 都不用多,你的系统运行个半年, 再维护的时候就已经会死人了好不好.</p>
+</blockquote>
+<p>当然RESTful的优点不仅仅在于此, 大致说来有如下的优点, 会逐步在全文体现.</p>
+<ul>
+<li>规范. 统一的架构风格, 使得开发 测试 运维工作变得统一. 良好的符合”RESTful风格”的URI设计,可以让Web接口的功能和整体结构更加清晰, 仅仅通过URI就能方便的推测出来接口是做什么的, 以及多个资源之间关联性同时带来更好的兼容性.</li>
+<li>语义. 充分利用 HTTP 协议本身语义, 对资源的操作正好对应相应的HTTP动词.</li>
+<li>安全. 由于采用的是HTTP动词的操作, 请求所造成的影响明确, 或者说副作用明确,比如GET肯定是安全的, PUT和DELETE肯定是幂等的.</li>
+<li>无状态. 在调用一个接口（访问、操作资源）的时候, 可以不用考虑上下文, 不用考虑当前状态, 极大的降低了复杂度</li>
+</ul>
+<h2 id="RESTful定义"><a href="#RESTful定义" class="headerlink" title="RESTful定义"></a>RESTful定义</h2><p>Wikipedia的解释是这样</p>
+<blockquote>
+<p>表述性状态转移（英文：Representational State Transfer, 简称REST）是Roy Fielding博士于2000年在他的博士论文中提出来的一种软件架构风格.</p>
+<p>Roy Fielding是 HTTP 规范的主要编写者之一. 他在论文中提到: “我这篇文章的写作目的, 就是想在符合架构原理的前提下, 理解和评估以网络为基础的应用软件的架构设计, 得到一个功能强、性能好、适宜通信的架构. REST指的是一组架构约束条件和原则.” 如果一个架构符合REST的约束条件和原则, 我们就称它为RESTful架构.</p>
+<p>REST本身并没有创造新的技术、组件或服务, 而隐藏在RESTful背后的理念就是使用Web的现有特征和能力, 更好地使用现有Web标准中的一些准则和约束. 虽然REST本身受Web技术的影响很深, 但是理论上REST架构风格并不是绑定在HTTP上, 只不过目前HTTP是唯一与REST相关的实例. 所以我们这里描述的REST也是通过HTTP实现的REST.</p>
+</blockquote>
+<p>表述性状态转移, 这是个什么鬼, 按照<a href="https://www.zhihu.com/question/27785028" target="_blank" rel="external">覃超</a>的说法, 其实是主语被去掉了, 全称其实是<strong><font color="red">Resource Representational State Transfer</font></strong>, 即:<strong>资源在网络中以某种表现形式进行状态变化</strong>.</p>
+<p>结合RESTful原则, 围绕资源, 分别从资源的定义, 获取, 表述, 关联, 状态变迁进行讨论, 主要讨论以下五个内容.</p>
+<ul>
+<li>资源与URI(Resource URI)</li>
+<li>统一资源接口(Uniform Interface)</li>
+<li>资源的表述 (Representation)</li>
+<li>状态的转移 (State Transfer)</li>
+<li>超文本驱动 (Hypertext Driven)</li>
+</ul>
+<h2 id="资源与URI-Resource-AND-URI"><a href="#资源与URI-Resource-AND-URI" class="headerlink" title="资源与URI(Resource AND URI)"></a>资源与URI(Resource AND URI)</h2><h3 id="资源的定义"><a href="#资源的定义" class="headerlink" title="资源的定义"></a>资源的定义</h3><p>任何事物, 只要有被引用到的必要, 它就是一个资源. 资源可以是实体(例如手机号码), 也可以只是一个抽象概念(例如价值). 从消费者的观点看, 资源可以是消费者能够与之交互已达成目标的任何东西. 比如买书的发票, 订单, 用户的个人信息等等.</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>对一个资源的访问, 总是通过资源的表述方式来间接的完成的. 资源要被使用, 必须能够在网络上标识它, 同时还需要有某些手段来操作资源. 在WEB中我们使用URI来唯一标识一个资源, 使得该资源在WEB上可寻址, 且能够使用协议来操作. 一个资源的URI将它与任何其它资源分开, 可以通过这个URI来与其它资源交互.</p>
+<p>一个典型的RESTful URI可能是这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://www.jiabangou.com/v0.1/&#123;resource&#125;/&#123;resource-id&#125;/&#123;sub-resource&#125;/&#123;sub-resource-id&#125;/&#123;sub-resource-property&#125;</div></pre></td></tr></table></figure>
+<p>以spring boot为例, github是这样设计的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">https://github.com/spring-projects</div><div class="line">https://github.com/spring-projects/spring-boot</div><div class="line">https://github.com/spring-projects/spring-boot/issues</div><div class="line">https://github.com/spring-projects/spring-boot/issues?q=is%3Aclosed</div></pre></td></tr></table></figure>
+<p>URI的设计要遵循可读性, 可寻址的一些原则.</p>
+<ul>
+<li>URI代表资源的<strong><font color="red">路径(位置)</font></strong>, 以及一些特殊的<strong><font color="red">操作</font></strong></li>
+<li>使用<strong><font color="red">名词, 复数</font></strong>进行资源命名, 不管资源返回单个还是多个</li>
+<li>单词使用小写字母, 数字, 多个单词间使用中划线(-)或下划线(_)</li>
+<li>资源路径从父路径到子路径在到下一级路径, 所有资源放到一域名下</li>
+<li>在资源路径之前, 使用版本号. 也有的是将版本号放到Header中, 如github.</li>
+<li>使用<strong><font color="red">?</font></strong>来进行来进行资源的条件过滤, 如分页</li>
+<li>使用<strong><font color="red">, 或 :</font></strong>来表示同级资源关系</li>
+<li>优先使用内容协商来区分表述格式, 而不是使用后缀来区分表述格式</li>
+<li>建议使用SSL</li>
+</ul>
+<p>关于资源和URI的关系, 一句话总结是: URI唯一标识网络上的一个资源, 资源的消费者和资源的发布方通过内容协商确定返回响应的表述形式. 考虑下面的URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET: http://www.jiabangou.com/users/1</div></pre></td></tr></table></figure>
+<ul>
+<li><p>users/1 代表用户资源, 该用户ID为1, <code>http://www.jiabangou.com/users/1</code>是URI</p>
+</li>
+<li><p>请求上面的URI会返回资源<code>users/1</code>的表现形式, 表现形式是资源的一组属性的集合, <code>user.name</code> <code>user.mobile</code> <code>user.password</code></p>
+</li>
+<li><p>资源的表述支持各种格式, 如<code>xml json html</code>, URI可以将资源映射到一种具体的表述形式上. 如: <code>http://www.jiabangou.com/users.json</code> <code>http://www.jiabangou.com/users.xml</code></p>
+<p>对于每一个资源表述是否需要指定格式, 有待大家讨论.「rest实战」的作者认为</p>
+<blockquote>
+<p>URI对于消费者来说应该是不透明的, 只有URI的发布者才知道如何来解释它和将它应映射到一个资源. 使用类似xml .html 或 .json的扩展名是一个历史性约定, 来自WEB服务器简单地将URI映射到文件的古老时代.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="统一资源接口-Uniform-Interface"><a href="#统一资源接口-Uniform-Interface" class="headerlink" title="统一资源接口(Uniform Interface)"></a>统一资源接口(Uniform Interface)</h2><p>RESTful架构遵循统一接口原则, 统一接口包含了一组受限的预定义的操作, 不论什么样的资源, 都是通过使用相同的接口进行资源的访问. 接口应该使用标准的HTTP方法如GET, PUT, PATCH和POST, 并遵循这些方法的语义. 如果按照HTTP方法的语义来暴露资源, 那么接口将会拥有安全性和幂等性的特性, 关于HTTP幂等后面在进行讨论.</p>
+<p>简言之: RESTful必须通过统一的接口来对资源执行各种操作, 对于每个资源只能执行一组有限的操作. 以HTTP/1.1协议为例, HTTP/1.1协议定义了一个操作资源的统一接口, 主要包括以下内容, 后文会一一介绍.</p>
+<ul>
+<li>HTTP方法(GET POST PUT DELETE PATCH HEAD OPTIONS)</li>
+<li>HTTP头信息</li>
+<li>HTTP响应信息</li>
+<li>内容协商机制</li>
+<li>缓存机制</li>
+<li>安全认证机制</li>
+</ul>
+<h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><p>语义方法的说明, 关于幂等后面会专门介绍.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法名称</th>
+<th style="text-align:left">是否幂等</th>
+<th style="text-align:left">是否安全</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">OPTIONS</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">使用该方法来获取资源支持的HTTP方法列表. 这个方法会请求服务器返回该资源所支持的所有HTTP请求方法, 该方法会用’*’来代替资源名称, 向服务器发送OPTIONS请求, 可以测试服务器功能是否正常</td>
+</tr>
+<tr>
+<td style="text-align:left">HEAD</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">用于只获取请求某个资源返回的头信息</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">用于从服务器获取某个资源的信息<br>  <em> 完成请求后返回状态码 200 OK<br> </em> 完成请求后需要返回被请求的资源详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">用于创建新资源<br> <em> 创建完成后返回状态码 201 Created<br> </em> 完成请求后需要返回被创建的资源详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">PUT</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">用于完整的替换资源或者创建指定身份的资源, 比如创建id为123的某个资源<br> <em> 如果是创建了资源, 则返回 201 Created<br> </em> 如果是替换了资源, 则返回 200 OK<br> * 完成请求后需要返回被修改的资源详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">PATCH</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">用于局部更新资源<br> <em> 完成请求后返回状态码 200 OK<br> </em> 完成请求后需要返回被请求的资源详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">用于删除某个资源, 有的客户端不支持, 服务器端和客户端相互妥协, 如客户端通过隐藏的参数_method=DELETE来<br> * 完成请求后返回状态码 204 No Content</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意的是, 有的客户端并不支持所有的HTTP方法, 如PUT或DELETE方法. 解决办法是客户端通过提交一个隐藏的<code>_method=PUT</code>字段来传递真实的请求方法. 而某些JS框架, 通过设置<code>X-HTTP-Method-Override</code> 这个HTTP Header来避免这个问题.  以mobile项目为例, 陈老师写的处理PUT方法的例子, 注意headers部分.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">  /**</div><div class="line"> * 发起一个PUT请求</div><div class="line"> * @param url</div><div class="line"> * @param formData</div><div class="line"> * @returns Promise</div><div class="line"> */</div><div class="line">function put(url, jsonData) &#123;</div><div class="line">    return $.ajax(&#123;</div><div class="line">        url: HOST + url,</div><div class="line">        type: &apos;PUT&apos;,</div><div class="line">        contentType: &apos;application/json&apos;,</div><div class="line">        data: JSON.stringify(jsonData),</div><div class="line">        cache: false,</div><div class="line">        timeout: TIMEOUT,</div><div class="line">        headers: &#123;</div><div class="line">            &apos;X-HTTP-Method-Override&apos;: &apos;PUT&apos;,</div><div class="line">            &apos;X-Xsrftoken&apos;: Cookie.get(&apos;_xsrf&apos;)</div><div class="line">        &#125;</div><div class="line">    &#125;).then(responseFilter);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><p>使用HTTP动词对资源进行操作, 常见的HTTP状态码含义如下. 关于HTTP状态码及含义请参考<a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">wikipedia</a>上的详细介绍</p>
+<h4 id="请求成功-2XX"><a href="#请求成功-2XX" class="headerlink" title="请求成功 2XX"></a>请求成功 2XX</h4><ul>
+<li>200 OK : 请求执行成功并返回相应数据, 如 GET 成功</li>
+<li>201 Created : 对象创建成功并返回相应资源数据, 如 POST 成功; 创建完成后响应头中应该携带头标 Location, 指向新建资源的地址</li>
+<li>202 Accepted : 接受请求, 但无法立即完成创建行为, 比如其中涉及到一个需要花费若干小时才能完成的任务. 返回的实体中应该包含当前状态的信息, 以及指向处理状态监视器或状态预测的指针, 以便客户端能够获取最新状态.</li>
+<li>204 No Content : 请求执行成功, 不返回相应资源数据, 如 PATCH DELETE 成功</li>
+</ul>
+<h4 id="重定向-3XX"><a href="#重定向-3XX" class="headerlink" title="重定向 3XX"></a>重定向 3XX</h4><p>重定向的新地址都需要在响应头 Location 中返回</p>
+<ul>
+<li>301 Moved Permanently : 被请求的资源已永久移动到新位置</li>
+<li>302 Found : 请求的资源现在临时从不同的 URI 响应请求</li>
+<li>303 See Other : 对应当前请求的响应可以在另一个 URI 上被找到, 客户端应该使用 GET 方法进行请求</li>
+<li>304 Not Modified : 资源自从上次请求后没有再次发生变化, 主要使用场景在于实现数据缓存</li>
+<li>307 Temporary Redirect : 对应当前请求的响应可以在另一个 URI 上被找到, 客户端应该保持原有的请求方法进行请求</li>
+</ul>
+<h4 id="客户端错误-4XX"><a href="#客户端错误-4XX" class="headerlink" title="客户端错误 4XX"></a>客户端错误 4XX</h4><ul>
+<li>400 Bad Request : 请求体包含语法错误</li>
+<li>401 Unauthorized : 需要验证用户身份, 如果服务器就算是身份验证后也不允许客户访问资源, 应该响应 403 Forbidden</li>
+<li>403 Forbidden : 服务器拒绝执行</li>
+<li>404 Not Found : 找不到目标资源</li>
+<li>405 Method Not Allowed : 不允许执行目标方法, 响应中应该带有 Allow 头, 内容为对该资源有效的 HTTP 方法</li>
+<li>406 Not Acceptable : 服务器不支持客户端请求的内容格式, 但响应里会包含服务端能够给出的格式的数据, 并在 Content-Type 中声明格式名称</li>
+<li>409 Conflict : 请求操作和资源的当前状态存在冲突。主要使用场景在于实现并发控制</li>
+<li>412 Precondition Failed : 服务器在验证在请求的头字段中给出先决条件时，没能满足其中的一个或多个。主要使用场景在于实现并发控制</li>
+</ul>
+<h4 id="服务器端错误-5XX"><a href="#服务器端错误-5XX" class="headerlink" title="服务器端错误 5XX"></a>服务器端错误 5XX</h4><ul>
+<li>500 Internal Server Error : 服务器遇到了一个未曾预料的状况, 导致了它无法完成对请求的处理</li>
+<li>501 Not Implemented : 服务器不支持当前请求所需要的某个功能</li>
+<li>502 Bad Gateway : 作为网关或者代理工作的服务器尝试执行请求时, 从上游服务器接收到无效的响应</li>
+<li>503 Service Unavailable : 由于临时的服务器维护或者过载, 服务器当前无法处理请求. 这个状况是临时的, 并且将在一段时间以后恢复. 如果能够预计延迟时间, 那么响应中可以包含一个 Retry-After 头用以标明这个延迟时间（内容可以为数字, 单位为秒; 或者是一个 HTTP 协议指定的时间格式）. 如果没有给出这个 Retry-After 信息, 那么客户端应当以处理 500 响应的方式处理它.</li>
+</ul>
+<p>上面花了大量的篇幅来介绍请求的方法和返回的状态码. 统一资源接口要求使用标准的HTTP方法对资源进行操作, 所以URI只应该来表示资源的名称, 而不应该包括资源的操作. 即: URI不应该使用动作来描述.</p>
+<p>一组典型的HTTP动词操作可能是这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GET    https://www.jiabangou.com/v0.1/users         获得用户列表</div><div class="line">GET    https://www.jiabangou.com/v0.1/users/&#123;id&#125;    获得指定的用户</div><div class="line">POST   https://www.jiabangou.com/v0.1/users         创建一个用户</div><div class="line">PUT    https://www.jiabangou.com/v0.1/users/&#123;id&#125;    更新指定的用户（提供该用户的全部信息）</div><div class="line">PATCH  https://www.jiabangou.com/v0.1/users/&#123;id&#125;    更新指定的用户（提供该用户的部分信息）</div><div class="line">DELETE https://www.jiabangou.com/v0.1/users/&#123;id&#125;    删除指定的用户</div></pre></td></tr></table></figure>
+<p>来个练习题放松下, 既然URI中不能出现动词, 那么登录的URI该怎么设计呢? <code>/login</code> 要设计成什么样才合适呢? 同样的问题, 重设密码 <code>/resetPassword</code> 应该设计成什么样呢?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/login --&gt; POST:/session</div><div class="line">/resetPassword ---&gt; PUT/PATCH: /users/:id/password</div></pre></td></tr></table></figure>
+<h4 id="HTTP幂等-Idempotence"><a href="#HTTP幂等-Idempotence" class="headerlink" title="HTTP幂等(Idempotence)"></a>HTTP幂等(Idempotence)</h4><p>上面反复提到幂等, 那么什么是幂等, REST中的幂等又是个什么概念?</p>
+<p>幂等的<a href="https://zh.wikipedia.org/wiki/%E5%86%AA%E7%AD%89" target="_blank" rel="external">数学</a>定义是:</p>
+<blockquote>
+<p>对于单目运算, 如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的, 那么我们就称该运算是幂等的.</p>
+</blockquote>
+<p>比如求绝对值, 在实数集中, 有abs(a)=abs(abs(a)). 具体点说, 比如求 -10 的绝对值, 求一次绝对值和求100次绝对值, 结果是相同的, 都是返回10.</p>
+<blockquote>
+<p>对于双目运算, 则要求当参与运算的两个值是等值的情况下, 如果满足运算结果与参与运算的两个值相等，则称该运算幂等.</p>
+</blockquote>
+<p>如求两个数的最大值max(x, y)=x. 比如 x=y=100, 无论求多少次最大值, 返回结果都是相同的.</p>
+<p>幂等性并不属于特定的协议, 它是分布式系统的一种特性; 不论是SOA还是RESTful的Web API设计都应该考虑幂等性. </p>
+<ul>
+<li><p>GET方法幂等, 无副作用</p>
+<p>  GET方法用于获取资源, 不应该有副作用, 所以是幂等的. 比如 <code>http://www.jiabangou.com/v1.0/users/10</code> 这个方法获取用户id为10的信息, 只是读取用户信息, 不会改变资源状态, 不论调用多少次都无副作用.  请注意: 这里强调的是一次和N次具有相同的副作用, 而不是每次GET的结果相同. 比如获取最新新闻<code>http://www.jiabangou.com/latest-news</code>, 每次请求结果都会不同, 但他本身无任何副作用, 因此是幂等的.</p>
+<p>  一个有意思的讨论是, 如果一个GET操作里面包含了记录日志等操作, 算不算幂等?</p>
+</li>
+<li><p>DELETE幂等, 有副作用</p>
+<p>  DELETE方法也是幂等的, 调用删除一个id为100的方法, 调用100次和调用1次的副作用是相同的, 就是删除这个用户</p>
+</li>
+<li><p>POST/PUT</p>
+<p>  POST和PUT方法通常被认为是「POST表示创建资源， PUT表示更新资源」</p>
+<p>  RFC规范<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="external">RFC 2616, Hypertext Transfer Protocol – HTTP/1.1, Method Definitions
+</a>对POST和PUT的定义如下</p>
+</li>
+</ul>
+<blockquote>
+<p>The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line.</p>
+<p>The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server. If the Request-URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI.</p>
+</blockquote>
+<p>POST的关键点是, as <font color="red">a new subordinate of the resource</font> identified by the Request-URI in the Request-Line, 即创建一个新的资源;</p>
+<p>PUT方法强调, 如果请求的URI指向一个已有的资源, 表示更新; 如果指向的URI不存在,表示新建资源;<br>举一个更加通俗的例子, 用户请修改profile的用户昵称, 将其修改为X, 一旦更新成功, 后续无论请求同样更新接口多少次, 不会对结果产生影响. 而恰恰相反, 一个POST方法每次都会创建一个新的资源.</p>
+<p>关于rest的幂等, 有很多很有<a href="http://www.infoq.com/cn/news/2013/05/idempotent" target="_blank" rel="external">意思的讨论</a></p>
+<h4 id="幂等的意义"><a href="#幂等的意义" class="headerlink" title="幂等的意义"></a>幂等的意义</h4><p>幂等到底有什么用, 先来看几个需求</p>
+<ul>
+<li>创建订单, 每次请求只能创建一个订单</li>
+<li>发送短信或邮件, 每次发送只发送一条短信</li>
+<li>即使第三方系统故障, 或是网络问题, 用户支付只扣一次钱</li>
+</ul>
+<p>在分布式系统及微服务中，因为网络原因而导致调用系统未能获取到确切的结果从而导致重试，是非常常见的情景. 这种情况下, 就需要接口具有幂等性. 比如上面的第一个创建订单的问题. 至于怎么样设计幂等的方案, 又是另外一个话题. </p>
+<h2 id="资源的表述-Representation"><a href="#资源的表述-Representation" class="headerlink" title="资源的表述(Representation)"></a>资源的表述(Representation)</h2><p>资源的表述是一段对于资源在某个特定时刻的状态的描述, 可以在客户端-服务器端之间转移（交换）. 资源在外界可以有多种格式(表现形式), 同一个文本资源, 可以使用json xml text等格式; 图片资源可以使用png jpg等格式. </p>
+<p>客户端如何获取或者说知道服务器端提供什么样的表述形式呢? 答案是HTTP内容协商.</p>
+<h3 id="HTTP内容协商-Content-Negotiation"><a href="#HTTP内容协商-Content-Negotiation" class="headerlink" title="HTTP内容协商(Content Negotiation)"></a>HTTP内容协商(Content Negotiation)</h3><p>有时候, 同一个 URL 可以提供多份不同的文档, 比如访问google首页, google需要根据语言设置显示对应的语言, 提供不同语言版本的内容. 这就要求服务端和客户端之间有一个选择最合适版本的机制, 这就是内容协商。</p>
+<p>更为正式一点的解释是这样: 客户端和服务器端就响应的资源内容进行交涉, 然后服务器端提供给客户端最为适合的资源.</p>
+<p>HTTP 的内容协商通常的方案是: 服务端根据客户端发送的请求头中某些字段自动发送最合适的版本. 可以用于这个机制的请求头字段又分两种：内容协商专用字段（Accept 字段）、其他字段。</p>
+<p>HTTP中关于 Accept 字段定义</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HTTP请求头字段</th>
+<th style="text-align:left">请求说明</th>
+<th style="text-align:left">响应头字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Accept</td>
+<td style="text-align:left">告知服务器发送何种媒体类型</td>
+<td style="text-align:left">Content-Type</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Language</td>
+<td style="text-align:left">告知服务器发送何种语言</td>
+<td style="text-align:left">Content-Language</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Charset</td>
+<td style="text-align:left">告知服务器发送何种字符集</td>
+<td style="text-align:left">Content-Type</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Encoding</td>
+<td style="text-align:left">告知服务器采用何种压缩方式</td>
+<td style="text-align:left">Content-Encoding</td>
+</tr>
+</tbody>
+</table>
+<p>我们来看看访问 <a href="http://www.infoq.com/cn" target="_blank" rel="external">infoq首页</a>的截图</p>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/rest/infoq-content-negotiation.png" alt="infoq截图"></p>
+<ul>
+<li>Accept: */* 表示接受任何资源的MIME类型</li>
+<li>Accept-Encoding: 可以使用gzip, deflate, sdch</li>
+<li>Accept-Language: 接受 zh-CN、en-US 和 en 三种语言,并且 zh-CN 的权重最高（q 取值 0 - 1，最高为 1，最低为 0，默认为 1）, 服务端应该优先返回语言等于 zh-CN 的版本</li>
+</ul>
+<p>HTTP的响应头可能是这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Content-Type: text/javascript</div><div class="line">Content-Encoding: gzip</div></pre></td></tr></table></figure>
+<p>infoq这里返回的是<code>text/plain</code>. 表示这个文档确切的 MIME 类型是 <code>text/javascript</code>; 响应头没有 Content-Language 字段, 通常说明返回版本的语言正好是请求头 Accept-Language 中权重最高的那个.</p>
+<blockquote>
+<p>服务端和客户端协商好返回资源的表现形式, 客户端通过HTTP请求头的Accept头请求特定的格式, 服务器端通过Content-Type告诉客户端资源的表述形式. </p>
+</blockquote>
+<p>各大框架都支持内容协商, ninja中也提供了对<a href="http://www.ninjaframework.org/documentation/content_negotiation.html" target="_blank" rel="external">内容协商</a>的支持.</p>
+<h4 id="Headers-amp-amp-Status-Code"><a href="#Headers-amp-amp-Status-Code" class="headerlink" title="Headers &amp;&amp; Status Code"></a>Headers &amp;&amp; Status Code</h4><p>客户端需要在HTTP请求头中指定需要的格式, 我们来看看Request Header</p>
+<ul>
+<li><p>Accept: 服务器需要返回什么样的内容. </p>
+<p>  客户端要求返回xml, 而服务器端只能返回json, 那么最好返回 <code>406</code> status code 406 not acceptable（RFC2616)</p>
+</li>
+<li><p>If-Modified-Since/If-None-Match </p>
+<p>  如果客户端提供某个条件, 当这条件满足时才返回数据, 否则返回<code>304</code> not modified. 客户端已经缓存了某个数据, 它只是想看看有没有新的数据时, 会用这两个header之一, 服务如果返回200是不合适的.</p>
+</li>
+<li><p>If-Match</p>
+<p>  在对某个资源做<code>PUT/PATCH/DELETE</code>操作时, 服务器应该要求客户端提供<code>If-Match</code>头, 只有客户端提供的ETag与服务器对应资源的Etag一致, 才进行操作, 否则返回<code>412</code> precondition failed. 这个头非常重要, 用<code>Etag</code>可以防止错误更新, 能够在一定条件下避免竞争条件.</p>
+<p>  HTTP协议中, ETag主要用于:缓存和请求条件控制; 关于ETag的详细介绍, 可以参考以下</p>
+<ul>
+<li>wikipedia上对 ETag <a href="https://zh.wikipedia.org/wiki/HTTP_ETag#.E9.83.A8.E7.BD.B2.E9.A3.8E.E9.99.A9" target="_blank" rel="external">HTTP ETag</a>的介绍</li>
+<li>google developers <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn" target="_blank" rel="external">HTTP 缓存</a></li>
+<li><p>infoq <a href="http://www.infoq.com/cn/articles/etags" target="_blank" rel="external">使用ETags减少Web应用带宽和负载</a></p>
+<p><code>Last-Modified</code>保存的是资源上次修改的时间. </p>
+</li>
+<li><p>如果服务端没有接受到<code>Last-Modified 和 ETag</code>直接返回<code>403</code>; </p>
+</li>
+<li>如果接受到了这两个header信息, 但是没能满足先决条件返回<code>412</code>; </li>
+<li><p>满足条件更新资源, 返回<code>200</code>; </p>
+<p>流程如下图</p>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/rest/opt-cond-rest.png" alt="flow"></p>
+<p>下图列举了几乎所有的HTTP状态变迁, 由于是SVG格式转换而来, 可以下载后查看大图.</p>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/rest/http-method-status.jpg" alt="所有的http状态变迁"></p>
+<p>我们要尽可能的使用HTTP协议的各种响应码, 尤其是<code>4XX和5XX</code>系列, <code>4XX</code>表示客户端传入的参数问题, <code>5XX</code>表示服务端错误; 应该在HTTP错误码之下, 定义更细致的业务错误编码. 这也是我们目前使用的方式.</p>
+<pre><code>HTTP Code: 400
+HTTP Body: {code = &quot;1000&quot;， message=&quot;参数验证失败&quot;}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="安全及授权访问"><a href="#安全及授权访问" class="headerlink" title="安全及授权访问"></a>安全及授权访问</h3><p>HTTP协议是一种无状态的协议, 安全特性需要我们自己来实现. 这里只罗列三种基本的身份验证方案供大家参考, 具体细节不展开. </p>
+<ul>
+<li><p>HTTP Basic, 只有在部署了 SSL 证书的情况下才可以使用, 否则用户密码会有暴露的风险, 当然最好不要使用.<br><a href="https://zh.wikipedia.org/wiki/HTTP%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81" target="_blank" rel="external">HTTP基本验证</a></p>
+</li>
+<li><p>JWT (JSON WEB TOKEN) <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25" target="_blank" rel="external">json web token draft</a></p>
+<p>有个JWT的详细介绍参考<a href="https://jwt.io/introduction/" target="_blank" rel="external">JWT基本介绍</a>以及<a href="https://jwt.io" target="_blank" rel="external">官网</a>的相关资源</p>
+</li>
+<li><p>OAUTH2  </p>
+<p><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="external">理解OAuth 2.0</a>以及对<a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html#comment-323002" target="_blank" rel="external">文中 state 参数的介绍的修正</a></p>
+</li>
+</ul>
+<h2 id="状态的转移-State-Transfer"><a href="#状态的转移-State-Transfer" class="headerlink" title="状态的转移 (State Transfer)"></a>状态的转移 (State Transfer)</h2><p>HTTP协议是一种无状态的协议, 每次的请求都是独立的, 它的执行情况和结果与前面的请求和之后的请求是无直接关系的, 它不会受前面的请求应答情况直接影响, 也不会直接影响后面的请求应答情况. </p>
+<p>客户端与服务端的交互必须是无状态的, 并在每一次请求中包含处理该请求所需的一切信息. 服务端不需要在请求间保留应用状态, 只有在接受到实际请求的时候, 服务端才会关注应用状态. 这种无状态通信原则, 使得服务端和中介能够理解独立的请求和响应. 在多次请求中, 同一客户端也不再需要依赖于同一服务器, 方便实现高可扩展和高可用性的服务端.</p>
+<p>RESTful的状态转移是指在客户端和服务器端之间转移（transfer）代表资源状态的表述. 通过转移和操作资源的表述, 来间接实现操作资源的目的. </p>
+<h2 id="超文本驱动-Hypertext-Driven"><a href="#超文本驱动-Hypertext-Driven" class="headerlink" title="超文本驱动 (Hypertext Driven)"></a>超文本驱动 (Hypertext Driven)</h2><p>马丁大叔在他的<a href="http://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" rel="external">文章</a>中详细介绍了rest的成熟度模型. </p>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/rest/rest-maturity-model.png" alt="martinfowler"></p>
+<h3 id="第零级"><a href="#第零级" class="headerlink" title="第零级"></a>第零级</h3><p>没有明确的资源概念, 只有一个URL, 只使用单个HTTP方法.</p>
+<h3 id="第一级-在架构中引入rest"><a href="#第一级-在架构中引入rest" class="headerlink" title="第一级, 在架构中引入rest"></a>第一级, 在架构中引入rest</h3><p>有明确的资源概念, 存在很多URL, 只使用单个HTTP方法.</p>
+<p>这一级会使用多个URI, 然而不同的URI只是作为不同的调用入口, 与此同时只使用同一个HTTP方法传输数据. 最常见的错误就是在URI中包含动词, 比如URI <a href="http://www.jiabangou.com/getOrder?orderId=1234，其实「资源」表示一种实体" target="_blank" rel="external">http://www.jiabangou.com/getOrder?orderId=1234，其实「资源」表示一种实体</a>, 所以应该是名词, 动词应该放在HTTP协议中. </p>
+<p>而与此同时URI也有可能破坏HTTP GET的安全性和幕等性，比如某个客户端在<a href="http://www.jiabangou.com/updateOrder?id=1234&amp;coffee=latte上执行GET（而不是POST）" target="_blank" rel="external">http://www.jiabangou.com/updateOrder?id=1234&amp;coffee=latte上执行GET（而不是POST）</a>, 就能创建一笔新的咖啡订单（一个资源）, 按理来说GET请求不能改变服务的任何状态.</p>
+<h3 id="第二级-每个URI代表一种资源-支持HTTP动词"><a href="#第二级-每个URI代表一种资源-支持HTTP动词" class="headerlink" title="第二级, 每个URI代表一种资源, 支持HTTP动词"></a>第二级, 每个URI代表一种资源, 支持HTTP动词</h3><p>有明确的资源概念, 有很多URL, 使用HTTP作为操作资源的统一接口. 这一阶段通常将对于资源的CRUD式操作分别映射到4个HTTP方法.</p>
+<p>此时使用多个URI的话, 需要让不同的URI代表不同的资源, 同时使用多个HTTP方法操作这些资源, 例如使用POST/GET/PUT/DELET分别进行CRUD操作. 这时候HTTP头和有效载荷都包含业务逻辑, 例如HTTP方法对应CRUD操作, HTTP状态码对应操作结果的状态. 我们现在看到的大多数所谓RESTful API做到的也就是这个级别.</p>
+<p>第二级RESTful API有如下的优点:</p>
+<ul>
+<li>更加松耦合<ul>
+<li>改动RESTful API比改动RPC API更容易</li>
+</ul>
+</li>
+<li>更好的可伸缩性, 充分利用HTTP协议的特点<ul>
+<li>与基于HTTP的各种RPC协议相比, 对HTTP的使用更有效率</li>
+<li>便于利用HTTP缓存</li>
+<li>支持数据流和管道. 易于实现分层的缓存, 提高了服务器端应用的可伸缩性</li>
+</ul>
+</li>
+<li>有统一的设计和编程风格</li>
+<li>测试更加容易, 可以使用各种测试工具<ul>
+<li>Postman/ Advanced REST Client</li>
+<li>curl/wget</li>
+<li>SoapUI Pro</li>
+<li>Jmeter</li>
+<li>ab/httperf/curl-loader</li>
+<li>浏览器</li>
+</ul>
+</li>
+<li>最好的互操作性<ul>
+<li>基于HTTP协议本身, 几乎所有编程语言都能支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="第三级-HATEOAS-使用超媒体（hypermedia）作为应用状态引擎"><a href="#第三级-HATEOAS-使用超媒体（hypermedia）作为应用状态引擎" class="headerlink" title="第三级, HATEOAS, 使用超媒体（hypermedia）作为应用状态引擎"></a>第三级, HATEOAS, 使用超媒体（hypermedia）作为应用状态引擎</h3><p>大多数的RESTful api设计其实只到第二级. 在第2级的基础上，使用超媒体作为应用状态的引擎.</p>
+<p>REST 服务的要求之一就是超文本驱动, 客户端不再需要将某些接口的 URI 硬编码在代码中, 唯一需要存储的只是 API 的 HOST 地址, 能够非常有效的降低客户端与服务端之间的耦合, 服务端对 URI 的任何改动都不会影响到客户端的稳定.</p>
+<p>HATEOAS可探讨内容较多, 不做展开, 目前主流的开发框架都是支持HATEOAS的, 大家可以参考下spring的 <a href="https://spring.io/guides/gs/rest-hateoas/" target="_blank" rel="external">rest-hateoas</a> 例子.</p>
+<p>对内网环境而已, 我们占时可以不用支持HATEOAS</p>
+<ul>
+<li>内网API运行在一个可控的环境中<ul>
+<li>运行在同一个组织的边界之内</li>
+<li>服务器端开发团队和客户端开发团队可以密切沟通</li>
+<li>运行环境相对安全，基本上不会出现恶意的请求</li>
+</ul>
+</li>
+<li>内网API需要做服务治理<ul>
+<li>支持HATEOAS的RESTful API不便于做服务治理</li>
+</ul>
+</li>
+<li>支持HATEOAS相关的生态环境还不够成熟<ul>
+<li>通用的媒体类型尚未完全标准化, 例如Hydra Core</li>
+<li>开发框架、开发库尚不成熟</li>
+<li>缺少自动化测试工具</li>
+</ul>
+</li>
+</ul>
+<h2 id="REST于RPC风格比较"><a href="#REST于RPC风格比较" class="headerlink" title="REST于RPC风格比较"></a>REST于RPC风格比较</h2><p>先对上文介绍的REST做一个简单的总结. 我们对REST可以有两种理解方式.</p>
+<ul>
+<li><p>抽象层面: REST是一种分布式应用的架构风格</p>
+<ul>
+<li>REST是一种为面向互联网的应用软件量身定制的架构风格</li>
+<li>REST正是Web自身的架构风格, 它是Web所取得的巨大成功在技术层面的原因和理论基础</li>
+<li>REST在Web之上是普适的, 同时适用于Web App和Web API</li>
+</ul>
+</li>
+<li><p>具体层面: REST是一种分布式应用的架构设计方法</p>
+<ul>
+<li>REST有很多具体的设计原则和指导, 实战性很强</li>
+</ul>
+</li>
+</ul>
+<h3 id="内网RESTful-API要解决的问题"><a href="#内网RESTful-API要解决的问题" class="headerlink" title="内网RESTful API要解决的问题"></a>内网RESTful API要解决的问题</h3><ul>
+<li>性能：延迟、网络传输效率<ul>
+<li>大多数情况下，建立连接所消耗的时间，与服务业务逻辑的IO操作相比非常小</li>
+<li>可升级到HTTP/2，HTTP/2极大改善了HTTP/1.1的性能</li>
+</ul>
+</li>
+<li>服务治理<ul>
+<li>服务注册、服务发现</li>
+<li>自动负载均衡</li>
+<li>流量控制</li>
+<li>服务质量</li>
+</ul>
+</li>
+<li>版本化<ul>
+<li>可在URL中加版本号</li>
+</ul>
+</li>
+</ul>
+<p>对我们来说, 服务治理的问题dubbo已经帮我们解决了.</p>
+<h3 id="REST与RPC两种API调用风格的区别"><a href="#REST与RPC两种API调用风格的区别" class="headerlink" title="REST与RPC两种API调用风格的区别"></a>REST与RPC两种API调用风格的区别</h3><ul>
+<li><p>REST对服务器端做抽象的基本单元是资源, RPC对服务器端做基本抽象的单元是过程. REST的建模是以名词为核心的, RPC的建模是以动词为核心的.</p>
+</li>
+<li><p>RPC中没有统一接口的概念. 即使采用相同的协议, 不同的API, 设计风格可以完全不同. RPC也不支持操作语义对于中间组件的可见性.</p>
+</li>
+<li><p>RPC中无法使用超媒体, 响应的内容只包含数据. REST中使用了超媒体后, 可以实现很大粒度的交互, 交互的效率比RPC更高</p>
+</li>
+<li><p>REST支持数据流和管道, RPC不支持数据流和管道. 因为使用了平台中立的消息, RPC的耦合度会比DO要小一些, 但是RPC也常常会带来客户端与服务器端的紧耦合. REST中假如使用了超媒体, 客户端与服务器端可以达到最小的耦合度.</p>
+</li>
+</ul>
+<h3 id="REST和RPC两种风格如何做取舍"><a href="#REST和RPC两种风格如何做取舍" class="headerlink" title="REST和RPC两种风格如何做取舍"></a>REST和RPC两种风格如何做取舍</h3><ul>
+<li>根据服务所实现的业务逻辑变化的频繁程度<ul>
+<li>业务逻辑变化频繁，必须实现松耦合：选择REST</li>
+<li>业务逻辑固定，变化非常少，可以接受紧耦合：选择RPC</li>
+</ul>
+</li>
+<li>根据对于延迟、网络传输效率、实时性的要求<ul>
+<li>必须确保低延迟、网络传输效率高、实时性：选择RPC</li>
+<li>对延迟、网络传输效率、实时性要求不高：选择REST</li>
+</ul>
+</li>
+<li>根据对可伸缩性的要求<ul>
+<li>对可伸缩性要求非常高：选择REST</li>
+<li>对可伸缩性要求不高：选择RPC</li>
+</ul>
+</li>
+</ul>
+<p>本文严重参考了以下文章:</p>
+<p><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">0</a> HTTP状态码</p>
+<p><a href="https://developer.github.com/v3/" target="_blank" rel="external">1</a> github RESTful api设计</p>
+<p><a href="http://www.zhihu.com/question/27785028" target="_blank" rel="external">2</a> rest架构怎么生动地理解</p>
+<p><a href="https://jimmylv.gitbooks.io/learning-microservices/content/best-practice/what_really_REST_is.html" target="_blank" rel="external">3</a> 什么才是真正的RESTful架构</p>
+<p><a href="https://imququ.com/post/vary-header-in-http.html" target="_blank" rel="external">4</a> HTTP头vary解释</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%86%AA%E7%AD%89" target="_blank" rel="external">5</a> 幂等的数学定义</p>
+<p><a href="http://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html" target="_blank" rel="external">6</a> 理解HTTP幂等</p>
+<p><a href="http://stackoverflow.com/questions/630453/put-vs-post-in-rest" target="_blank" rel="external">7</a> stackoverflow关于POST和PUT的讨论</p>
+<p><a href="http://825635381.iteye.com/blog/2276077" target="_blank" rel="external">8</a> 高并发的核心技术-幂等的实现方案</p>
+<p><a href="https://blog.4psa.com/rest-best-practices-managing-concurrent-updates/" target="_blank" rel="external">9</a> rest-best-practices-managing-concurrent-updates</p>
+<p><a href="http://ink.csdn.net/articles/show/562488cd84a4641943dfc1eb" target="_blank" rel="external">10</a> REST API 安全设计指南</p>
+<p><a href="http://www.infoq.com/cn/articles/understanding-RESTful-style/" target="_blank" rel="external">11</a> <a href="http://www.infoq.com/cn/articles/understanding-RESTful-style/" target="_blank" rel="external">http://www.infoq.com/cn/articles/understanding-RESTful-style/</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vmware fusion安装vmware tools&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
