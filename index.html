@@ -79,6 +79,9 @@
 <p> 在 <code>String</code> 类中, 有这样的代码</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Cache the hash code for the string */</div><div class="line">private int hash; // Default to 0</div></pre></td></tr></table></figure>
 </li>
+</ol>
+<pre><code>测试
+</code></pre><ol>
 <li><p>促进使用其它相关的对象</p>
 <p> 参考下面的例子</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; set = new HashSet&lt;String&gt;();</div><div class="line">set.add(new String(&quot;a&quot;));</div><div class="line">set.add(new String(&quot;b&quot;));</div><div class="line">set.add(new String(&quot;c&quot;));</div><div class="line"> </div><div class="line">for(String a : set)&#123;</div><div class="line">	a.value = &quot;a&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
