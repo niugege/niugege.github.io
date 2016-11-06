@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装
+123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server
+安全配置安装之后的配置文件在 /etc/redis目录下, 需要做一些安全性的配置
+
+bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:url" content="http://yangsui.me/2016-11-03/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装
+123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server
+安全配置安装之后的配置文件在 /etc/redis目录下, 需要做一些安全性的配置
+
+bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通">
+<meta property="og:updated_time" content="2016-11-06T06:42:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装
+123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server
+安全配置安装之后的配置文件在 /etc/redis目录下, 需要做一些安全性的配置
+
+bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+          <a class="main-nav-link" href="/atom.xml">Rss</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-2016-11-03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <a href="/2016-11-03/" class="article-date">
+  <time datetime="2016-11-03T05:52:24.000Z" itemprop="datePublished">2016-11-03</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
+<h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><p>安装之后的配置文件在 <code>/etc/redis</code>目录下, 需要做一些安全性的配置</p>
+<ul>
+<li>bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通过bind外部主机的ip来允许外部主机的访问, 这只能通过防火墙来实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind 127.0.0.1</div></pre></td></tr></table></figure>
+<p>我这里是测试使用, 会修改 ip 地址</p>
+<ul>
+<li>修改端口</li>
+</ul>
+<p>这个步奏不是必须</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">port 6379</div></pre></td></tr></table></figure>
+<ul>
+<li>设置密码</li>
+</ul>
+<p>redis的执行效率非常快, 外部设备每秒可以测试相当多数量的密码, 所以密码要尽量长尽量复杂redis的密码是明文存储在redis.conf文件, 因此不需要管理员记住, 所以可以使用相当长的密码. 密码验证的目标是提供第二层的安全保障. 这样当防火墙失效的话, 外部主机在没有密码的情况下仍然不能访问redis.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">requirepass your-password</div></pre></td></tr></table></figure>
+<ul>
+<li>指令重命名</li>
+</ul>
+<p>将一些高危的指令重命名为难以猜出的名字，或者直接重命名为空字符串<code>&quot;&quot;</code>来禁用该指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 重命名CONFIG指令</div><div class="line">rename-command CONFIG   XXX_CONFIG</div><div class="line"></div><div class="line"># 禁用FLUSHALL指令</div><div class="line">rename-command FLUSHALL &quot;&quot;</div><div class="line">rename-command FLUSHDB  &quot;&quot;</div><div class="line"></div><div class="line"># 禁用EVAL指令</div><div class="line">rename-command EVAL     &quot;&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>修改redis运行账户</li>
+</ul>
+<p>新建一个无登陆权限的redis用户, 然后修改redis目录的所有者, 最后使用<code>sudo -u redis</code>来执行redis命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -s /sbin/nologin redis</div><div class="line">sudo -u redis /usr/local/bin/redis-server /etc/redis/redis.conf</div></pre></td></tr></table></figure>
+<h2 id="登录命令"><a href="#登录命令" class="headerlink" title="登录命令"></a>登录命令</h2><p>使用 <code>redis-cli</code> 命令登录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333 -a mypassword</div></pre></td></tr></table></figure>
+<p>-h 指定主机<br>-p 指定端口<br>-a 指定密码</p>
+<p>登录时候也可以不指定密码, 而在执行的时候进行认证</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333</div><div class="line">127.0.0.1:6379&gt;auth mypassword</div><div class="line">OK</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016-10-26/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM 学习笔记&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
