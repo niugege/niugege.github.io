@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>编辑器之 tmux - 日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="installmac 上安装
+1brew install tmux
+需要使用的时候只需要在命令行输入  tmuxtmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 ctrl + b
+session直接在终端查看 session 相关信息
+1234tmux ls 列出会话tmux attach -t session 进入某个会话tmu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编辑器之 tmux">
+<meta property="og:url" content="http://yangsui.me/tmux基础/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="installmac 上安装
+1brew install tmux
+需要使用的时候只需要在命令行输入  tmuxtmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 ctrl + b
+session直接在终端查看 session 相关信息
+1234tmux ls 列出会话tmux attach -t session 进入某个会话tmu">
+<meta property="og:updated_time" content="2016-11-11T06:30:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="编辑器之 tmux">
+<meta name="twitter:description" content="installmac 上安装
+1brew install tmux
+需要使用的时候只需要在命令行输入  tmuxtmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 ctrl + b
+session直接在终端查看 session 相关信息
+1234tmux ls 列出会话tmux attach -t session 进入某个会话tmu">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+          <a class="main-nav-link" href="/atom.xml">Rss</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-tmux基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      编辑器之 tmux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/tmux基础/" class="article-date">
+  <time datetime="2016-11-11T06:06:00.000Z" itemprop="datePublished">2016-11-11</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>mac 上安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tmux</div></pre></td></tr></table></figure>
+<p>需要使用的时候只需要在命令行输入  <code>tmux</code><br>tmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 <code>ctrl + b</code></p>
+<h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><p>直接在终端查看 session 相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tmux ls 列出会话</div><div class="line">tmux attach -t session 进入某个会话</div><div class="line">tmux -r 连接上个断开的session</div><div class="line">tmux new -s session -d 在后台建立会话</div></pre></td></tr></table></figure>
+<p>进入 tmux 后查看 session 相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctrl+b s 查看/切换session</div><div class="line">ctrl+b d 离开(detach)session</div><div class="line">ctrl+b $ 重命名当前session</div></pre></td></tr></table></figure>
+<h1 id="window"><a href="#window" class="headerlink" title="window"></a>window</h1><h1 id="panel"><a href="#panel" class="headerlink" title="panel"></a>panel</h1><p>调整 pancel 的大小, 按下 ctrl + b 之后, 输入 resize-p, DULK 分别代表上下左右四个方向, 后面的数字代码要调整的大小.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctrl+b :resize-p -D 2</div><div class="line">ctrl+b :resize-p -U 2</div><div class="line">ctrl+b :resize-p -L 2</div><div class="line">ctrl+b :resize-p -R 2</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmux/">tmux</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016-11-13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016-11-10-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA ClassLoader&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

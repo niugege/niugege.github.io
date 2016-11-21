@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JAVA ClassLoader - 日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
+字节码文件通常有一下来源:
+
+本地磁盘文件系统 class 文件
+JAR 包中加载 class 文件
+网络地址加载 class 文件
+动态编译一个 java 源文件, 并执行加载
+
+类加载器java 中的类加载器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA ClassLoader">
+<meta property="og:url" content="http://yangsui.me/2016-11-10-2/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
+字节码文件通常有一下来源:
+
+本地磁盘文件系统 class 文件
+JAR 包中加载 class 文件
+网络地址加载 class 文件
+动态编译一个 java 源文件, 并执行加载
+
+类加载器java 中的类加载器">
+<meta property="og:updated_time" content="2016-11-10T15:08:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA ClassLoader">
+<meta name="twitter:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
+字节码文件通常有一下来源:
+
+本地磁盘文件系统 class 文件
+JAR 包中加载 class 文件
+网络地址加载 class 文件
+动态编译一个 java 源文件, 并执行加载
+
+类加载器java 中的类加载器">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+          <a class="main-nav-link" href="/atom.xml">Rss</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-2016-11-10-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA ClassLoader
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016-11-10-2/" class="article-date">
+  <time datetime="2016-11-10T14:22:22.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java-类加载器概述"><a href="#java-类加载器概述" class="headerlink" title="java 类加载器概述"></a>java 类加载器概述</h1><p>要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 <code>.class</code> 文件加载到内存中, 并生成一个 <code>java.lang.Class</code> 对象.</p>
+<p>字节码文件通常有一下来源:</p>
+<ul>
+<li>本地磁盘文件系统 class 文件</li>
+<li>JAR 包中加载 class 文件</li>
+<li>网络地址加载 class 文件</li>
+<li>动态编译一个 java 源文件, 并执行加载</li>
+</ul>
+<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><p>java 中的类加载器是通过双亲委派模型来实现的, 有如下特点</p>
+<ul>
+<li><p>类的加载过程采用委托模式实现. 某个特定的类加载器在接到加载类的请求时, 首先将加载任务委托给父类加载器, 依次递归, 如果父类加载器可以完成类加载任务, 就成功返回; 只有父类加载器无法完成此加载任务时, 才自己去加载.</p>
+</li>
+<li><p>JVM 预定义了三种类加载器</p>
+<ul>
+<li>根类加载器(Bootstrap ClassLoader). 由C++实现, 负责将<code>&lt;Java_Runtime_Home&gt;/lib</code>下面的类库加载到内存中, 如 rt.jar</li>
+<li>扩展类加载器(Extension ClassLoader). 负责将 <code>&lt;Java_Runtime_Home &gt;/lib/ext</code> 或者由系统变量 java.ext.dir指定位置中的类库加载到内存中. 开发者可以直接使用标准扩展类加载器.</li>
+<li>系统类加载器(System ClassLoader). 负责将系统类路径（CLASSPATH）中指定的类库加载到内存中. 开发者可以直接使用系统类加载器。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/tmux基础/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          编辑器之 tmux
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016-11-10-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux 基础命令&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
