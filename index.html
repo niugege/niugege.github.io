@@ -80,91 +80,11 @@
 <li><p>数值类型: 有符号数值类型，最高位表示符号位<br>  byte : 1 字节<br>  short : 2 字节<br>  int : 4 字节<br>  long : 8 字节<br>  float : 4 字节<br>  double : 8 字节</p>
 </li>
 </ul>
-<h1 id="基本数据类型操作"><a href="#基本数据类型操作" class="headerlink" title="基本数据类型操作"></a>基本数据类型操作</h1><ul>
-<li><p>左移 &lt;&lt;</p>
-<ul>
-<li>丢弃最高位，0 补最低位</li>
-<li>如果数据没有溢出，每左移动 1 位，数据相当于乘以 2 的 1 次方，移动 n 位 相当于乘以 2 的 n 次方。</li>
-</ul>
-</li>
-<li><p>右移 &gt;&gt;</p>
-<ul>
-<li>符号位不变，左边补符号位</li>
-</ul>
-</li>
-<li><p>按位与 &amp;</p>
-<ul>
-<li>只有 1 &amp; 1 = 1 其它等于 0</li>
-</ul>
-</li>
-<li><p>按位或 |</p>
-<ul>
-<li>只有 0 | 0 = 0</li>
-</ul>
-</li>
-<li><p>按位取反 ~</p>
-<ul>
-<li>各位 0 变 1 ， 1 变 0</li>
-</ul>
-</li>
-<li><p>按位异或 ^</p>
-<ul>
-<li>先按位或，在按位取反</li>
-<li>相同为 0 ， 不同为 1</li>
-</ul>
-</li>
-</ul>
-<h1 id="有符号类型转换为无符号类型"><a href="#有符号类型转换为无符号类型" class="headerlink" title="有符号类型转换为无符号类型"></a>有符号类型转换为无符号类型</h1><p>下面这幅图展示了一个 byte 类型的有符号整数，如 -5 转换为一个无符号整数的过程。</p>
-<p>注意3点：</p>
-<ul>
-<li>位运算是针对整型，进行位运算的时候，除了 long 之外，其它类型会自动转换为整型。</li>
-<li>负数在计算中已补码表示的</li>
-<li>不同于 C，JAVA 中不在无符号整数，都是有符号的</li>
-</ul>
-<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/signed-byte-to-int.jpg" alt="byte -5"></p>
-<p>下面给出具体的代码实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将 data 字节类型转换为 0 ~ 255 (0xFF 即 1 Byte)</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUnsignedByte</span><span class="params">(<span class="keyword">byte</span> data)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> data &amp; <span class="number">0xFF</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//将 data 字节类型转换为 0 ~ 65535 (0xFFFF 即 1 Word)</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUnsignedByte</span><span class="params">(<span class="keyword">short</span> data)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> data &amp; <span class="number">0xFFFF</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//将 data 字节类型转换为 0 ~ 4294967295 (0xFFFFFFFF 即 DWord)</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getUnsignedInt</span><span class="params">(<span class="keyword">int</span> data)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> data &amp; <span class="number">0xFFFFFFFF</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们来看看 JDK 中源代码是怎么实现的 ？ JDK 中有 <code>Byte.toUnsignedInt(byte x)</code> 这个方法，他的源代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Converts the argument to an &#123;<span class="doctag">@code</span> int&#125; by an unsigned</div><div class="line"> * conversion.  In an unsigned conversion to an &#123;<span class="doctag">@code</span> int&#125;, the</div><div class="line"> * high-order 24 bits of the &#123;<span class="doctag">@code</span> int&#125; are zero and the</div><div class="line"> * low-order 8 bits are equal to the bits of the &#123;<span class="doctag">@code</span> byte&#125; argument.</div><div class="line"> *</div><div class="line"> * Consequently, zero and positive &#123;<span class="doctag">@code</span> byte&#125; values are mapped</div><div class="line"> * to a numerically equal &#123;<span class="doctag">@code</span> int&#125; value and negative &#123;<span class="doctag">@code</span></div><div class="line"> * byte&#125; values are mapped to an &#123;<span class="doctag">@code</span> int&#125; value equal to the</div><div class="line"> * input plus 2&lt;sup&gt;8&lt;/sup&gt;.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  x the value to convert to an unsigned &#123;<span class="doctag">@code</span> int&#125;</div><div class="line"> * <span class="doctag">@return</span> the argument converted to &#123;<span class="doctag">@code</span> int&#125; by an unsigned</div><div class="line"> *         conversion</div><div class="line"> * <span class="doctag">@since</span> 1.8</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">toUnsignedInt</span><span class="params">(<span class="keyword">byte</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> ((<span class="keyword">int</span>) x) &amp; <span class="number">0xff</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的文档说得非常清楚</p>
-<blockquote>
-<p>将参数进行一个无符号 int 转换， 在这个转换中，一个 int 的整数，高 24 位为 0，低 8 位的值等于原有byte 参数的值<br>所以，如果 byte 类型参数的值是 0 或 正数，转换为数值上相等的一个 int 值；如果 byte 类型参数的值是负数，转换的结果等于 byte 的输入值加上 2 的 8 次方，即输入值加 256。</p>
-</blockquote>
-<p>所以，-5 转换为 int 后的值是  256 + (-5) = 251 </p>
-<h1 id="网络协议中的报文运算"><a href="#网络协议中的报文运算" class="headerlink" title="网络协议中的报文运算"></a>网络协议中的报文运算</h1><ul>
-<li><p>如一个 C 语言中无符号 byte 133，即 0x85 = 10000101，在 JAVA 中获取，直接输出会是个负数, 使用上面的<code>getUnsignedByte</code>方式</p>
-</li>
-<li><p>假设某个字节的 8 位中的第 3 和第 4 位代表了某种意义，如何取出这几位?</p>
-<p>假设这个字节的数据如下：<code>01011010</code> 其中第 3 和第 4 位分别是 <code>0 1</code>，构造这样一个数据，<code>00110000</code>，即保证 3 4为1，其它位和原始数据为 0 ，使用之前的数据和构造后的数据进行 <strong>与运算</strong>，得到 <code>00010000</code>，然后在右移 4 位就得到 3 4 位的值。</p>
-<p>这个例子的重点有两处：</p>
-<ol>
-<li>与运算，只有1 和 1 相与等于 1，其它都等于 0。所以这里我们只需要在 3  4 位构造值为 1 其它位构造值为 0 就可以了。</li>
-<li>与运算结合位移运算</li>
-</ol>
-</li>
-</ul>
-<h1 id="JAVA-中的自动装箱"><a href="#JAVA-中的自动装箱" class="headerlink" title="JAVA 中的自动装箱"></a>JAVA 中的自动装箱</h1><p>声明 <code>Integer i = 100</code>， JAVA 编译器会做如下的语法编译 <code>Integer.valueOf(100)</code>，源代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Returns an &#123;<span class="doctag">@code</span> Integer&#125; instance representing the specified</div><div class="line"> * &#123;<span class="doctag">@code</span> int&#125; value.  If a new &#123;<span class="doctag">@code</span> Integer&#125; instance is not</div><div class="line"> * required, this method should generally be used in preference to</div><div class="line"> * the constructor &#123;<span class="doctag">@link</span> #Integer(int)&#125;, as this method is likely</div><div class="line"> * to yield significantly better space and time performance by</div><div class="line"> * caching frequently requested values.</div><div class="line"> *</div><div class="line"> * This method will always cache values in the range -128 to 127,</div><div class="line"> * inclusive, and may cache other values outside of this range.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span>  i an &#123;<span class="doctag">@code</span> int&#125; value.</div><div class="line"> * <span class="doctag">@return</span> an &#123;<span class="doctag">@code</span> Integer&#125; instance representing &#123;<span class="doctag">@code</span> i&#125;.</div><div class="line"> * <span class="doctag">@since</span>  1.5</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</div><div class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>doc 上说得很明白，</p>
-<blockquote>
-<p>valueOf 方法会返回一个缓存值，该值的访问是 -128 到 127 之间，包括两个端值即 -128 和 127。在指定了 JVM 参数之后也可以缓存这个范围之外的值。需要设置 -XX:AutoBoxCacheMax 参数。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Cache to support the object identity semantics of autoboxing for values between</div><div class="line"> * -128 and 127 (inclusive) as required by JLS.</div><div class="line"> *</div><div class="line"> * The cache is initialized on first usage.  The size of the cache</div><div class="line"> * may be controlled by the &#123;<span class="doctag">@code</span> -XX:AutoBoxCacheMax=&lt;size&gt;&#125; option.</div><div class="line"> * During VM initialization, java.lang.Integer.IntegerCache.high property</div><div class="line"> * may be set and saved in the private system properties in the</div><div class="line"> * sun.misc.VM class.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntegerCache</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> low = -<span class="number">128</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> high;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Integer cache[];</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        <span class="comment">// high value may be configured by property</span></div><div class="line">        <span class="keyword">int</span> h = <span class="number">127</span>;</div><div class="line">        String integerCacheHighPropValue =</div><div class="line">            sun.misc.VM.getSavedProperty(<span class="string">"java.lang.Integer.IntegerCache.high"</span>);</div><div class="line">        <span class="keyword">if</span> (integerCacheHighPropValue != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">int</span> i = parseInt(integerCacheHighPropValue);</div><div class="line">                i = Math.max(i, <span class="number">127</span>);</div><div class="line">                <span class="comment">// Maximum array size is Integer.MAX_VALUE</span></div><div class="line">                h = Math.min(i, Integer.MAX_VALUE - (-low) -<span class="number">1</span>);</div><div class="line">            &#125; <span class="keyword">catch</span>( NumberFormatException nfe) &#123;</div><div class="line">                <span class="comment">// If the property cannot be parsed into an int, ignore it.</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        high = h;</div><div class="line"></div><div class="line">        cache = <span class="keyword">new</span> Integer[(high - low) + <span class="number">1</span>];</div><div class="line">        <span class="keyword">int</span> j = low;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cache.length; k++)</div><div class="line">            cache[k] = <span class="keyword">new</span> Integer(j++);</div><div class="line"></div><div class="line">        <span class="comment">// range [-128, 127] must be interned (JLS7 5.1.7)</span></div><div class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IntegerCache</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="JAVA-的小数问题"><a href="#JAVA-的小数问题" class="headerlink" title="JAVA 的小数问题"></a>JAVA 的小数问题</h1><p>JAVA 中的小数的问题主要是已下这两个问题，精确度和范围</p>
-<ul>
-<li>因为使用二进制来精确表示十进制小数，如 0.1 是做不到，所以会涉及到一个精度的问题</li>
-<li>如 long 类型的最大值在加上一个数，就会溢出了</li>
-</ul>
-<h1 id="JAVA-的大数值计算"><a href="#JAVA-的大数值计算" class="headerlink" title="JAVA 的大数值计算"></a>JAVA 的大数值计算</h1><ul>
-<li>使用 <code>BigInteger</code> 和 <code>BigDecimal</code> 来表示大整数和大浮点数类，理论上能够表示无限大的数</li>
-<li>BigInteger 和 BigDecimal 用于精确表示大整数和小数，常用于商业计算中</li>
-<li>BigInteger 和 BigDecimal 都是不可变的，在每进行一次运算的时候，都会产生一个新的对象，因此他们不适合大量数学运算，应尽量使用 long float double 等基本类型做科学计算和工程计算</li>
-<li>如果需要精确计算，用 String 构造 BigDecimal，避免用 double 构造，因为有些数字用 double 根本就无法精确表示，传给 BigDecimal 的构造方法就已经不精确了。</li>
-<li>数值比较两个 BigDecimal 的时候要使用 <code>compareTo()</code>，而不是 <code>equals()</code>。equals 认为 0.1 和 0.1相等，0.1 和 0.10 不相等；compareTo 认为都是相等的。</li>
-<li>有时候任意精度的小数运算仍然不能表示精确结果。 如 1 除以 9，所以在进行除法运算时，<code>BigDecimal</code> 可以显示控制舍入</li>
-</ul>
-<h1 id="JAVA-数组"><a href="#JAVA-数组" class="headerlink" title="JAVA 数组"></a>JAVA 数组</h1><p>数组在内存中是连续分配的，JAVA 中的数组是面向行存储的，即如果要读取某一列的数据，那么要跨越多个数据。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2016-11-13/#more">Read More</a>
+          </p>
+        
       
     </div>
     
@@ -211,9 +131,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tmux ls 列出会话</div><div class="line">tmux attach -t session 进入某个会话</div><div class="line">tmux -r 连接上个断开的session</div><div class="line">tmux new -s session -d 在后台建立会话</div></pre></td></tr></table></figure>
 <p>进入 tmux 后查看 session 相关信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctrl+b s 查看/切换session</div><div class="line">ctrl+b d 离开(detach)session</div><div class="line">ctrl+b $ 重命名当前session</div></pre></td></tr></table></figure>
-<h1 id="window"><a href="#window" class="headerlink" title="window"></a>window</h1><h1 id="panel"><a href="#panel" class="headerlink" title="panel"></a>panel</h1><p>调整 pancel 的大小, 按下 ctrl + b 之后, 输入 resize-p, DULK 分别代表上下左右四个方向, 后面的数字代码要调整的大小.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ctrl+b :resize-p -D 2</div><div class="line">ctrl+b :resize-p -U 2</div><div class="line">ctrl+b :resize-p -L 2</div><div class="line">ctrl+b :resize-p -R 2</div></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/tmux基础/#more">Read More</a>
+          </p>
+        
       
     </div>
     
@@ -525,38 +447,11 @@
       
         <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
-<h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><p>安装之后的配置文件在 <code>/etc/redis</code>目录下, 需要做一些安全性的配置</p>
-<ul>
-<li>bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通过bind外部主机的ip来允许外部主机的访问, 这只能通过防火墙来实现</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind 127.0.0.1</div></pre></td></tr></table></figure>
-<p>我这里是测试使用, 会修改 ip 地址</p>
-<ul>
-<li>修改端口</li>
-</ul>
-<p>这个步奏不是必须</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">port 6379</div></pre></td></tr></table></figure>
-<ul>
-<li>设置密码</li>
-</ul>
-<p>redis的执行效率非常快, 外部设备每秒可以测试相当多数量的密码, 所以密码要尽量长尽量复杂redis的密码是明文存储在redis.conf文件, 因此不需要管理员记住, 所以可以使用相当长的密码. 密码验证的目标是提供第二层的安全保障. 这样当防火墙失效的话, 外部主机在没有密码的情况下仍然不能访问redis.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">requirepass your-password</div></pre></td></tr></table></figure>
-<ul>
-<li>指令重命名</li>
-</ul>
-<p>将一些高危的指令重命名为难以猜出的名字，或者直接重命名为空字符串<code>&quot;&quot;</code>来禁用该指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 重命名CONFIG指令</div><div class="line">rename-command CONFIG   XXX_CONFIG</div><div class="line"></div><div class="line"># 禁用FLUSHALL指令</div><div class="line">rename-command FLUSHALL &quot;&quot;</div><div class="line">rename-command FLUSHDB  &quot;&quot;</div><div class="line"></div><div class="line"># 禁用EVAL指令</div><div class="line">rename-command EVAL     &quot;&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>修改redis运行账户</li>
-</ul>
-<p>新建一个无登陆权限的redis用户, 然后修改redis目录的所有者, 最后使用<code>sudo -u redis</code>来执行redis命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -s /sbin/nologin redis</div><div class="line">sudo -u redis /usr/local/bin/redis-server /etc/redis/redis.conf</div></pre></td></tr></table></figure>
-<h2 id="登录命令"><a href="#登录命令" class="headerlink" title="登录命令"></a>登录命令</h2><p>使用 <code>redis-cli</code> 命令登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333 -a mypassword</div></pre></td></tr></table></figure>
-<p>-h 指定主机<br>-p 指定端口<br>-a 指定密码</p>
-<p>登录时候也可以不指定密码, 而在执行的时候进行认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333</div><div class="line">127.0.0.1:6379&gt;auth mypassword</div><div class="line">OK</div></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/2016-11-03/#more">Read More</a>
+          </p>
+        
       
     </div>
     
