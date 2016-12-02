@@ -573,6 +573,11 @@ HTTP Body: {code = &quot;1000&quot;， message=&quot;参数验证失败&quot;}
       
     </div>
     
+      <div class="article-toc">
+        <h3>Contents</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RESTful介绍"><span class="toc-number">1.</span> <span class="toc-text">RESTful介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要用RESTful"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要用RESTful</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RESTful定义"><span class="toc-number">1.2.</span> <span class="toc-text">RESTful定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源与URI-Resource-AND-URI"><span class="toc-number">1.3.</span> <span class="toc-text">资源与URI(Resource AND URI)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#资源的定义"><span class="toc-number">1.3.1.</span> <span class="toc-text">资源的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标识符"><span class="toc-number">1.3.2.</span> <span class="toc-text">标识符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统一资源接口-Uniform-Interface"><span class="toc-number">1.4.</span> <span class="toc-text">统一资源接口(Uniform Interface)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求方法"><span class="toc-number">1.4.1.</span> <span class="toc-text">请求方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态码"><span class="toc-number">1.4.2.</span> <span class="toc-text">状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#请求成功-2XX"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">请求成功 2XX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重定向-3XX"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">重定向 3XX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端错误-4XX"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">客户端错误 4XX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器端错误-5XX"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">服务器端错误 5XX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP幂等-Idempotence"><span class="toc-number">1.4.2.5.</span> <span class="toc-text">HTTP幂等(Idempotence)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#幂等的意义"><span class="toc-number">1.4.2.6.</span> <span class="toc-text">幂等的意义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源的表述-Representation"><span class="toc-number">1.5.</span> <span class="toc-text">资源的表述(Representation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP内容协商-Content-Negotiation"><span class="toc-number">1.5.1.</span> <span class="toc-text">HTTP内容协商(Content Negotiation)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Headers-amp-amp-Status-Code"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">Headers && Status Code</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全及授权访问"><span class="toc-number">1.5.2.</span> <span class="toc-text">安全及授权访问</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#状态的转移-State-Transfer"><span class="toc-number">1.6.</span> <span class="toc-text">状态的转移 (State Transfer)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#超文本驱动-Hypertext-Driven"><span class="toc-number">1.7.</span> <span class="toc-text">超文本驱动 (Hypertext Driven)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第零级"><span class="toc-number">1.7.1.</span> <span class="toc-text">第零级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一级-在架构中引入rest"><span class="toc-number">1.7.2.</span> <span class="toc-text">第一级, 在架构中引入rest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二级-每个URI代表一种资源-支持HTTP动词"><span class="toc-number">1.7.3.</span> <span class="toc-text">第二级, 每个URI代表一种资源, 支持HTTP动词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三级-HATEOAS-使用超媒体（hypermedia）作为应用状态引擎"><span class="toc-number">1.7.4.</span> <span class="toc-text">第三级, HATEOAS, 使用超媒体（hypermedia）作为应用状态引擎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#REST于RPC风格比较"><span class="toc-number">1.8.</span> <span class="toc-text">REST于RPC风格比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内网RESTful-API要解决的问题"><span class="toc-number">1.8.1.</span> <span class="toc-text">内网RESTful API要解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST与RPC两种API调用风格的区别"><span class="toc-number">1.8.2.</span> <span class="toc-text">REST与RPC两种API调用风格的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#REST和RPC两种风格如何做取舍"><span class="toc-number">1.8.3.</span> <span class="toc-text">REST和RPC两种风格如何做取舍</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
     
       <footer class="article-footer">
         
@@ -602,17 +607,6 @@ HTTP Body: {code = &quot;1000&quot;， message=&quot;参数验证失败&quot;}
 </article>
 
 
-
-
-<div class="share_addthis">
-  <div class="sharing addthis_toolbox share">
-    <a class="addthis_button_facebook_like"></a>
-    <a class="addthis_button_tweet"></a>
-    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
-</div>
 
 
 

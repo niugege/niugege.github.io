@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JVM 学习笔记 - 日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍
+
+ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为
+
+方法区
+JAVA堆
+JAVA栈
+本地方法区
+
+虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
+PC 寄存器
+每个线程拥有一个 PC 寄存器
+在线程创建的时候创建
+总是指向下一条指令的地址
+执行本地方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM 学习笔记">
+<meta property="og:url" content="http://yangsui.me/JVM学习笔记/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍
+
+ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为
+
+方法区
+JAVA堆
+JAVA栈
+本地方法区
+
+虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
+PC 寄存器
+每个线程拥有一个 PC 寄存器
+在线程创建的时候创建
+总是指向下一条指令的地址
+执行本地方">
+<meta property="og:image" content="http://yangsui.me/media/14774983908543.jpg">
+<meta property="og:updated_time" content="2016-11-27T13:36:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM 学习笔记">
+<meta name="twitter:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍
+
+ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为
+
+方法区
+JAVA堆
+JAVA栈
+本地方法区
+
+虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
+PC 寄存器
+每个线程拥有一个 PC 寄存器
+在线程创建的时候创建
+总是指向下一条指令的地址
+执行本地方">
+<meta name="twitter:image" content="http://yangsui.me/media/14774983908543.jpg">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+          <a class="main-nav-link" href="/atom.xml">Rss</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-JVM学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVM 学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/JVM学习笔记/" class="article-date">
+  <time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished">2016-10-26</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JVM-的基本结构"><a href="#JVM-的基本结构" class="headerlink" title="JVM 的基本结构"></a>JVM 的基本结构</h1><p>下图是 JVM 执行流程的基本介绍</p>
+<p><img src="/media/14774983908543.jpg" alt=""></p>
+<p>ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为</p>
+<ul>
+<li>方法区</li>
+<li>JAVA堆</li>
+<li>JAVA栈</li>
+<li>本地方法区</li>
+</ul>
+<p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
+<h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
+<li>每个线程拥有一个 PC 寄存器</li>
+<li>在线程创建的时候创建</li>
+<li>总是指向下一条指令的地址</li>
+<li>执行本地方法的时候值为 undefined</li>
+</ul>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>保存和装载类的元数据信息, 对类进行描述</p>
+<ul>
+<li>类型的常量池</li>
+<li>字段, 方法信息</li>
+<li>方法字节码</li>
+</ul>
+<p>方法区通常同永久区(Perm)关联在一起, 用于保存相对稳定和静止的数据</p>
+<h2 id="JAVA-堆"><a href="#JAVA-堆" class="headerlink" title="JAVA 堆"></a>JAVA 堆</h2><p>堆具有以下特点:</p>
+<ul>
+<li>应用系统分配的对象保存在堆区</li>
+<li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
+<li>对分代的 GC 来说, 堆也是分代的</li>
+</ul>
+<h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
+<ul>
+<li>线程私有</li>
+<li>栈由一系列帧组成(栈帧),  </li>
+<li>栈帧由三部分组成:栈帧保存一个方法的局部变量, 操作数栈, 常量池指针</li>
+<li>每一个方法调用都会创建一个帧, 并压栈</li>
+</ul>
+<h1 id="JVM-的运行机制"><a href="#JVM-的运行机制" class="headerlink" title="JVM 的运行机制"></a>JVM 的运行机制</h1>
+      
+    </div>
+    
+      <div class="article-toc">
+        <h3>Contents</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的基本结构"><span class="toc-number">1.</span> <span class="toc-text">JVM 的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PC-寄存器"><span class="toc-number">1.1.</span> <span class="toc-text">PC 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法区"><span class="toc-number">1.2.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-堆"><span class="toc-number">1.3.</span> <span class="toc-text">JAVA 堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-栈"><span class="toc-number">1.4.</span> <span class="toc-text">JAVA 栈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的运行机制"><span class="toc-number">2.</span> <span class="toc-text">JVM 的运行机制</span></a></li></ol>
+      </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/nginx基础/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Nginx 复习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/redis基本安装和安全设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis基础(安装和安全设置)&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
