@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>redis持久化 - 日拱一卒,功不唐捐</title>
+  <title>日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis持久化reids持久化类型Redis 提供了多种不同级别的持久化方式
-
-RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照(point-in-time snapshot)
-AOF 持久化记录服务器执行的所有写操作命令,并在服务器启动时,通过重新执行这些命令来还原数 据集。AOF 文件中的命令全部以 Redis 协议的格式来保存,新命令会被追加到文件的末尾。Redis 还 可以在">
-<meta property="og:type" content="article">
-<meta property="og:title" content="redis持久化">
-<meta property="og:url" content="http://yangsui.me/redis持久化/index.html">
+  <meta name="description" content="思考">
+<meta property="og:type" content="website">
+<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:url" content="http://yangsui.me/page/2/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="redis持久化reids持久化类型Redis 提供了多种不同级别的持久化方式
-
-RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照(point-in-time snapshot)
-AOF 持久化记录服务器执行的所有写操作命令,并在服务器启动时,通过重新执行这些命令来还原数 据集。AOF 文件中的命令全部以 Redis 协议的格式来保存,新命令会被追加到文件的末尾。Redis 还 可以在">
-<meta property="og:updated_time" content="2016-04-30T10:10:26.000Z">
+<meta property="og:description" content="思考">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis持久化">
-<meta name="twitter:description" content="redis持久化reids持久化类型Redis 提供了多种不同级别的持久化方式
-
-RDB 持久化可以在指定的时间间隔内生成数据集的时间点快照(point-in-time snapshot)
-AOF 持久化记录服务器执行的所有写操作命令,并在服务器启动时,通过重新执行这些命令来还原数 据集。AOF 文件中的命令全部以 Redis 协议的格式来保存,新命令会被追加到文件的末尾。Redis 还 可以在">
+<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:description" content="思考">
   
   
     <link rel="icon" href="/favicon.png">
@@ -63,15 +53,68 @@ AOF 持久化记录服务器执行的所有写操作命令,并在服务器启动
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-redis持久化" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer">
+      <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      redis持久化
+    <h1 itemprop="name">
+      <a class="article-title" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">vmware fusion安装vmware tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" class="article-date">
+  <time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished">2013-03-01</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools"><a href="#mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools" class="headerlink" title="mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools"></a>mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools</h1><p>首先要挂在<code>cdrom</code></p>
+<pre><code>sudo mount -t auto /dev/cdrom /mnt/cdrom
+</code></pre><p>如果提示该文件夹不存在, 创建一个</p>
+<pre><code>sudo mkdir -p /mnt/cdrom
+</code></pre><p>然后在执行上面的加载步奏, 挂载成功后会有如下的提示</p>
+<pre><code>mount: block device /dev/cdrom is write-protected, mounting read-only
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+    
+      <article id="post-redis持久化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/redis持久化/">redis持久化</a>
     </h1>
   
 
@@ -165,36 +208,8 @@ no-appendfsync-on-rewrite no
       
     </div>
     
-      <div class="article-toc">
-        <h3>Contents</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#redis持久化"><span class="toc-number">1.</span> <span class="toc-text">redis持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reids持久化类型"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">reids持久化类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDB的优点"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">RDB的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDB的缺点"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">RDB的缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AOF的优点"><span class="toc-number">1.0.0.3.1.</span> <span class="toc-text">AOF的优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AOF的缺点"><span class="toc-number">1.0.0.3.2.</span> <span class="toc-text">AOF的缺点</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
-      </div>
-    
-    
-      <footer class="article-footer">
-        
-      </footer>
     
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          vmware fusion安装vmware tools
-        
-      </div>
-    </a>
-  
-  
-    <a href="/原码 反码 补码/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">原码反码补码的理解&nbsp;<span>&gt;</span></div>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -205,26 +220,65 @@ no-appendfsync-on-rewrite no
 
 
 
-<section id="comments">
-  <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="post-redis持久化" data-title="redis持久化" data-url="http://yangsui.me/redis持久化/"></div>
-  <!-- 多说评论框 end -->
-  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-  <script type="text/javascript">
-  var duoshuoQuery = {short_name:'yangsuime'};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-       || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-  <!-- 多说公共JS代码 end -->
-</section>
 
-</section>
+    
+      <article id="post-原码 反码 补码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/原码 反码 补码/" class="article-date">
+  <time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished">2013-03-01</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title">原码反码补码</a>，觉得写的非常的好 </p>
+<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
+<li><p>机器数</p>
+<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
+<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
+</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/原码 反码 补码/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+    
+      <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      </nav>
+    </section>
     <footer id="footer">
   
   <div class="outer">
