@@ -30,7 +30,7 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/signed-byte-to-int.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14797179520991.jpg">
 <meta property="og:image" content="http://yangsui.me/media/14797367807174.jpg">
-<meta property="og:updated_time" content="2016-12-03T16:03:13.000Z">
+<meta property="og:updated_time" content="2016-12-03T16:03:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 基础 ----基本数据结构">
 <meta name="twitter:description" content="基本数据类型
@@ -139,20 +139,6 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <p> 首先，-1024 的原码是这样的，int 类型 4 个字节，一共 32 位，其中最高位的一位表示符号位</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">10000000</span> <span class="number">00000000</span> <span class="number">00000100</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
 </li>
-</ol>
-<pre><code> 然后，对原码取反，符号位不参与取反。即 -1024 的反码是这样的
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111011</span> <span class="number">11111111</span></div><div class="line">``` </div><div class="line">接着，对反码 **+<span class="number">1</span>**，得到补码，-<span class="number">1024</span> 最终在计算机中是这么表示的</div><div class="line"></div><div class="line">```java</div><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111100</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
-
-
-最后，进行右移操作，符号位不变，这里为负数，最高位的符号位仍然为 **1** 
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111110</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
-
-无符号右移，符号位始终补 **0**，那么 `-1024&gt;&gt;&gt;1` 的结果如下
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">01111111</span> <span class="number">11111111</span> <span class="number">11111110</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
-</code></pre><ol>
 <li><p>按位与 &amp;</p>
 <ul>
 <li>只有 1 &amp; 1 = 1 其它等于 0</li>
