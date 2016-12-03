@@ -30,7 +30,7 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/signed-byte-to-int.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14797179520991.jpg">
 <meta property="og:image" content="http://yangsui.me/media/14797367807174.jpg">
-<meta property="og:updated_time" content="2016-11-22T08:40:10.000Z">
+<meta property="og:updated_time" content="2016-12-03T15:57:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 基础 ----基本数据结构">
 <meta name="twitter:description" content="基本数据类型
@@ -123,18 +123,36 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 </li>
 </ul>
 <a id="more"></a> 
-<h1 id="基本数据类型操作"><a href="#基本数据类型操作" class="headerlink" title="基本数据类型操作"></a>基本数据类型操作</h1><ul>
+<h1 id="基本数据类型操作"><a href="#基本数据类型操作" class="headerlink" title="基本数据类型操作"></a>基本数据类型操作</h1><ol>
 <li><p>左移 &lt;&lt;</p>
+<p> 左移操作特点：</p>
 <ul>
 <li>丢弃最高位，0 补最低位</li>
 <li>如果数据没有溢出，每左移动 1 位，数据相当于乘以 2 的 1 次方，移动 n 位 相当于乘以 2 的 n 次方。</li>
 </ul>
 </li>
+</ol>
+<ol>
 <li><p>右移 &gt;&gt;</p>
-<ul>
-<li>符号位不变，左边补符号位</li>
-</ul>
+<p> 右移操作：符号位不变，左边补符号位</p>
+<p> 以 <code>-1024&gt;&gt;1</code>为例子，数字在计算机中是以 <strong>补码</strong> 的形式保存的，我们来一步一步进行运算。</p>
+<p> 首先，-1024 的原码是这样的，int 类型 4 个字节，一共 32 位，其中最高位的一位表示符号位</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">10000000</span> <span class="number">00000000</span> <span class="number">00000100</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
 </li>
+</ol>
+<pre><code>然后，对原码取反，符号位不参与取反。即 -1024 的反码是这样的
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111011</span> <span class="number">11111111</span></div><div class="line">``` </div><div class="line"></div><div class="line">接着，对反码 **+<span class="number">1</span>**，得到补码，-<span class="number">1024</span> 最终在计算机中是这么表示的</div><div class="line"></div><div class="line">```java</div><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111100</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
+
+
+最后，进行右移操作，符号位不变，这里为负数，最高位的符号位仍然为 **1** 
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111110</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
+
+无符号右移，符号位始终补 **0**，那么 `-1024&gt;&gt;&gt;1` 的结果如下
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">01111111</span> <span class="number">11111111</span> <span class="number">11111110</span> <span class="number">00000000</span></div></pre></td></tr></table></figure>
+</code></pre><ol>
 <li><p>按位与 &amp;</p>
 <ul>
 <li>只有 1 &amp; 1 = 1 其它等于 0</li>
@@ -156,7 +174,7 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <li>相同为 0 ， 不同为 1</li>
 </ul>
 </li>
-</ul>
+</ol>
 <h1 id="有符号类型转换为无符号类型"><a href="#有符号类型转换为无符号类型" class="headerlink" title="有符号类型转换为无符号类型"></a>有符号类型转换为无符号类型</h1><p>下面这幅图展示了一个 byte 类型的有符号整数，如 -5 转换为一个无符号整数的过程。</p>
 <p>注意3点：</p>
 <ul>
