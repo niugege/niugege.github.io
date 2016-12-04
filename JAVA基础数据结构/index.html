@@ -30,7 +30,7 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/signed-byte-to-int.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14797179520991.jpg">
 <meta property="og:image" content="http://yangsui.me/media/14797367807174.jpg">
-<meta property="og:updated_time" content="2016-12-04T01:29:07.000Z">
+<meta property="og:updated_time" content="2016-12-04T01:38:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 基础 ----基本数据结构">
 <meta name="twitter:description" content="基本数据类型
@@ -253,13 +253,13 @@ java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java�
 <ol>
 <li>Cache Line 返回 16 个 int 类型数据</li>
 <li>修改<strong>所有</strong>这些数据</li>
-<li>重复 (1024 <em> 256 </em> 16 * 32)/16 次</li>
+<li>重复 (1024 x 256 x 16 x 32)/16 次</li>
 </ol>
 <p><code>col()</code> 方法</p>
 <ol>
 <li>Cache Line 返回 16 个 int 类型数据</li>
 <li>修改<strong>其中</strong>一个值</li>
-<li>重复 (1024 <em> 256 </em> 16 * 32) 次</li>
+<li>重复 (1024 x 256 x 16 x 32) 次</li>
 </ol>
 <p>参考 stackoverflow 的几个链接</p>
 <p><a href="http://stackoverflow.com/questions/3928995/how-do-cache-lines-work" target="_blank" rel="external">How do cache lines work?</a><br><a href="http://stackoverflow.com/questions/9888154/which-of-these-two-for-loops-is-more-efficient-in-terms-of-time-and-cache-perfor" target="_blank" rel="external">Which of these two for loops is more efficient in terms of time and cache performance</a><br><a href="http://stackoverflow.com/questions/9936132/why-does-the-order-of-the-loops-affect-performance-when-iterating-over-a-2d-arra" target="_blank" rel="external">Why does the order of the loops affect performance when iterating over a 2D array?</a></p>
