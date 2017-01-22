@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JAVA 8 学习总结 - 日拱一卒,功不唐捐</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近一周 JAVA8 的学习总结
+Lambda 表达式
+Predicate
+
+方法: boolean test(T t)函数描述: T -&amp;gt; boolean作用: 传入一个参数，返回一个bool结果特征化原始类型: IntPredicate, LongPredicate, DoublePredicate 
+
+Consumer
+
+方法: boolean test(T t)函数描述: T -&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA 8 学习总结">
+<meta property="og:url" content="http://yangsui.me/JAVA8-OverView/index.html">
+<meta property="og:site_name" content="日拱一卒,功不唐捐">
+<meta property="og:description" content="最近一周 JAVA8 的学习总结
+Lambda 表达式
+Predicate
+
+方法: boolean test(T t)函数描述: T -&amp;gt; boolean作用: 传入一个参数，返回一个bool结果特征化原始类型: IntPredicate, LongPredicate, DoublePredicate 
+
+Consumer
+
+方法: boolean test(T t)函数描述: T -&amp;">
+<meta property="og:updated_time" content="2017-01-22T06:57:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA 8 学习总结">
+<meta name="twitter:description" content="最近一周 JAVA8 的学习总结
+Lambda 表达式
+Predicate
+
+方法: boolean test(T t)函数描述: T -&amp;gt; boolean作用: 传入一个参数，返回一个bool结果特征化原始类型: IntPredicate, LongPredicate, DoublePredicate 
+
+Consumer
+
+方法: boolean test(T t)函数描述: T -&amp;">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">文档</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/about">联系我</a>
+        
+      </nav>
+      <!--
+
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yangsui.me"></form>
+        </div>
+
+      </nav>
+    -->
+
+    </div>
+  </div>
+</header>
+
+    <section id="main" class="outer"><article id="post-JAVA8-OverView" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA 8 学习总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/JAVA8-OverView/" class="article-date">
+  <time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished">2016-12-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+<ul>
+<li>UnaryOperator<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>T -&gt; T</code><br>作用: 一元操作符， 继承Function,传入参数的类型和返回类型相同<br>特征化原始类型: IntUnaryOperator,  LongUnaryOperator, DoubleUnaryOperator </p>
+<ul>
+<li>BinaryOperator<t></t></li>
+</ul>
+<p>函数描述: <code>(T, T) -&gt; T</code><br>作用: 二元操作符， 传入的两个参数的类型和返回类型相同， 继承BiFunction<br>特征化原始类型: IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator</p>
+<ul>
+<li>BiPredicate<l, r=""></l,></li>
+</ul>
+<p>函数描述: <code>(L, R) -&gt; boolean</code></p>
+<ul>
+<li>BiConsumer<t, u=""></t,></li>
+</ul>
+<p>函数描述: <code>(T, U) -&gt; boolean</code><br>特征化原始类型: ObjIntConsumer<t>,  ObjLongConsumer<t>, ObjDoubleConsumer</t></t></p>
+<ul>
+<li>BiFunction<t, u,="" r=""></t,></li>
+</ul>
+<p>函数描述: <code>(T, U) -&gt; R</code><br>特征化原始类型: ToIntBiFunction<t, u="">,  ToLongBiFunction<t, u="">, ToDoubleBiFunction<t, u=""></t,></t,></t,></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数式接口</th>
+<th style="text-align:left">函数式描述符</th>
+<th style="text-align:left">方法描述</th>
+<th style="text-align:left">特征化原始类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Predicate\<t\></t\></td>
+<td style="text-align:left">T -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t)</td>
+<td style="text-align:left">IntPredicate,<br>LongPredicate,<br>DoublePredicate</td>
+</tr>
+<tr>
+<td style="text-align:center">Consumer\<t\></t\></td>
+<td style="text-align:left">T -&gt; void</td>
+<td style="text-align:left">void accept(T t)</td>
+<td style="text-align:left">IntConsumer,<br>LongConsumer,<br>DoubleConsumer</td>
+</tr>
+<tr>
+<td style="text-align:center">Function<t, r=""></t,></td>
+<td style="text-align:left">T -&gt; R</td>
+<td style="text-align:left">R apply(T t)</td>
+<td style="text-align:left">IntFunction\<r\>,<br>IntToLongFunction,<br>IntToDoubleFunction,<br><br>LongFunction\<r\>,<br>LongToIntFunction,<br>LongToDoubleFunction,<br><br>DoubleFunction\<r\>,<br>ToIntFunction\<t\>,<br>ToLongFunction\<t\>,<br>ToDoubleFunction\<t\></t\></t\></t\></r\></r\></r\></td>
+</tr>
+<tr>
+<td style="text-align:center">Supplier\<t\></t\></td>
+<td style="text-align:left">() -&gt; T</td>
+<td style="text-align:left">T get()</td>
+<td style="text-align:left">BooleanSupplier,<br> IntSupplier,<br>LongSupplier,<br>DoubleSupplier</td>
+</tr>
+<tr>
+<td style="text-align:center">UnaryOperator\<t\></t\></td>
+<td style="text-align:left">T -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntUnaryOperator,<br> LongUnaryOperator,<br>DoubleUnaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BinaryOperator\<t\></t\></td>
+<td style="text-align:left">(T, T) -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntBinaryOperator,<br>LongBinaryOperator,<br>DoubleBinaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BiPredicate\<l, r\=""></l,></td>
+<td style="text-align:left">(L, R) -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t, U u)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">BiConsumer\<t, u\=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; boolean</td>
+<td style="text-align:left">void accept(T t, U u)</td>
+<td style="text-align:left">ObjIntConsumer\<t\>, <br>ObjLongConsumer\<t\>,<br>ObjDoubleConsumer\<t\></t\></t\></t\></td>
+</tr>
+<tr>
+<td style="text-align:center">BiFunction\<t, u,="" r\=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; R</td>
+<td style="text-align:left">R apply(T t, U u)</td>
+<td style="text-align:left">ToIntBiFunction\<t, u\="">, <br>ToLongBiFunction\<t, u\="">,<br>ToDoubleBiFunction\<t, u\=""></t,></t,></t,></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数式接口</th>
+<th style="text-align:left">函数式描述符</th>
+<th style="text-align:left">方法描述</th>
+<th style="text-align:left">特征化原始类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:left">T -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t)</td>
+<td style="text-align:left">IntPredicate,<br>LongPredicate,<br>DoublePredicate</td>
+</tr>
+<tr>
+<td style="text-align:center">Consumer<t></t></td>
+<td style="text-align:left">T -&gt; void</td>
+<td style="text-align:left">void accept(T t)</td>
+<td style="text-align:left">IntConsumer,<br>LongConsumer,<br>DoubleConsumer</td>
+</tr>
+<tr>
+<td style="text-align:center">Function<t, r=""></t,></td>
+<td style="text-align:left">T -&gt; R</td>
+<td style="text-align:left">R apply(T t)</td>
+<td style="text-align:left">IntFunction<r>,<br>IntToLongFunction,<br>IntToDoubleFunction,<br><br>LongFunction<r>,<br>LongToIntFunction,<br>LongToDoubleFunction,<br><br>DoubleFunction<r>,<br>ToIntFunction<t>,<br>ToLongFunction<t>,<br>ToDoubleFunction<t></t></t></t></r></r></r></td>
+</tr>
+<tr>
+<td style="text-align:center">Supplier<t></t></td>
+<td style="text-align:left">() -&gt; T</td>
+<td style="text-align:left">T get()</td>
+<td style="text-align:left">BooleanSupplier,<br> IntSupplier,<br>LongSupplier,<br>DoubleSupplier</td>
+</tr>
+<tr>
+<td style="text-align:center">UnaryOperator<t></t></td>
+<td style="text-align:left">T -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntUnaryOperator,<br> LongUnaryOperator,<br>DoubleUnaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BinaryOperator<t></t></td>
+<td style="text-align:left">(T, T) -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntBinaryOperator,<br>LongBinaryOperator,<br>DoubleBinaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BiPredicate<l, r=""></l,></td>
+<td style="text-align:left">(L, R) -&gt; boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">BiConsumer<t, u=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ObjIntConsumer<t>, <br>ObjLongConsumer<t>,<br>ObjDoubleConsumer<t></t></t></t></td>
+</tr>
+<tr>
+<td style="text-align:center">BiFunction<t, u,="" r=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; R</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ToIntBiFunction<t, u="">, <br>ToLongBiFunction<t, u="">,<br>ToDoubleBiFunction<t, u=""></t,></t,></t,></td>
+</tr>
+</tbody>
+</table>
+<h1 id="流"><a href="#流" class="headerlink" title="流"></a>流</h1><h1 id="收集"><a href="#收集" class="headerlink" title="收集"></a>收集</h1>
+      
+    </div>
+    
+      <div class="article-toc">
+        <h3>Contents</h3>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda-表达式"><span class="toc-number">1.</span> <span class="toc-text">Lambda 表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流"><span class="toc-number">2.</span> <span class="toc-text">流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#收集"><span class="toc-number">3.</span> <span class="toc-text">收集</span></a></li></ol>
+      </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/位运算的作用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">位移运算与运算的基本作用&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-JAVA8-OverView" data-title="JAVA 8 学习总结" data-url="http://yangsui.me/JAVA8-OverView/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:'yangsuime'};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+       || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+  <!-- 多说公共JS代码 end -->
+</section>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 yangsui&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

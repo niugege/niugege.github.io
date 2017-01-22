@@ -60,6 +60,227 @@
 </header>
 
     <section id="main" class="outer">
+      <article id="post-JAVA8-OverView" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/JAVA8-OverView/" class="article-date">
+  <time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished">2016-12-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+<ul>
+<li>UnaryOperator<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>T -&gt; T</code><br>作用: 一元操作符， 继承Function,传入参数的类型和返回类型相同<br>特征化原始类型: IntUnaryOperator,  LongUnaryOperator, DoubleUnaryOperator </p>
+<ul>
+<li>BinaryOperator<t></t></li>
+</ul>
+<p>函数描述: <code>(T, T) -&gt; T</code><br>作用: 二元操作符， 传入的两个参数的类型和返回类型相同， 继承BiFunction<br>特征化原始类型: IntBinaryOperator, LongBinaryOperator, DoubleBinaryOperator</p>
+<ul>
+<li>BiPredicate<l, r=""></l,></li>
+</ul>
+<p>函数描述: <code>(L, R) -&gt; boolean</code></p>
+<ul>
+<li>BiConsumer<t, u=""></t,></li>
+</ul>
+<p>函数描述: <code>(T, U) -&gt; boolean</code><br>特征化原始类型: ObjIntConsumer<t>,  ObjLongConsumer<t>, ObjDoubleConsumer</t></t></p>
+<ul>
+<li>BiFunction<t, u,="" r=""></t,></li>
+</ul>
+<p>函数描述: <code>(T, U) -&gt; R</code><br>特征化原始类型: ToIntBiFunction<t, u="">,  ToLongBiFunction<t, u="">, ToDoubleBiFunction<t, u=""></t,></t,></t,></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数式接口</th>
+<th style="text-align:left">函数式描述符</th>
+<th style="text-align:left">方法描述</th>
+<th style="text-align:left">特征化原始类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Predicate\<t\></t\></td>
+<td style="text-align:left">T -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t)</td>
+<td style="text-align:left">IntPredicate,<br>LongPredicate,<br>DoublePredicate</td>
+</tr>
+<tr>
+<td style="text-align:center">Consumer\<t\></t\></td>
+<td style="text-align:left">T -&gt; void</td>
+<td style="text-align:left">void accept(T t)</td>
+<td style="text-align:left">IntConsumer,<br>LongConsumer,<br>DoubleConsumer</td>
+</tr>
+<tr>
+<td style="text-align:center">Function<t, r=""></t,></td>
+<td style="text-align:left">T -&gt; R</td>
+<td style="text-align:left">R apply(T t)</td>
+<td style="text-align:left">IntFunction\<r\>,<br>IntToLongFunction,<br>IntToDoubleFunction,<br><br>LongFunction\<r\>,<br>LongToIntFunction,<br>LongToDoubleFunction,<br><br>DoubleFunction\<r\>,<br>ToIntFunction\<t\>,<br>ToLongFunction\<t\>,<br>ToDoubleFunction\<t\></t\></t\></t\></r\></r\></r\></td>
+</tr>
+<tr>
+<td style="text-align:center">Supplier\<t\></t\></td>
+<td style="text-align:left">() -&gt; T</td>
+<td style="text-align:left">T get()</td>
+<td style="text-align:left">BooleanSupplier,<br> IntSupplier,<br>LongSupplier,<br>DoubleSupplier</td>
+</tr>
+<tr>
+<td style="text-align:center">UnaryOperator\<t\></t\></td>
+<td style="text-align:left">T -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntUnaryOperator,<br> LongUnaryOperator,<br>DoubleUnaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BinaryOperator\<t\></t\></td>
+<td style="text-align:left">(T, T) -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntBinaryOperator,<br>LongBinaryOperator,<br>DoubleBinaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BiPredicate\<l, r\=""></l,></td>
+<td style="text-align:left">(L, R) -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t, U u)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">BiConsumer\<t, u\=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; boolean</td>
+<td style="text-align:left">void accept(T t, U u)</td>
+<td style="text-align:left">ObjIntConsumer\<t\>, <br>ObjLongConsumer\<t\>,<br>ObjDoubleConsumer\<t\></t\></t\></t\></td>
+</tr>
+<tr>
+<td style="text-align:center">BiFunction\<t, u,="" r\=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; R</td>
+<td style="text-align:left">R apply(T t, U u)</td>
+<td style="text-align:left">ToIntBiFunction\<t, u\="">, <br>ToLongBiFunction\<t, u\="">,<br>ToDoubleBiFunction\<t, u\=""></t,></t,></t,></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数式接口</th>
+<th style="text-align:left">函数式描述符</th>
+<th style="text-align:left">方法描述</th>
+<th style="text-align:left">特征化原始类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:left">T -&gt; boolean</td>
+<td style="text-align:left">boolean test(T t)</td>
+<td style="text-align:left">IntPredicate,<br>LongPredicate,<br>DoublePredicate</td>
+</tr>
+<tr>
+<td style="text-align:center">Consumer<t></t></td>
+<td style="text-align:left">T -&gt; void</td>
+<td style="text-align:left">void accept(T t)</td>
+<td style="text-align:left">IntConsumer,<br>LongConsumer,<br>DoubleConsumer</td>
+</tr>
+<tr>
+<td style="text-align:center">Function<t, r=""></t,></td>
+<td style="text-align:left">T -&gt; R</td>
+<td style="text-align:left">R apply(T t)</td>
+<td style="text-align:left">IntFunction<r>,<br>IntToLongFunction,<br>IntToDoubleFunction,<br><br>LongFunction<r>,<br>LongToIntFunction,<br>LongToDoubleFunction,<br><br>DoubleFunction<r>,<br>ToIntFunction<t>,<br>ToLongFunction<t>,<br>ToDoubleFunction<t></t></t></t></r></r></r></td>
+</tr>
+<tr>
+<td style="text-align:center">Supplier<t></t></td>
+<td style="text-align:left">() -&gt; T</td>
+<td style="text-align:left">T get()</td>
+<td style="text-align:left">BooleanSupplier,<br> IntSupplier,<br>LongSupplier,<br>DoubleSupplier</td>
+</tr>
+<tr>
+<td style="text-align:center">UnaryOperator<t></t></td>
+<td style="text-align:left">T -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntUnaryOperator,<br> LongUnaryOperator,<br>DoubleUnaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BinaryOperator<t></t></td>
+<td style="text-align:left">(T, T) -&gt; T</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">IntBinaryOperator,<br>LongBinaryOperator,<br>DoubleBinaryOperator</td>
+</tr>
+<tr>
+<td style="text-align:center">BiPredicate<l, r=""></l,></td>
+<td style="text-align:left">(L, R) -&gt; boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">BiConsumer<t, u=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; boolean</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ObjIntConsumer<t>, <br>ObjLongConsumer<t>,<br>ObjDoubleConsumer<t></t></t></t></td>
+</tr>
+<tr>
+<td style="text-align:center">BiFunction<t, u,="" r=""></t,></td>
+<td style="text-align:left">(T, U) -&gt; R</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ToIntBiFunction<t, u="">, <br>ToLongBiFunction<t, u="">,<br>ToDoubleBiFunction<t, u=""></t,></t,></t,></td>
+</tr>
+</tbody>
+</table>
+<h1 id="流"><a href="#流" class="headerlink" title="流"></a>流</h1><h1 id="收集"><a href="#收集" class="headerlink" title="收集"></a>收集</h1>
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+    
       <article id="post-位运算的作用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -121,47 +342,11 @@
 <ol>
 <li>无符号右移运算 &gt;&gt;&gt;<br>按照二进制方式把所有的数字向右移动对应位数，低位舍弃，高位空位补 <strong>0</strong></li>
 </ol>
-<h1 id="与运算的作用"><a href="#与运算的作用" class="headerlink" title="与运算的作用"></a>与运算的作用</h1><ol>
-<li><p>对特定位清0<br>如将一个数的高 8 位清0，那么只需要 <code>a &amp; 0x00FF</code>，高 8 位全是0，进行与运算后清0。</p>
-</li>
-<li><p>取某数中指定位<br>如有一个二进制数 <code>011001</code>， 我要取该数的第三位，只需要创造一个第三位为 1，其余位为 0 的数字即可。</p>
-</li>
-<li><p>截取二进制中部分进行内容<br>我需要将一个 int 的 32 位分别装到 4 个 byte 中，采用高位在前，低位在后的方式。</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 1. 将 int 的 32 位，分别装到 byte 的 4 个字节中去</div><div class="line"> * 2. 高位在前，低位在后分别装载这 4 个字节的内容</div><div class="line"> * <span class="doctag">@param</span> number</div><div class="line"> * <span class="doctag">@return</span></div><div class="line"> */</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] intToBytes(<span class="keyword">final</span> <span class="keyword">int</span> number) &#123;</div><div class="line">    <span class="keyword">byte</span>[] result = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</div><div class="line"></div><div class="line">    result[<span class="number">0</span>] = (<span class="keyword">byte</span>) ((number &gt;&gt; <span class="number">24</span>) &amp; <span class="number">0xFF</span>);</div><div class="line">    result[<span class="number">1</span>] = (<span class="keyword">byte</span>) ((number &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>);</div><div class="line">    result[<span class="number">2</span>] = (<span class="keyword">byte</span>) ((number &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>);</div><div class="line">    result[<span class="number">3</span>] = (<span class="keyword">byte</span>) (number &amp; <span class="number">0xFF</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里假设 int 的值为十进制的 10，计算过程如下：</p>
-<table>
-<thead>
-<tr>
-<th>int</th>
-<th>int&gt;&gt;24</th>
-<th>(int&gt;&gt;24) &amp; 0xFF</th>
-<th>(byte)((int&gt;&gt;24)&amp;0xFF)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>00000000 00000000 00000000 00001010</td>
-<td>00000000 00000000 00000000 00000000</td>
-<td>00000000 00000000 00000000 00000000</td>
-<td>0000000</td>
-</tr>
-</tbody>
-</table>
-<p>由于 0xFF 的低 8 位全为 1，所以进行与运算之后，可以保证，原数值的低 8 位不变，最终强制转换为 byte 类型，只保留低 8 位，截去高 24 位，这样就达到了获取一个 int 值的部分二进制位内容的目标。 </p>
-<p>反之，将一个 4 字节的 byte 数组的 32 位， 分别装到 int 的 32 位中去。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 高位在前，低位在后</div><div class="line"> * <span class="doctag">@param</span> numbers</div><div class="line"> * <span class="doctag">@return</span></div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">bytesToInt</span><span class="params">(<span class="keyword">final</span> <span class="keyword">byte</span>[] numbers)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> a =  (numbers[<span class="number">0</span>] &amp; <span class="number">0xFF</span>) &lt;&lt; <span class="number">24</span>;</div><div class="line">    <span class="keyword">int</span> b =  (numbers[<span class="number">1</span>] &amp; <span class="number">0xFF</span>) &lt;&lt; <span class="number">16</span>;</div><div class="line">    <span class="keyword">int</span> c =  (numbers[<span class="number">2</span>] &amp; <span class="number">0xFF</span>) &lt;&lt; <span class="number">8</span>;</div><div class="line">    <span class="keyword">int</span> d =  (numbers[<span class="number">3</span>] &amp; <span class="number">0xFF</span>) ;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> a | b | c | d ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>首先，获取 byte 数组的某一位，位移运算会自动将 byte 类型转换为 int 类型，如果为正数，高位补0，如果为负数，高位补1。</p>
-<ol>
-<li><p>判断一个整数的奇偶性，二进制末尾为0就是偶数，为1就是奇数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">value &amp; <span class="number">1</span> != <span class="number">0</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>判断 n 是否是 2 的正整数冪<br>比如 n 是这些数，2 4 8 16 32 等，以 8 为例</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">n: <span class="number">00001000</span>， </div><div class="line">n-<span class="number">1</span> : <span class="number">00000111</span></div><div class="line">n &amp; (n-<span class="number">1</span>) : <span class="number">00000000</span></div></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/位运算的作用/#more">更多</a>
+          </p>
+        
       
     </div>
     
@@ -667,74 +852,6 @@
 
 
     
-      <article id="post-2016-10-13" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-10-13/">为什么String类被设计为不可变</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016-10-13/" class="article-date">
-  <time datetime="2016-10-22T12:12:35.000Z" itemprop="datePublished">2016-10-22</time>
-</a>
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="翻译-为什么-String-被设计成不可变的"><a href="#翻译-为什么-String-被设计成不可变的" class="headerlink" title="翻译 为什么 String 被设计成不可变的"></a>翻译 为什么 String 被设计成不可变的</h2><p>在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.</p>
-<ul>
-<li>字符串池的要求</li>
-</ul>
-<p>字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个字符串已经在常量池中存在, 会返回字符串的引用而不是在重新创建一个字符串 </p>
-<ul>
-<li>缓存 hashcode</li>
-</ul>
-<p>String 的 hashcode 方法在 JAVA 中被频繁的被使用, 比如 <code>HashMap</code>. 不可变可以保证 hashcode 总是一样的, 这样能够被缓存而不必担心改变.  也就是说, 没有必须在每次使用的时候都去计算一次  hashcode. 这样效率更高.</p>
-<p>在 <code>String</code> 类中, 有这样的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Cache the hash code for the string */</div><div class="line">private int hash; // Default to 0</div></pre></td></tr></table></figure>
-<ul>
-<li>促进使用其它相关的对象</li>
-</ul>
-<p>参考下面的例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"a"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"b"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"c"</span>));</div><div class="line">     </div><div class="line"><span class="keyword">for</span>(String a : set)&#123;</div><div class="line">    a.value = <span class="string">"a"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的例子中, 如果 a 是可变的, 那么就违背了集合的设计(set 表示集合中包含不重复的元素), 上面的例子是为了简单起见而设计的, 事实上 String 类中并不存在 value 这个字段.</p>
-<ul>
-<li>安全</li>
-</ul>
-<p>String 被广泛地用着其它类的参数, 比如: 网络连接, 文件创建等等. 如果 String 是可变的, 一个连接或是文件就能够被改变, 这样会导致很严重的安全问题. 方法认为它连接上了一台机器, 但是事实上不是. 字符串作为参数的时候, 可变的字符串在反射的时候也可能引起安全问题. </p>
-<ul>
-<li>不可变对象天然是线程安全的</li>
-</ul>
-<p>因为不可变对象不能被改变, 他们能够在多线程之间被共享, 这就消除了执行同步的要求.</p>
-<p><strong>简而言之, 因为安全和效率的原因 String 类被设计为不可变. </strong></p>
-<p>参考: <a href="http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/" target="_blank" rel="external">http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/</a></p>
-
-      
-    </div>
-    
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-    
       <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
       </nav>
@@ -743,7 +860,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 yangsui&nbsp;
+      &copy; 2017 yangsui&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
