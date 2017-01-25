@@ -60,6 +60,83 @@
 </header>
 
     <section id="main" class="outer">
+      <article id="post-JVM学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JVM学习笔记/">JVM 学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/JVM学习笔记/" class="article-date">
+  <time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished">2016-10-26</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JVM-的基本结构"><a href="#JVM-的基本结构" class="headerlink" title="JVM 的基本结构"></a>JVM 的基本结构</h1><p>下图是 JVM 执行流程的基本介绍</p>
+<p><img src="/media/14774983908543.jpg" alt=""></p>
+<p>ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为</p>
+<ul>
+<li>方法区</li>
+<li>JAVA堆</li>
+<li>JAVA栈</li>
+<li>本地方法区</li>
+</ul>
+<p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
+<h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
+<li>每个线程拥有一个 PC 寄存器</li>
+<li>在线程创建的时候创建</li>
+<li>总是指向下一条指令的地址</li>
+<li>执行本地方法的时候值为 undefined</li>
+</ul>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>保存和装载类的元数据信息, 对类进行描述</p>
+<ul>
+<li>类型的常量池</li>
+<li>字段, 方法信息</li>
+<li>方法字节码</li>
+</ul>
+<p>方法区通常同永久区(Perm)关联在一起, 用于保存相对稳定和静止的数据</p>
+<h2 id="JAVA-堆"><a href="#JAVA-堆" class="headerlink" title="JAVA 堆"></a>JAVA 堆</h2><p>堆具有以下特点:</p>
+<ul>
+<li>应用系统分配的对象保存在堆区</li>
+<li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
+<li>对分代的 GC 来说, 堆也是分代的</li>
+</ul>
+<h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
+<ul>
+<li>线程私有</li>
+<li>栈由一系列帧组成(栈帧),  </li>
+<li>栈帧由三部分组成:栈帧保存一个方法的局部变量, 操作数栈, 常量池指针</li>
+<li>每一个方法调用都会创建一个帧, 并压栈</li>
+</ul>
+<h1 id="JVM-的运行机制"><a href="#JVM-的运行机制" class="headerlink" title="JVM 的运行机制"></a>JVM 的运行机制</h1>
+      
+    </div>
+    
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+    
       <article id="post-2016-10-13" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -189,58 +266,6 @@
 
 
     
-      <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">vmware fusion安装vmware tools</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" class="article-date">
-  <time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished">2013-03-01</time>
-</a>
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools"><a href="#mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools" class="headerlink" title="mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools"></a>mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools</h1><p>首先要挂在<code>cdrom</code></p>
-<pre><code>sudo mount -t auto /dev/cdrom /mnt/cdrom
-</code></pre><p>如果提示该文件夹不存在, 创建一个</p>
-<pre><code>sudo mkdir -p /mnt/cdrom
-</code></pre><p>然后在执行上面的加载步奏, 挂载成功后会有如下的提示</p>
-<pre><code>mount: block device /dev/cdrom is write-protected, mounting read-only
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/#more">更多</a>
-          </p>
-        
-      
-    </div>
-    
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-    
       <article id="post-redis持久化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,6 +365,58 @@ no-appendfsync-on-rewrite no
 <pre><code>auto-aof-rewrite-percentage 100
   auto-aof-rewrite-min-size 64mb          
 </code></pre>
+      
+    </div>
+    
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+    
+      <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">vmware fusion安装vmware tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" class="article-date">
+  <time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished">2013-03-01</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools"><a href="#mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools" class="headerlink" title="mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools"></a>mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools</h1><p>首先要挂在<code>cdrom</code></p>
+<pre><code>sudo mount -t auto /dev/cdrom /mnt/cdrom
+</code></pre><p>如果提示该文件夹不存在, 创建一个</p>
+<pre><code>sudo mkdir -p /mnt/cdrom
+</code></pre><p>然后在执行上面的加载步奏, 挂载成功后会有如下的提示</p>
+<pre><code>mount: block device /dev/cdrom is write-protected, mounting read-only
+</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/#more">更多</a>
+          </p>
+        
       
     </div>
     
