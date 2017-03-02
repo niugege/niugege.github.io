@@ -26,7 +26,7 @@ Linux IO模式及 select、poll、epoll详解
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884644916573.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884649249894.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884650634750.jpg">
-<meta property="og:updated_time" content="2017-03-02T15:09:13.000Z">
+<meta property="og:updated_time" content="2017-03-02T15:12:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阻塞，非阻塞，同步，异步概念理解">
 <meta name="twitter:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
@@ -125,6 +125,7 @@ Linux IO模式及 select、poll、epoll详解
 <li>信号驱动 I/O（ signal driven IO）</li>
 <li>异步 I/O（asynchronous IO）</li>
 </ul>
+<a id="more"></a>
 <h2 id="阻塞-I-O（blocking-IO）"><a href="#阻塞-I-O（blocking-IO）" class="headerlink" title="阻塞 I/O（blocking IO）"></a>阻塞 I/O（blocking IO）</h2><p>linux 下默认的所有的 socket 都是 阻塞的。</p>
 <p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/14884639194732.jpg" alt="阻塞型IO"></p>
 <p>用户进程调用 recvfrom 这个系统调用。<br>内核执行IO的第一阶段，准备数据（对于网络IO来说，很多时候数据在一开始还没有到达。比如，还没有收到一个完整的UDP包。这个时候kernel就要等待足够的数据到来）。这个过程需要等待，也就是说<strong>数据被拷贝到操作系统内核的缓冲区中是需要一个过程的</strong>。而在用户进程这边，整个进程会被阻塞（当然，是进程自己选择的阻塞）。</p>
@@ -185,17 +186,9 @@ Linux IO模式及 select、poll、epoll详解
     
 <nav id="article-nav">
   
-    <a href="/hibernate-search-elasticsearch/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/春节期间读书计划/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">春节读书计划&nbsp;<span>&gt;</span></div>
+    <a href="/hibernate-search-elasticsearch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hibernate-search-elasticsearch 集成&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>

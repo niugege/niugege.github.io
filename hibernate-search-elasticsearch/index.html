@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>日拱一卒,功不唐捐</title>
+  <title>hibernate-search-elasticsearch 集成 - 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="近期将 elasticsearch 集成到了系统里面, 做一些记录
 jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更新，删除)，需要手动写一个 AOP 框架，在实体维护的时候同时维护索引。发现 hibernate 官方的  hibernate-search-elasticsearch 已经做了这块儿工作了，开心。
 我这里使用的是 JPA 所有的配置如下:
 部分 p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:title" content="hibernate-search-elasticsearch 集成">
 <meta property="og:url" content="http://yangsui.me/hibernate-search-elasticsearch/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
 <meta property="og:description" content="近期将 elasticsearch 集成到了系统里面, 做一些记录
 jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更新，删除)，需要手动写一个 AOP 框架，在实体维护的时候同时维护索引。发现 hibernate 官方的  hibernate-search-elasticsearch 已经做了这块儿工作了，开心。
 我这里使用的是 JPA 所有的配置如下:
 部分 p">
-<meta property="og:updated_time" content="2017-02-09T10:32:51.000Z">
+<meta property="og:updated_time" content="2017-03-02T15:13:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:title" content="hibernate-search-elasticsearch 集成">
 <meta name="twitter:description" content="近期将 elasticsearch 集成到了系统里面, 做一些记录
 jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更新，删除)，需要手动写一个 AOP 框架，在实体维护的时候同时维护索引。发现 hibernate 官方的  hibernate-search-elasticsearch 已经做了这块儿工作了，开心。
 我这里使用的是 JPA 所有的配置如下:
@@ -73,11 +73,25 @@ jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更�
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hibernate-search-elasticsearch 集成
+    </h1>
+  
+
+      </header>
+    
     <div class="article-meta">
       <a href="/hibernate-search-elasticsearch/" class="article-date">
-  <time datetime="2017-02-09T10:17:56.000Z" itemprop="datePublished">2017-02-09</time>
+  <time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished">2017-02-02</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -107,6 +121,8 @@ jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更�
     
       <footer class="article-footer">
         
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/elasticsearch/">elasticsearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/search/">search</a></li></ul>
+
       </footer>
     
   </div>
@@ -114,9 +130,17 @@ jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更�
     
 <nav id="article-nav">
   
+    <a href="/同步异步阻塞非阻塞理解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          阻塞，非阻塞，同步，异步概念理解
+        
+      </div>
+    </a>
   
-    <a href="/同步异步阻塞非阻塞理解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">阻塞，非阻塞，同步，异步概念理解&nbsp;<span>&gt;</span></div>
+  
+    <a href="/春节期间读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">春节读书计划&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -133,7 +157,7 @@ jpa hibernate-search 集成为了让框架能够自动维护索引(创建，更�
 
 <section id="comments">
   <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="post-hibernate-search-elasticsearch" data-title="" data-url="http://yangsui.me/hibernate-search-elasticsearch/"></div>
+  <div class="ds-thread" data-thread-key="post-hibernate-search-elasticsearch" data-title="hibernate-search-elasticsearch 集成" data-url="http://yangsui.me/hibernate-search-elasticsearch/"></div>
   <!-- 多说评论框 end -->
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
