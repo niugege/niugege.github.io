@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>日拱一卒,功不唐捐</title>
+  <title>阻塞，非阻塞，同步，异步概念理解 - 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
 严重参考并组合了以下几篇文章。
 Linux IO模式及 select、poll、epoll详解
 怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所">
+我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:title" content="阻塞，非阻塞，同步，异步概念理解">
 <meta property="og:url" content="http://yangsui.me/同步异步阻塞非阻塞理解/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
 <meta property="og:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
 严重参考并组合了以下几篇文章。
 Linux IO模式及 select、poll、epoll详解
 怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所">
+我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639194732.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639318890.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639787508.jpg">
@@ -26,14 +26,14 @@ Linux IO模式及 select、poll、epoll详解
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884644916573.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884649249894.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884650634750.jpg">
-<meta property="og:updated_time" content="2017-03-02T15:01:39.000Z">
+<meta property="og:updated_time" content="2017-03-02T15:09:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:title" content="阻塞，非阻塞，同步，异步概念理解">
 <meta name="twitter:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
 严重参考并组合了以下几篇文章。
 Linux IO模式及 select、poll、epoll详解
 怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所">
+我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
 <meta name="twitter:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639194732.jpg">
   
   
@@ -84,16 +84,31 @@ Linux IO模式及 select、poll、epoll详解
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      阻塞，非阻塞，同步，异步概念理解
+    </h1>
+  
+
+      </header>
+    
     <div class="article-meta">
       <a href="/同步异步阻塞非阻塞理解/" class="article-date">
-  <time datetime="2017-03-02T13:34:41.000Z" itemprop="datePublished">2017-03-02</time>
+  <time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished">2017-02-02</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/system/">system</a>
+  </div>
+
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
+        <!-- toc -->
+<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
 <p>严重参考并组合了以下几篇文章。</p>
 <p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
 <p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
@@ -161,6 +176,8 @@ Linux IO模式及 select、poll、epoll详解
     
       <footer class="article-footer">
         
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/system/">system</a></li></ul>
+
       </footer>
     
   </div>
@@ -168,9 +185,17 @@ Linux IO模式及 select、poll、epoll详解
     
 <nav id="article-nav">
   
+    <a href="/hibernate-search-elasticsearch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/hibernate-search-elasticsearch/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">&nbsp;<span>&gt;</span></div>
+  
+    <a href="/春节期间读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">春节读书计划&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -187,7 +212,7 @@ Linux IO模式及 select、poll、epoll详解
 
 <section id="comments">
   <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="post-同步异步阻塞非阻塞理解" data-title="" data-url="http://yangsui.me/同步异步阻塞非阻塞理解/"></div>
+  <div class="ds-thread" data-thread-key="post-同步异步阻塞非阻塞理解" data-title="阻塞，非阻塞，同步，异步概念理解" data-url="http://yangsui.me/同步异步阻塞非阻塞理解/"></div>
   <!-- 多说评论框 end -->
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
