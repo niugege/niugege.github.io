@@ -15,11 +15,8 @@ JAVA栈
 本地方法区
 
 虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
-PC 寄存器
-每个线程拥有一个 PC 寄存器
-在线程创建的时候创建
-总是指向下一条指令的地址
-执行本地方">
+JAVA 内存模型
+JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM 学习笔记">
 <meta property="og:url" content="http://yangsui.me/JVM学习笔记/index.html">
@@ -34,13 +31,12 @@ JAVA栈
 本地方法区
 
 虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
-PC 寄存器
-每个线程拥有一个 PC 寄存器
-在线程创建的时候创建
-总是指向下一条指令的地址
-执行本地方">
+JAVA 内存模型
+JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
 <meta property="og:image" content="http://yangsui.me/media/14774983908543.jpg">
-<meta property="og:updated_time" content="2016-11-27T13:36:19.000Z">
+<meta property="og:image" content="http://yangsui.me/media/14857046734762.jpg">
+<meta property="og:image" content="http://yangsui.me/media/14856196096389.jpg">
+<meta property="og:updated_time" content="2017-01-29T15:49:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM 学习笔记">
 <meta name="twitter:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍
@@ -53,11 +49,8 @@ JAVA栈
 本地方法区
 
 虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码
-PC 寄存器
-每个线程拥有一个 PC 寄存器
-在线程创建的时候创建
-总是指向下一条指令的地址
-执行本地方">
+JAVA 内存模型
+JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
 <meta name="twitter:image" content="http://yangsui.me/media/14774983908543.jpg">
   
   
@@ -137,6 +130,8 @@ PC 寄存器
 <li>本地方法区</li>
 </ul>
 <p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
+<h1 id="JAVA-内存模型"><a href="#JAVA-内存模型" class="headerlink" title="JAVA 内存模型"></a>JAVA 内存模型</h1><p><img src="/media/14857046734762.jpg" alt=""></p>
+<p>JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图我们可以看到，运行时模型，分为 <strong>线程私有</strong> 和 <strong>共享数据</strong> ， 两大类。 我将上图重新画了一下。</p>
 <h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
 <li>每个线程拥有一个 PC 寄存器</li>
 <li>在线程创建的时候创建</li>
@@ -156,6 +151,7 @@ PC 寄存器
 <li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
 <li>对分代的 GC 来说, 堆也是分代的</li>
 </ul>
+<p><img src="/media/14856196096389.jpg" alt=""></p>
 <h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
 <ul>
 <li>线程私有</li>
@@ -169,7 +165,7 @@ PC 寄存器
     
       <div class="article-toc">
         <h3>Contents</h3>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的基本结构"><span class="toc-number">1.</span> <span class="toc-text">JVM 的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PC-寄存器"><span class="toc-number">1.1.</span> <span class="toc-text">PC 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法区"><span class="toc-number">1.2.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-堆"><span class="toc-number">1.3.</span> <span class="toc-text">JAVA 堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-栈"><span class="toc-number">1.4.</span> <span class="toc-text">JAVA 栈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的运行机制"><span class="toc-number">2.</span> <span class="toc-text">JVM 的运行机制</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的基本结构"><span class="toc-number">1.</span> <span class="toc-text">JVM 的基本结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA-内存模型"><span class="toc-number">2.</span> <span class="toc-text">JAVA 内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PC-寄存器"><span class="toc-number">2.1.</span> <span class="toc-text">PC 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法区"><span class="toc-number">2.2.</span> <span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-堆"><span class="toc-number">2.3.</span> <span class="toc-text">JAVA 堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA-栈"><span class="toc-number">2.4.</span> <span class="toc-text">JAVA 栈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM-的运行机制"><span class="toc-number">3.</span> <span class="toc-text">JVM 的运行机制</span></a></li></ol>
       </div>
     
     
