@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>日拱一卒,功不唐捐</title>
+  <title>vim python IDE | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录下python vim 的搭建，以备以后查询方便 vim 安装我使用的是mac，直接使用brew安装，一键搞定 brew install vim 安装之后查看安装结果 12345678910111213141516171819202122232425262728293031323334353637383940414243444546vim --version~ vim --versionVIM">
+<meta name="keywords" content="vim,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:title" content="vim python IDE">
 <meta property="og:url" content="http://yangsui.me/vim-python-ide/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
 <meta property="og:description" content="记录下python vim 的搭建，以备以后查询方便 vim 安装我使用的是mac，直接使用brew安装，一键搞定 brew install vim 安装之后查看安装结果 12345678910111213141516171819202122232425262728293031323334353637383940414243444546vim --version~ vim --versionVIM">
-<meta property="og:updated_time" content="2017-05-04T05:34:45.000Z">
+<meta property="og:updated_time" content="2017-05-05T13:03:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:title" content="vim python IDE">
 <meta name="twitter:description" content="记录下python vim 的搭建，以备以后查询方便 vim 安装我使用的是mac，直接使用brew安装，一键搞定 brew install vim 安装之后查看安装结果 12345678910111213141516171819202122232425262728293031323334353637383940414243444546vim --version~ vim --versionVIM">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
@@ -156,6 +157,21 @@
             <article id="post-vim-python-ide" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim python IDE
+    </h1>
+  
+
+        
+        <a href="/vim-python-ide/" class="archive-article-date">
+  	<time datetime="2017-05-03T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>记录下python vim 的搭建，以备以后查询方便</p>
@@ -163,6 +179,7 @@
 <p><code>brew install vim</code></p>
 <p>安装之后查看安装结果</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">vim --version</div><div class="line"></div><div class="line">~ vim --version</div><div class="line">VIM - Vi IMproved <span class="number">8.0</span> (<span class="number">2016</span> Sep <span class="number">12</span>, compiled May  <span class="number">2</span> <span class="number">2017</span> <span class="number">03</span>:<span class="number">55</span>:<span class="number">34</span>)</div><div class="line"><span class="function">MacOS <span class="title">X</span> <span class="params">(unix)</span> version</span></div><div class="line">Included patches: 1-596</div><div class="line">Compiled by Homebrew</div><div class="line">Huge version without GUI.  Features <span class="title">included</span> <span class="params">(+)</span> or <span class="title">not</span> <span class="params">(-)</span>:</div><div class="line">+acl             +file_in_path    +mouse_sgr       +tag_old_static</div><div class="line">+arabic          +find_in_path    -mouse_sysmouse  -tag_any_white</div><div class="line">+autocmd         +<span class="keyword">float</span>           +mouse_urxvt     -tcl</div><div class="line">-balloon_eval    +folding         +mouse_xterm     +termguicolors</div><div class="line">-browse          -footer          +multi_byte      +terminfo</div><div class="line">++builtin_terms  +<span class="title">fork</span><span class="params">()</span>          +multi_lang      +termresponse</div><div class="line">+byte_offset     -gettext         -mzscheme        +textobjects</div><div class="line">+channel         -hangul_input    +netbeans_intg   +timers</div><div class="line">+cindent         +iconv           +num64           +title</div><div class="line">-clientserver    +insert_expand   +packages        -toolbar</div><div class="line">+clipboard       +job             +path_extra      +user_commands</div><div class="line">+cmdline_compl   +jumplist        +perl            +vertsplit</div><div class="line">+cmdline_hist    +keymap          +persistent_undo +virtualedit</div><div class="line">+cmdline_info    +lambda          +postscript      +visual</div><div class="line">+comments        +langmap         +printer         +visualextra</div><div class="line">+conceal         +libcall         +profile         +viminfo</div><div class="line">+cryptv          +linebreak       +python          +vreplace</div><div class="line">+cscope          +lispindent      -python3         +wildignore</div><div class="line">+cursorbind      +listcmds        +quickfix        +wildmenu</div><div class="line">+cursorshape     +localmap        +reltime         +windows</div><div class="line">+dialog_con      -lua             +rightleft       +writebackup</div><div class="line">+diff            +menu            +ruby            -X11</div><div class="line">+digraphs        +mksession       +scrollbind      -xfontset</div><div class="line">-dnd             +modify_fname    +signs           -xim</div><div class="line">-ebcdic          +mouse           +smartindent     -xpm</div><div class="line">+emacs_tags      -mouseshape      +startuptime     -xsmp</div><div class="line">+eval            +mouse_dec       +statusline      -xterm_clipboard</div><div class="line">+ex_extra        -mouse_gpm       -sun_workshop    -xterm_save</div><div class="line">+extra_search    -mouse_jsbterm   +syntax</div><div class="line">+farsi           +mouse_netterm   +tag_binary</div><div class="line">   system vimrc file: "$VIM/vimrc"</div><div class="line">     user vimrc file: "$HOME/.vimrc"</div><div class="line"> 2nd user vimrc file: "~/.vim/vimrc"</div><div class="line">      user exrc file: "$HOME/.exrc"</div><div class="line">       defaults file: "$VIMRUNTIME/defaults.vim"</div><div class="line">  fall-back <span class="keyword">for</span> $VIM: "/usr/local/share/vim"</div><div class="line">Compilation: clang -c -I. -Iproto -DHAVE_CONFIG_H   -DMACOS_X_UNIX  -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=<span class="number">1</span></div><div class="line">Linking: clang   -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib  -L/usr/local/lib -o vim        -lncurses -liconv -framework Cocoa   -mmacosx-version-min=<span class="number">10.12</span> -fstack-protector-strong -L/usr/local/lib  -L/usr/local/Cellar/perl/<span class="number">5.24</span>.1/lib/perl5/<span class="number">5.24</span>.1/darwin-thread-multi-<span class="number">2l</span>evel/CORE -lperl -lm -lutil -lc -F/usr/local/opt/python/</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h1><p>由 <code>vim --version</code> 可以看到相关的配置信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">system vimrc file: &quot;$VIM/vimrc&quot;</div><div class="line">     user vimrc file: &quot;$HOME/.vimrc&quot;</div><div class="line"> 2nd user vimrc file: &quot;~/.vim/vimrc&quot;</div><div class="line">      user exrc file: &quot;$HOME/.exrc&quot;</div><div class="line">       defaults file: &quot;$VIMRUNTIME/defaults.vim&quot;</div><div class="line">  fall-back for $VIM: &quot;/usr/local/share/vim&quot;</div></pre></td></tr></table></figure>
 <p>在用户的根目录下创建 <code>.vimrc</code> 配置文件，所有的配置信息都放到里面</p>
@@ -213,7 +230,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -287,8 +330,8 @@
     </a>
   
   
-    <a href="/hibernate-search-elasticsearch/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hibernate-search-elasticsearch 集成</div>
+    <a href="/同步异步阻塞非阻塞理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阻塞，非阻塞，同步，异步概念理解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,6 +460,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">system</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
