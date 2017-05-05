@@ -293,95 +293,6 @@
 
 
   
-    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
-    </h1>
-  
-
-        
-        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
-<p>严重参考并组合了以下几篇文章。</p>
-<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
-<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
-<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
-<ol>
-<li>等待数据准备 (Waiting for the data to be ready)</li>
-<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
-</ol>
-<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
-<ul>
-<li>阻塞 I/O（blocking IO）</li>
-<li>非阻塞 I/O（nonblocking IO）</li>
-<li>I/O 多路复用（ IO multiplexing）</li>
-<li>信号驱动 I/O（ signal driven IO）</li>
-<li>异步 I/O（asynchronous IO）</li>
-</ul>
-        
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-hibernate-search-elasticsearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -476,6 +387,95 @@
 
 
   
+    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
+    </h1>
+  
+
+        
+        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
+  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
+<p>严重参考并组合了以下几篇文章。</p>
+<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
+<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
+<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
+<ol>
+<li>等待数据准备 (Waiting for the data to be ready)</li>
+<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
+</ol>
+<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
+<ul>
+<li>阻塞 I/O（blocking IO）</li>
+<li>非阻塞 I/O（nonblocking IO）</li>
+<li>I/O 多路复用（ IO multiplexing）</li>
+<li>信号驱动 I/O（ signal driven IO）</li>
+<li>异步 I/O（asynchronous IO）</li>
+</ul>
+        
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-春节期间读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -549,6 +549,95 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/春节期间读书计划/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
         </p>
       
 
@@ -654,95 +743,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/位运算的作用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA8-OverView/" class="archive-article-date">
-  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>最近一周 JAVA8 的学习总结</p>
-<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
-<li>Predicate<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Consumer<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Function<t, r=""></t,></li>
-</ul>
-<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
-<ul>
-<li>Supplier<t></t></li>
-</ul>
-<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
-        
-          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
         </p>
       
 
@@ -1000,11 +1000,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">system</a>
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
+                <a href="javascript:void(0)" class="js-tag color2">system</a>
               </li>
             
             <div class="clearfix"></div>
