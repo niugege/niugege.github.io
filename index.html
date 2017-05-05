@@ -188,53 +188,6 @@
 
 
   
-    <article id="post-python-hard-way" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。</p>
-<ol>
-<li><p>字符串替换中 <code>%s</code> <code>$r</code> 的区别</p>
-<p>stackoverflow 上曾经有人问过 <a href="http://stackoverflow.com/questions/2354329/whats-the-meaning-of-r-in-python" target="_blank" rel="external">what’s the meaning of %r in python</a> 回答得很清楚</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Background:</div><div class="line"></div><div class="line">In Python, there are two builtin functions for turning an object into a string: str vs. repr. str is supposed to be a friendly, human readable string. repr is supposed to include detailed information about an object's contents (sometimes, they'll return the same thing, such as for integers). By convention, if there's a Python expression that will eval to another object that's ==, repr will return such an expression e.g.</div><div class="line"></div><div class="line">&gt;&gt;&gt; print repr('hi')</div><div class="line">'hi'  # notice the quotes here as opposed to...</div><div class="line">&gt;&gt;&gt; print str('hi')</div><div class="line">hi</div><div class="line"></div><div class="line">If returning an expression doesn't make sense for an object, repr should return a string that's surrounded by &lt; and &gt; symbols e.g. &lt;blah&gt;.</div><div class="line"></div><div class="line">To answer your original question:</div><div class="line"></div><div class="line">%s &lt;-&gt; str</div><div class="line">%r &lt;-&gt; repr</div><div class="line"></div><div class="line">In addition:</div><div class="line"></div><div class="line">You can control the way an instance of your own classes convert to strings by implementing __str__ and __repr__ methods.</div><div class="line"></div><div class="line">class Foo:</div><div class="line"></div><div class="line">  def __init__(self, foo):</div><div class="line">    self.foo = foo</div><div class="line"></div><div class="line">  def __eq__(self, other):</div><div class="line">    """Implements ==."""</div><div class="line">    return self.foo == other.foo</div><div class="line"></div><div class="line">  def __repr__(self):</div><div class="line">    # if you eval the return value of this function,</div><div class="line">    # you'll get another Foo instance that's == to self</div><div class="line">    return "Foo(%r)" % self.foo</div></pre></td></tr></table></figure>
-<p>查看 <a href="https://docs.python.org/2/library/functions.html#str" target="_blank" rel="external">python str()</a> 的文档也说得很清楚：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Return a string containing a nicely printable representation of an object. For strings, this returns the string itself. The difference with repr(object) is that str(object) does not always attempt to return a string that is acceptable to eval(); its goal is to return a printable string. If no argument is given, returns the empty string, ''.</div><div class="line"></div><div class="line">For more information on strings see Sequence Types — str, unicode, list, tuple, bytearray, buffer, xrange which describes sequence functionality (strings are sequences), and also the string-specific methods described in the String Methods section. To output formatted strings use template strings or the <span class="comment">% operator described in the String Formatting Operations section. In addition see the String Services section. See also unicode().</span></div></pre></td></tr></table></figure>
-<p>简言之：<code>%s</code> 使用 <code>str()</code> 函数格式化字符串，只返回这个<strong>字符串本身</strong>。 <code>%r</code> 使用 <code>repr()</code> 函数，可能会返回对象额外的信息。由于调试非常的方便。</p>
-</li>
-<li><p><code>pydoc</code> 命令</p>
-<p>以前没注意，居然可以直接在命令行使用 <code>pydoc</code> 命令，真是方便啊。</p>
-</li>
-<li><p>打发打发</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/python-hard-way/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-vim-python-ide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -279,6 +232,95 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/vim-python-ide/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
+    </h1>
+  
+
+        
+        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
+  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
+<p>严重参考并组合了以下几篇文章。</p>
+<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
+<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
+<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
+<ol>
+<li>等待数据准备 (Waiting for the data to be ready)</li>
+<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
+</ol>
+<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
+<ul>
+<li>阻塞 I/O（blocking IO）</li>
+<li>非阻塞 I/O（nonblocking IO）</li>
+<li>I/O 多路复用（ IO multiplexing）</li>
+<li>信号驱动 I/O（ signal driven IO）</li>
+<li>异步 I/O（asynchronous IO）</li>
+</ul>
+        
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
         </p>
       
 
@@ -387,20 +429,20 @@
 
 
   
-    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python-hard-way" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
+      <a class="article-title" href="/python-hard-way/">春节读书计划</a>
     </h1>
   
 
         
-        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
+        <a href="/python-hard-way/" class="archive-article-date">
+  	<time datetime="2017-01-26T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
 </a>
         
       </header>
@@ -408,25 +450,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- toc -->
-<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
-<p>严重参考并组合了以下几篇文章。</p>
-<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
-<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
-<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
+<p>在读 <strong>python hard way</strong> 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。</p>
 <ol>
-<li>等待数据准备 (Waiting for the data to be ready)</li>
-<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
-</ol>
-<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
-<ul>
-<li>阻塞 I/O（blocking IO）</li>
-<li>非阻塞 I/O（nonblocking IO）</li>
-<li>I/O 多路复用（ IO multiplexing）</li>
-<li>信号驱动 I/O（ signal driven IO）</li>
-<li>异步 I/O（asynchronous IO）</li>
-</ul>
+<li><p>字符串替换中 <code>%s</code> <code>$r</code> 的区别</p>
+<p>stackoverflow 上曾经有人问过 <a href="http://stackoverflow.com/questions/2354329/whats-the-meaning-of-r-in-python" target="_blank" rel="external">what’s the meaning of %r in python</a> 回答得很清楚</p>
         
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
+          <a class="article-more-a" href="/python-hard-way/#more">more >></a>
         
       
 
@@ -440,7 +469,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
         		</li>
       		
 		</ul>
@@ -452,7 +481,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        			<a href="/categories/reading/" class="article-tag-list-link color3">reading</a>
         		</li>
       		
 		</ul>
@@ -461,7 +490,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
+          <a class="article-more-a" href="/python-hard-way/">展开全文 >></a>
         </p>
       
 
@@ -549,6 +578,95 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/春节期间读书计划/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
         </p>
       
 
@@ -654,95 +772,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/位运算的作用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA8-OverView/" class="archive-article-date">
-  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>最近一周 JAVA8 的学习总结</p>
-<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
-<li>Predicate<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Consumer<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Function<t, r=""></t,></li>
-</ul>
-<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
-<ul>
-<li>Supplier<t></t></li>
-</ul>
-<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
-        
-          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
         </p>
       
 
@@ -992,6 +1021,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1001,10 +1034,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">system</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
             
             <div class="clearfix"></div>

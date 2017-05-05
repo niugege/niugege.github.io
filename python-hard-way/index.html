@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>日拱一卒,功不唐捐</title>
+  <title>春节读书计划 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚 123456789101112131415161718192021222324252627282930313233Background:In Python, there">
+  <meta name="description" content="在读 python hard way 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚">
+<meta name="keywords" content="reading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:title" content="春节读书计划">
 <meta property="og:url" content="http://yangsui.me/python-hard-way/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚 123456789101112131415161718192021222324252627282930313233Background:In Python, there">
-<meta property="og:updated_time" content="2017-05-04T13:15:26.000Z">
+<meta property="og:description" content="在读 python hard way 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚">
+<meta property="og:updated_time" content="2017-05-05T12:52:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日拱一卒,功不唐捐">
-<meta name="twitter:description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚 123456789101112131415161718192021222324252627282930313233Background:In Python, there">
+<meta name="twitter:title" content="春节读书计划">
+<meta name="twitter:description" content="在读 python hard way 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。  字符串替换中 %s $r 的区别 stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -156,12 +157,29 @@
             <article id="post-python-hard-way" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      春节读书计划
+    </h1>
+  
+
+        
+        <a href="/python-hard-way/" class="archive-article-date">
+  	<time datetime="2017-01-26T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。</p>
+        <!-- toc -->
+<p>在读 <strong>python hard way</strong> 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。</p>
 <ol>
 <li><p>字符串替换中 <code>%s</code> <code>$r</code> 的区别</p>
 <p>stackoverflow 上曾经有人问过 <a href="http://stackoverflow.com/questions/2354329/whats-the-meaning-of-r-in-python" target="_blank" rel="external">what’s the meaning of %r in python</a> 回答得很清楚</p>
+<a id="more"></a>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Background:</div><div class="line"></div><div class="line">In Python, there are two builtin functions for turning an object into a string: str vs. repr. str is supposed to be a friendly, human readable string. repr is supposed to include detailed information about an object's contents (sometimes, they'll return the same thing, such as for integers). By convention, if there's a Python expression that will eval to another object that's ==, repr will return such an expression e.g.</div><div class="line"></div><div class="line">&gt;&gt;&gt; print repr('hi')</div><div class="line">'hi'  # notice the quotes here as opposed to...</div><div class="line">&gt;&gt;&gt; print str('hi')</div><div class="line">hi</div><div class="line"></div><div class="line">If returning an expression doesn't make sense for an object, repr should return a string that's surrounded by &lt; and &gt; symbols e.g. &lt;blah&gt;.</div><div class="line"></div><div class="line">To answer your original question:</div><div class="line"></div><div class="line">%s &lt;-&gt; str</div><div class="line">%r &lt;-&gt; repr</div><div class="line"></div><div class="line">In addition:</div><div class="line"></div><div class="line">You can control the way an instance of your own classes convert to strings by implementing __str__ and __repr__ methods.</div><div class="line"></div><div class="line">class Foo:</div><div class="line"></div><div class="line">  def __init__(self, foo):</div><div class="line">    self.foo = foo</div><div class="line"></div><div class="line">  def __eq__(self, other):</div><div class="line">    """Implements ==."""</div><div class="line">    return self.foo == other.foo</div><div class="line"></div><div class="line">  def __repr__(self):</div><div class="line">    # if you eval the return value of this function,</div><div class="line">    # you'll get another Foo instance that's == to self</div><div class="line">    return "Foo(%r)" % self.foo</div></pre></td></tr></table></figure>
 <p>查看 <a href="https://docs.python.org/2/library/functions.html#str" target="_blank" rel="external">python str()</a> 的文档也说得很清楚：</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Return a string containing a nicely printable representation of an object. For strings, this returns the string itself. The difference with repr(object) is that str(object) does not always attempt to return a string that is acceptable to eval(); its goal is to return a printable string. If no argument is given, returns the empty string, ''.</div><div class="line"></div><div class="line">For more information on strings see Sequence Types — str, unicode, list, tuple, bytearray, buffer, xrange which describes sequence functionality (strings are sequences), and also the string-specific methods described in the String Methods section. To output formatted strings use template strings or the <span class="comment">% operator described in the String Formatting Operations section. In addition see the String Services section. See also unicode().</span></div></pre></td></tr></table></figure>
@@ -202,7 +220,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/reading/" class="article-tag-list-link color3">reading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -266,18 +306,18 @@
   
 <nav id="article-nav">
   
-    <a href="/upgrade-nojs/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/hibernate-search-elasticsearch/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          hibernate-search-elasticsearch 集成
         
       </div>
     </a>
   
   
-    <a href="/vim-python-ide/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/春节期间读书计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">春节读书计划</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -393,6 +433,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reading</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -402,10 +446,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">system</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">reading</a>
               </li>
             
             <div class="clearfix"></div>
