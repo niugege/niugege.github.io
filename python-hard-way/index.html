@@ -6,42 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>JAVA ClassLoader | 日拱一卒,功不唐捐</title>
+  <title>日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
+  <meta name="description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。
 
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
+字符串替换中 %s $r 的区别
+stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚
+123456789101112131415161718192021222324252627282930313233Background:In Python, there">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA ClassLoader">
-<meta property="og:url" content="http://yangsui.me/2016-11-10-2/index.html">
+<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:url" content="http://yangsui.me/python-hard-way/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
+<meta property="og:description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。
 
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
-<meta property="og:updated_time" content="2016-11-10T15:08:57.000Z">
+字符串替换中 %s $r 的区别
+stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚
+123456789101112131415161718192021222324252627282930313233Background:In Python, there">
+<meta property="og:updated_time" content="2017-05-04T13:15:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA ClassLoader">
-<meta name="twitter:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
+<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:description" content="虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。
 
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
+字符串替换中 %s $r 的区别
+stackoverflow 上曾经有人问过 what’s the meaning of %r in python 回答得很清楚
+123456789101112131415161718192021222324252627282930313233Background:In Python, there">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -181,46 +169,26 @@ JAR 包中加载 class 文件
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2016-11-10-2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python-hard-way" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JAVA ClassLoader
-    </h1>
-  
-
-        
-        <a href="/2016-11-10-2/" class="archive-article-date">
-  	<time datetime="2016-11-10T14:22:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="java-类加载器概述"><a href="#java-类加载器概述" class="headerlink" title="java 类加载器概述"></a>java 类加载器概述</h1><p>要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 <code>.class</code> 文件加载到内存中, 并生成一个 <code>java.lang.Class</code> 对象.</p>
-<p>字节码文件通常有一下来源:</p>
-<ul>
-<li>本地磁盘文件系统 class 文件</li>
-<li>JAR 包中加载 class 文件</li>
-<li>网络地址加载 class 文件</li>
-<li>动态编译一个 java 源文件, 并执行加载</li>
-</ul>
-<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><p>java 中的类加载器是通过双亲委派模型来实现的, 有如下特点</p>
-<ul>
-<li><p>类的加载过程采用委托模式实现. 某个特定的类加载器在接到加载类的请求时, 首先将加载任务委托给父类加载器, 依次递归, 如果父类加载器可以完成类加载任务, 就成功返回; 只有父类加载器无法完成此加载任务时, 才自己去加载.</p>
+        <p>虽然是本在简单不过的书，还是会发现自己的错误，所以实践才是王道。</p>
+<ol>
+<li><p>字符串替换中 <code>%s</code> <code>$r</code> 的区别</p>
+<p>stackoverflow 上曾经有人问过 <a href="http://stackoverflow.com/questions/2354329/whats-the-meaning-of-r-in-python" target="_blank" rel="external">what’s the meaning of %r in python</a> 回答得很清楚</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Background:</div><div class="line"></div><div class="line">In Python, there are two builtin functions for turning an object into a string: str vs. repr. str is supposed to be a friendly, human readable string. repr is supposed to include detailed information about an object's contents (sometimes, they'll return the same thing, such as for integers). By convention, if there's a Python expression that will eval to another object that's ==, repr will return such an expression e.g.</div><div class="line"></div><div class="line">&gt;&gt;&gt; print repr('hi')</div><div class="line">'hi'  # notice the quotes here as opposed to...</div><div class="line">&gt;&gt;&gt; print str('hi')</div><div class="line">hi</div><div class="line"></div><div class="line">If returning an expression doesn't make sense for an object, repr should return a string that's surrounded by &lt; and &gt; symbols e.g. &lt;blah&gt;.</div><div class="line"></div><div class="line">To answer your original question:</div><div class="line"></div><div class="line">%s &lt;-&gt; str</div><div class="line">%r &lt;-&gt; repr</div><div class="line"></div><div class="line">In addition:</div><div class="line"></div><div class="line">You can control the way an instance of your own classes convert to strings by implementing __str__ and __repr__ methods.</div><div class="line"></div><div class="line">class Foo:</div><div class="line"></div><div class="line">  def __init__(self, foo):</div><div class="line">    self.foo = foo</div><div class="line"></div><div class="line">  def __eq__(self, other):</div><div class="line">    """Implements ==."""</div><div class="line">    return self.foo == other.foo</div><div class="line"></div><div class="line">  def __repr__(self):</div><div class="line">    # if you eval the return value of this function,</div><div class="line">    # you'll get another Foo instance that's == to self</div><div class="line">    return "Foo(%r)" % self.foo</div></pre></td></tr></table></figure>
+<p>查看 <a href="https://docs.python.org/2/library/functions.html#str" target="_blank" rel="external">python str()</a> 的文档也说得很清楚：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Return a string containing a nicely printable representation of an object. For strings, this returns the string itself. The difference with repr(object) is that str(object) does not always attempt to return a string that is acceptable to eval(); its goal is to return a printable string. If no argument is given, returns the empty string, ''.</div><div class="line"></div><div class="line">For more information on strings see Sequence Types — str, unicode, list, tuple, bytearray, buffer, xrange which describes sequence functionality (strings are sequences), and also the string-specific methods described in the String Methods section. To output formatted strings use template strings or the <span class="comment">% operator described in the String Formatting Operations section. In addition see the String Services section. See also unicode().</span></div></pre></td></tr></table></figure>
+<p>简言之：<code>%s</code> 使用 <code>str()</code> 函数格式化字符串，只返回这个<strong>字符串本身</strong>。 <code>%r</code> 使用 <code>repr()</code> 函数，可能会返回对象额外的信息。由于调试非常的方便。</p>
 </li>
-<li><p>JVM 预定义了三种类加载器</p>
-<ul>
-<li>根类加载器(Bootstrap ClassLoader). 由C++实现, 负责将<code>&lt;Java_Runtime_Home&gt;/lib</code>下面的类库加载到内存中, 如 rt.jar</li>
-<li>扩展类加载器(Extension ClassLoader). 负责将 <code>&lt;Java_Runtime_Home &gt;/lib/ext</code> 或者由系统变量 java.ext.dir指定位置中的类库加载到内存中. 开发者可以直接使用标准扩展类加载器.</li>
-<li>系统类加载器(System ClassLoader). 负责将系统类路径（CLASSPATH）中指定的类库加载到内存中. 开发者可以直接使用系统类加载器。</li>
-</ul>
+<li><p><code>pydoc</code> 命令</p>
+<p>以前没注意，居然可以直接在命令行使用 <code>pydoc</code> 命令，真是方便啊。</p>
 </li>
-</ul>
+<li><p>打发打发</p>
+</li>
+</ol>
 
       
 
@@ -300,7 +268,7 @@ JAR 包中加载 class 文件
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/2016-11-10-2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/python-hard-way/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +282,9 @@ JAR 包中加载 class 文件
   
 <nav id="article-nav">
   
-    <a href="/tmux基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          编辑器之 tmux
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-11-10-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux 基础命令</div>
+    <a href="/vim-python-ide/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
