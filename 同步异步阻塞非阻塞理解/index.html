@@ -8,20 +8,13 @@
   <link rel="dns-prefetch" href="http://yangsui.me">
   <title>阻塞，非阻塞，同步，异步概念理解 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
-严重参考并组合了以下几篇文章。
-Linux IO模式及 select、poll、epoll详解
-怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
+  <meta name="description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。 严重参考并组合了以下几篇文章。 Linux IO模式及 select、poll、epoll详解 怎样理解阻塞非阻塞与同步异步的区别 我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
+<meta name="keywords" content="system">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阻塞，非阻塞，同步，异步概念理解">
 <meta property="og:url" content="http://yangsui.me/同步异步阻塞非阻塞理解/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
-严重参考并组合了以下几篇文章。
-Linux IO模式及 select、poll、epoll详解
-怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
+<meta property="og:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。 严重参考并组合了以下几篇文章。 Linux IO模式及 select、poll、epoll详解 怎样理解阻塞非阻塞与同步异步的区别 我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639194732.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639318890.jpg">
 <meta property="og:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639787508.jpg">
@@ -32,11 +25,7 @@ Linux IO模式及 select、poll、epoll详解
 <meta property="og:updated_time" content="2017-03-02T15:12:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阻塞，非阻塞，同步，异步概念理解">
-<meta name="twitter:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。
-严重参考并组合了以下几篇文章。
-Linux IO模式及 select、poll、epoll详解
-怎样理解阻塞非阻塞与同步异步的区别
-我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
+<meta name="twitter:description" content="对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。 严重参考并组合了以下几篇文章。 Linux IO模式及 select、poll、epoll详解 怎样理解阻塞非阻塞与同步异步的区别 我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。">
 <meta name="twitter:image" content="http://7xlqpv.com1.z0.glb.clouddn.com/14884639194732.jpg">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">

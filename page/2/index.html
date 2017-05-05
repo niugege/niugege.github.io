@@ -154,6 +154,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tmux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tmux基础/">编辑器之 tmux</a>
+    </h1>
+  
+
+        
+        <a href="/tmux基础/" class="archive-article-date">
+  	<time datetime="2016-11-11T06:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>mac 上安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tmux</div></pre></td></tr></table></figure>
+<p>需要使用的时候只需要在命令行输入  <code>tmux</code><br>tmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 <code>ctrl + b</code></p>
+<h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><p>直接在终端查看 session 相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tmux ls 列出会话</div><div class="line">tmux attach -t session 进入某个会话</div><div class="line">tmux -r 连接上个断开的session</div><div class="line">tmux new -s session -d 在后台建立会话</div></pre></td></tr></table></figure>
+<p>进入 tmux 后查看 session 相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctrl+b s 查看/切换session</div><div class="line">ctrl+b d 离开(detach)session</div><div class="line">ctrl+b $ 重命名当前session</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/tmux基础/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tmux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/tmux基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-2016-11-10-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -761,63 +832,6 @@ no-appendfsync-on-rewrite no
 
 
   
-    <article id="post-原码 反码 补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
-    </h1>
-  
-
-        
-        <a href="/原码 反码 补码/" class="archive-article-date">
-  	<time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title">原码反码补码</a>，觉得写的非常的好 </p>
-<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
-<li><p>机器数</p>
-<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
-<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
-</li>
-</ol>
-        
-          <a class="article-more-a" href="/原码 反码 补码/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/原码 反码 补码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -876,7 +890,7 @@ no-appendfsync-on-rewrite no
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

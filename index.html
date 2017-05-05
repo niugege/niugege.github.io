@@ -154,6 +154,40 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-upgrade-nojs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>node</code> 的 <code>n</code> 模块可以升级版本，不错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装 n 模块</div><div class="line"><span class="meta">$</span> sudo npm install -g n</div><div class="line"><span class="meta"></span></div><div class="line"># 选择一个流行版本安装</div><div class="line"><span class="meta">$</span> sudo n v6.10.3 </div><div class="line"><span class="meta"></span></div><div class="line"># 自动安装最新的稳定版本</div><div class="line"><span class="meta">$</span> sudo n stable  </div><div class="line"><span class="meta"></span></div><div class="line"># 查看所有node版本</div><div class="line"><span class="meta">$</span> sudo n ls</div><div class="line"><span class="meta"></span></div><div class="line"># 查看Node的版本，检查升级是否成功</div><div class="line"><span class="meta">$</span> node -v</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/upgrade-nojs/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-python-hard-way" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -214,24 +248,24 @@
 <h1 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h1><p>由 <code>vim --version</code> 可以看到相关的配置信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">system vimrc file: &quot;$VIM/vimrc&quot;</div><div class="line">     user vimrc file: &quot;$HOME/.vimrc&quot;</div><div class="line"> 2nd user vimrc file: &quot;~/.vim/vimrc&quot;</div><div class="line">      user exrc file: &quot;$HOME/.exrc&quot;</div><div class="line">       defaults file: &quot;$VIMRUNTIME/defaults.vim&quot;</div><div class="line">  fall-back for $VIM: &quot;/usr/local/share/vim&quot;</div></pre></td></tr></table></figure>
 <p>在用户的根目录下创建 <code>.vimrc</code> 配置文件，所有的配置信息都放到里面</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">&quot;开启语法高亮</div><div class="line">syntax enable</div><div class="line"></div><div class="line">colorscheme solarized</div><div class="line">set number</div><div class="line"></div><div class="line">&quot;隐藏顶部标签栏</div><div class="line">set nocompatible</div><div class="line"></div><div class="line">&quot;隐藏滚动条&quot;</div><div class="line">set guioptions-=r</div><div class="line">set guioptions-=L</div><div class="line">set guioptions-=b</div><div class="line">set guifont=Monaco:h13</div><div class="line"></div><div class="line">&quot;隐藏顶部标签栏</div><div class="line">set showtabline=0</div><div class="line"></div><div class="line">&quot;字体</div><div class="line">set guifont=Source\ Code\ Pro\ for\ Powerline:h13</div><div class="line"></div><div class="line">&quot;solarized主题设置在终端下的设置</div><div class="line">let g:solarized_termcolors=256</div><div class="line"></div><div class="line">&quot;设置背景色</div><div class="line">set background=dark</div><div class="line"></div><div class="line">&quot;设置不折行</div><div class="line">set nowrap</div><div class="line"></div><div class="line">&quot;设置以unix的格式保存文件</div><div class="line">set fileformat=unix</div><div class="line"></div><div class="line">&quot;设置C样式的缩进格式</div><div class="line">set cindent</div><div class="line"></div><div class="line">&quot;设置table长度</div><div class="line">set tabstop=4</div><div class="line"></div><div class="line">&quot;同上</div><div class="line">set shiftwidth=4</div><div class="line"></div><div class="line">&quot;显示匹配的括号</div><div class="line">set showmatch</div><div class="line"></div><div class="line">&quot;距离顶部和底部5行</div><div class="line">set scrolloff=5</div><div class="line"></div><div class="line">&quot;命令行为两行</div><div class="line">set laststatus=2</div><div class="line"></div><div class="line">&quot;文件编码</div><div class="line">set fenc=utf-8</div><div class="line">set backspace=2</div><div class="line"></div><div class="line">&quot;启用鼠标</div><div class="line">set mouse=a</div><div class="line">set matchtime=5</div><div class="line"></div><div class="line">&quot;忽略大小写</div><div class="line">set ignorecase</div><div class="line">set incsearch</div><div class="line"></div><div class="line">&quot;高亮搜索项</div><div class="line">set hlsearch</div><div class="line"></div><div class="line">&quot;不允许扩展table</div><div class="line">set noexpandtab</div><div class="line"></div><div class="line">&quot;文件修改之后自动读入</div><div class="line">set autoread</div><div class="line"></div><div class="line">set whichwrap+=&lt;,&gt;,h,l</div><div class="line"></div><div class="line">&quot;突出显示当前行</div><div class="line">set cursorline</div><div class="line"></div><div class="line">&quot;突出显示当前列</div><div class="line">set cursorcolumn</div></pre></td></tr></table></figure>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line">"开启语法高亮</div><div class="line">syntax enable</div><div class="line"></div><div class="line">colorscheme solarized</div><div class="line">set number</div><div class="line"></div><div class="line">"隐藏顶部标签栏</div><div class="line">set nocompatible</div><div class="line"></div><div class="line">"隐藏滚动条"</div><div class="line">set guioptions-=r</div><div class="line">set guioptions-=L</div><div class="line">set guioptions-=b</div><div class="line">set guifont=Monaco:h13</div><div class="line"></div><div class="line">"隐藏顶部标签栏</div><div class="line">set showtabline=0</div><div class="line"></div><div class="line">"字体</div><div class="line">set guifont=Source\ Code\ Pro\ for\ Powerline:h13</div><div class="line"></div><div class="line">"solarized主题设置在终端下的设置</div><div class="line">let g:solarized_termcolors=256</div><div class="line"></div><div class="line">"设置背景色</div><div class="line">set background=dark</div><div class="line"></div><div class="line">"设置不折行</div><div class="line">set nowrap</div><div class="line"></div><div class="line">"设置以unix的格式保存文件</div><div class="line">set fileformat=unix</div><div class="line"></div><div class="line">"设置C样式的缩进格式</div><div class="line">set cindent</div><div class="line"></div><div class="line">"设置table长度</div><div class="line">set tabstop=4</div><div class="line"></div><div class="line">"同上</div><div class="line">set shiftwidth=4</div><div class="line"></div><div class="line">"显示匹配的括号</div><div class="line">set showmatch</div><div class="line"></div><div class="line">"距离顶部和底部5行</div><div class="line">set scrolloff=5</div><div class="line"></div><div class="line">"命令行为两行</div><div class="line">set laststatus=2</div><div class="line"></div><div class="line">"文件编码</div><div class="line">set fenc=utf-8</div><div class="line">set backspace=2</div><div class="line"></div><div class="line">"启用鼠标</div><div class="line">set mouse=a</div><div class="line">set matchtime=5</div><div class="line"></div><div class="line">"忽略大小写</div><div class="line">set ignorecase</div><div class="line">set incsearch</div><div class="line"></div><div class="line">"高亮搜索项</div><div class="line">set hlsearch</div><div class="line"></div><div class="line">"不允许扩展table</div><div class="line">set noexpandtab</div><div class="line"></div><div class="line">"文件修改之后自动读入</div><div class="line">set autoread</div><div class="line"></div><div class="line">set whichwrap+=&lt;,&gt;,h,l</div><div class="line"></div><div class="line">"突出显示当前行</div><div class="line">set cursorline</div><div class="line"></div><div class="line">"突出显示当前列</div><div class="line">set cursorcolumn</div></pre></td></tr></table></figure>
 <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>我这里使用的是 <a href="https://github.com/altercation/vim-colors-solarized" target="_blank" rel="external">solarized</a> 我不大愿意在安装 <code>Pathogen</code> 所以采用的是第一种暴力安装方式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/altercation/solarized.git</div><div class="line"></div><div class="line">cp solarized/vim-colors-solarized/colors/solarized.vim ~/.vim/colors</div></pre></td></tr></table></figure>
 <p>在 vimrc 中使用 solarized 主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">syntax enable</div><div class="line"></div><div class="line">if has(&apos;gui_running&apos;)</div><div class="line">    set background=light</div><div class="line">else</div><div class="line">    set background=dark</div><div class="line">endif</div><div class="line"></div><div class="line">colorscheme solarized</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">syntax enable</div><div class="line"></div><div class="line">if has('gui_running')</div><div class="line">    set background=light</div><div class="line">else</div><div class="line">    set background=dark</div><div class="line">endif</div><div class="line"></div><div class="line">colorscheme solarized</div></pre></td></tr></table></figure>
 <p>也可以不用 <code>if</code> 判断，直接使用一种主题</p>
-<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&quot; Vundle 设置开始</div><div class="line">filetype off</div><div class="line">&quot; 启用vundle来管理vim插件</div><div class="line">set rtp+=~/.vim/bundle/Vundle.vim</div><div class="line">call vundle#begin()</div><div class="line">&quot; 安装插件写在这之后</div><div class="line"></div><div class="line">Plugin &apos;VundleVim/Vundle.vim&apos;</div><div class="line">Plugin &apos;Valloric/YouCompleteMe&apos;</div><div class="line">Plugin &apos;Lokaltog/vim-powerline&apos;</div><div class="line">Plugin &apos;scrooloose/nerdtree&apos;</div><div class="line">Plugin &apos;Yggdroot/indentLine&apos;</div><div class="line">Plugin &apos;jiangmiao/auto-pairs&apos;</div><div class="line">Plugin &apos;tell-k/vim-autopep8&apos;</div><div class="line">Plugin &apos;scrooloose/nerdcommenter&apos;</div><div class="line"></div><div class="line">&quot; 安装插件写在这之前</div><div class="line">call vundle#end()</div><div class="line">filetype plugin indent on</div><div class="line">&quot; 常用命令</div><div class="line">&quot; :PluginList       - 查看已经安装的插件</div><div class="line">&quot; :PluginInstall    - 安装插件</div><div class="line">&quot; :PluginUpdate     - 更新插件</div><div class="line">&quot; :PluginSearch     - 搜索插件，例如 :PluginSearch xml就能搜到xml相关的插件</div><div class="line">&quot; :PluginClean      - 删除插件，把安装插件对应行删除，然后执行这个命令即可</div><div class="line">&quot; h: vundle         - 获取帮助</div><div class="line">&quot; vundle的配置到此结束，下面是你自己的配置</div></pre></td></tr></table></figure>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">" Vundle 设置开始</div><div class="line">filetype off</div><div class="line">" 启用vundle来管理vim插件</div><div class="line">set rtp+=~/.vim/bundle/Vundle.vim</div><div class="line">call vundle#begin()</div><div class="line">" 安装插件写在这之后</div><div class="line"></div><div class="line">Plugin 'VundleVim/Vundle.vim'</div><div class="line">Plugin 'Valloric/YouCompleteMe'</div><div class="line">Plugin 'Lokaltog/vim-powerline'</div><div class="line">Plugin 'scrooloose/nerdtree'</div><div class="line">Plugin 'Yggdroot/indentLine'</div><div class="line">Plugin 'jiangmiao/auto-pairs'</div><div class="line">Plugin 'tell-k/vim-autopep8'</div><div class="line">Plugin 'scrooloose/nerdcommenter'</div><div class="line"></div><div class="line">" 安装插件写在这之前</div><div class="line">call vundle#end()</div><div class="line">filetype plugin indent on</div><div class="line">" 常用命令</div><div class="line">" :PluginList       - 查看已经安装的插件</div><div class="line">" :PluginInstall    - 安装插件</div><div class="line">" :PluginUpdate     - 更新插件</div><div class="line">" :PluginSearch     - 搜索插件，例如 :PluginSearch xml就能搜到xml相关的插件</div><div class="line">" :PluginClean      - 删除插件，把安装插件对应行删除，然后执行这个命令即可</div><div class="line">" h: vundle         - 获取帮助</div><div class="line">" vundle的配置到此结束，下面是你自己的配置</div></pre></td></tr></table></figure>
 <p>添加完 <code>.vimrc</code>之后，保存退出vim，重启 vim, 输入 <code>:PluginInstall</code> 安装插件</p>
 <h4 id="vim-powerline-插件配置"><a href="#vim-powerline-插件配置" class="headerlink" title="vim-powerline 插件配置"></a>vim-powerline 插件配置</h4><h4 id="you-complete-me-插件配置"><a href="#you-complete-me-插件配置" class="headerlink" title="you-complete-me 插件配置"></a>you-complete-me 插件配置</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>这里有一个需要注意的地方，我们在 <code>.vimrc</code> 中配置了 <code>Plugin &#39;Valloric/YouCompleteMe&#39;</code> ， 使用 <code>:PluginInstall</code> 安装的时候，发现一直卡到 <code>YouCompleteMe</code> 这里，到 <code>vundle</code> 下去看，发现其实已经下载完成了只是在等待安装。我的建议是：可以最后安装这个插件，这个插件还要下在 <code>CLang</code>也比较慢。</p>
 <p>安装比较简单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.vim/bundle/YouCompleteMe</div><div class="line">./install --clang-completer</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.vim/bundle/YouCompleteMe</div><div class="line">./install --clang-completer</div></pre></td></tr></table></figure>
 <p>只是在下载 clang 的时候需要耐心等待下。</p>
 <h5 id="查找并复制配置文件"><a href="#查找并复制配置文件" class="headerlink" title="查找并复制配置文件"></a>查找并复制配置文件</h5><p>安装完成之后，需要查找一个名为 <code>.ycm_extra_conf.py</code> 的隐藏文件，这个文件在很多目录下都有，我是复制的<code>~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py</code> 这个目录下的</p>
 <p>可以使用 <code>find</code> 命令查找下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">YouCompleteMe (master) ✔ </div><div class="line">sudo find  /Users/yangsui/.vim/bundle/YouCompleteMe -name &apos;.*&apos; -print | grep ycm_extra_conf</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/python/ycm/tests/testdata/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/clang/testdata/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/clang/testdata/client_data/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/clang/testdata/general_fallback/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/clang/testdata/noflags/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/clang/testdata/test-include/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/cs/testdata/testy-multiple-solutions/solution-not-named-like-folder/extra-conf-abs/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/cs/testdata/testy-multiple-solutions/solution-not-named-like-folder/extra-conf-bad/testy/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/cs/testdata/testy-multiple-solutions/solution-not-named-like-folder/extra-conf-rel/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/testdata/client/.ycm_extra_conf.py</div><div class="line">/Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd/tests/testdata/extra_conf/project/.ycm_extra_conf.py</div><div class="line">➜  YouCompleteMe (master) ✔ vim /Users/yangsui/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py</div></pre></td></tr></table></figure>
 <p>在vim启动后，YCM会找寻当前路径以及上层路径的<code>.ycm_extra_conf.py</code>在 <code>~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py</code> 中提供了默认的模板。也可以参考我的(就在模板上改改而已)。不过这个解决了标准库提示找不到的问题.</p>
 <p>一般来说,我会在根目录目录下放一个默认的模板，而后再根据不同的项目在当前目录下再拷贝个<code>.ycm_extra_conf.py</code>.</p>
-<h5 id="配置vimrc"><a href="#配置vimrc" class="headerlink" title="配置vimrc"></a>配置<code>vimrc</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&quot;默认配置文件路径&quot;</div><div class="line">let g:ycm_global_ycm_extra_conf = &apos;~/.ycm_extra_conf.py&apos;</div><div class="line"></div><div class="line">&quot;打开vim时不再询问是否加载ycm_extra_conf.py配置&quot;</div><div class="line">let g:ycm_confirm_extra_conf=0</div><div class="line"></div><div class="line">set completeopt=longest,menu</div><div class="line"></div><div class="line">&quot;python解释器路径&quot;</div><div class="line">let g:ycm_path_to_python_interpreter=&apos;/usr/local/bin/python&apos;</div><div class="line"></div><div class="line">&quot;是否开启语义补全&quot;</div><div class="line">let g:ycm_seed_identifiers_with_syntax=1</div><div class="line"></div><div class="line">&quot;是否在注释中也开启补全&quot;</div><div class="line">let g:ycm_complete_in_comments=1</div><div class="line"></div><div class="line">let g:ycm_collect_identifiers_from_comments_and_strings = 0</div><div class="line"></div><div class="line">&quot;开始补全的字符数&quot;</div><div class="line">let g:ycm_min_num_of_chars_for_completion=2</div><div class="line"></div><div class="line">&quot;补全后自动关机预览窗口&quot;</div><div class="line">let g:ycm_autoclose_preview_window_after_completion=1</div><div class="line"></div><div class="line">&quot; 禁止缓存匹配项,每次都重新生成匹配项&quot;</div><div class="line">let g:ycm_cache_omnifunc=0</div><div class="line"></div><div class="line">&quot;字符串中也开启补全&quot;</div><div class="line">let g:ycm_complete_in_strings = 1</div><div class="line"></div><div class="line">&quot;离开插入模式后自动关闭预览窗口&quot;</div><div class="line">autocmd InsertLeave * if pumvisible() == 0|pclose|endif</div><div class="line"></div><div class="line">&quot;回车即选中当前项&quot;</div><div class="line">inoremap &lt;expr&gt; &lt;CR&gt;       pumvisible() ? &apos;&lt;C-y&gt;&apos; : &apos;\&lt;CR&gt;&apos;     </div><div class="line"></div><div class="line">&quot;上下左右键行为&quot;</div><div class="line">inoremap &lt;expr&gt; &lt;Down&gt;     pumvisible() ? &apos;\&lt;C-n&gt;&apos; : &apos;\&lt;Down&gt;&apos;</div><div class="line">inoremap &lt;expr&gt; &lt;Up&gt;       pumvisible() ? &apos;\&lt;C-p&gt;&apos; : &apos;\&lt;Up&gt;&apos;</div><div class="line">inoremap &lt;expr&gt; &lt;PageDown&gt; pumvisible() ? &apos;\&lt;PageDown&gt;\&lt;C-p&gt;\&lt;C-n&gt;&apos; : &apos;\&lt;PageDown&gt;&apos;</div><div class="line">inoremap &lt;expr&gt; &lt;PageUp&gt;   pumvisible() ? &apos;\&lt;PageUp&gt;\&lt;C-p&gt;\&lt;C-n&gt;&apos; : &apos;\&lt;PageUp&gt;&apos;</div></pre></td></tr></table></figure>
+<h5 id="配置vimrc"><a href="#配置vimrc" class="headerlink" title="配置vimrc"></a>配置<code>vimrc</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">"默认配置文件路径"</div><div class="line">let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'</div><div class="line"></div><div class="line">"打开vim时不再询问是否加载ycm_extra_conf.py配置"</div><div class="line">let g:ycm_confirm_extra_conf=0</div><div class="line"></div><div class="line">set completeopt=longest,menu</div><div class="line"></div><div class="line">"python解释器路径"</div><div class="line">let g:ycm_path_to_python_interpreter='/usr/local/bin/python'</div><div class="line"></div><div class="line">"是否开启语义补全"</div><div class="line">let g:ycm_seed_identifiers_with_syntax=1</div><div class="line"></div><div class="line">"是否在注释中也开启补全"</div><div class="line">let g:ycm_complete_in_comments=1</div><div class="line"></div><div class="line">let g:ycm_collect_identifiers_from_comments_and_strings = 0</div><div class="line"></div><div class="line">"开始补全的字符数"</div><div class="line">let g:ycm_min_num_of_chars_for_completion=2</div><div class="line"></div><div class="line">"补全后自动关机预览窗口"</div><div class="line">let g:ycm_autoclose_preview_window_after_completion=1</div><div class="line"></div><div class="line">" 禁止缓存匹配项,每次都重新生成匹配项"</div><div class="line">let g:ycm_cache_omnifunc=0</div><div class="line"></div><div class="line">"字符串中也开启补全"</div><div class="line">let g:ycm_complete_in_strings = 1</div><div class="line"></div><div class="line">"离开插入模式后自动关闭预览窗口"</div><div class="line">autocmd InsertLeave * if pumvisible() == 0|pclose|endif</div><div class="line"></div><div class="line">"回车即选中当前项"</div><div class="line">inoremap &lt;expr&gt; &lt;CR&gt;       pumvisible() ? '&lt;C-y&gt;' : '\&lt;CR&gt;'     </div><div class="line"></div><div class="line">"上下左右键行为"</div><div class="line">inoremap &lt;expr&gt; &lt;Down&gt;     pumvisible() ? '\&lt;C-n&gt;' : '\&lt;Down&gt;'</div><div class="line">inoremap &lt;expr&gt; &lt;Up&gt;       pumvisible() ? '\&lt;C-p&gt;' : '\&lt;Up&gt;'</div><div class="line">inoremap &lt;expr&gt; &lt;PageDown&gt; pumvisible() ? '\&lt;PageDown&gt;\&lt;C-p&gt;\&lt;C-n&gt;' : '\&lt;PageDown&gt;'</div><div class="line">inoremap &lt;expr&gt; &lt;PageUp&gt;   pumvisible() ? '\&lt;PageUp&gt;\&lt;C-p&gt;\&lt;C-n&gt;' : '\&lt;PageUp&gt;'</div></pre></td></tr></table></figure>
 
       
 
@@ -282,8 +316,8 @@
         <!-- toc -->
 <p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
 <p>严重参考并组合了以下几篇文章。</p>
-<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11">Linux IO模式及 select、poll、epoll详解</a></p>
-<p><a href="https://www.zhihu.com/question/19732473">怎样理解阻塞非阻塞与同步异步的区别</a></p>
+<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
+<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
 <p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
 <ol>
 <li>等待数据准备 (Waiting for the data to be ready)</li>
@@ -529,95 +563,6 @@
 
 
   
-    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA8-OverView/" class="archive-article-date">
-  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>最近一周 JAVA8 的学习总结</p>
-<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
-<li>Predicate<T></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Consumer<T></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Function<T, R></li>
-</ul>
-<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<R>, IntToLongFunction, IntToDoubleFunction, LongFunction<R>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<R>, ToIntFunction<T>, ToLongFunction<T>, ToDoubleFunction<T></p>
-<ul>
-<li>Supplier<T></li>
-</ul>
-<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
-        
-          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-位运算的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -709,6 +654,95 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/位运算的作用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
         </p>
       
 
@@ -854,80 +888,9 @@
 
 
   
-    <article id="post-tmux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tmux基础/">编辑器之 tmux</a>
-    </h1>
-  
-
-        
-        <a href="/tmux基础/" class="archive-article-date">
-  	<time datetime="2016-11-11T06:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>mac 上安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tmux</div></pre></td></tr></table></figure>
-<p>需要使用的时候只需要在命令行输入  <code>tmux</code><br>tmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 <code>ctrl + b</code></p>
-<h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><p>直接在终端查看 session 相关信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tmux ls 列出会话</div><div class="line">tmux attach -t session 进入某个会话</div><div class="line">tmux -r 连接上个断开的session</div><div class="line">tmux new -s session -d 在后台建立会话</div></pre></td></tr></table></figure>
-<p>进入 tmux 后查看 session 相关信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctrl+b s 查看/切换session</div><div class="line">ctrl+b d 离开(detach)session</div><div class="line">ctrl+b $ 重命名当前session</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/tmux基础/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tmux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tmux基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

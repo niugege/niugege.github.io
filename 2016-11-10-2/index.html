@@ -8,40 +8,16 @@
   <link rel="dns-prefetch" href="http://yangsui.me">
   <title>JAVA ClassLoader | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
-
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
+  <meta name="description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象. 字节码文件通常有一下来源:  本地磁盘文件系统 class 文件 JAR 包中加载 class 文件 网络地址加载 class 文件 动态编译一个 java 源文件, 并执行加载  类加载器java 中的类加载器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA ClassLoader">
 <meta property="og:url" content="http://yangsui.me/2016-11-10-2/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
-
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
+<meta property="og:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象. 字节码文件通常有一下来源:  本地磁盘文件系统 class 文件 JAR 包中加载 class 文件 网络地址加载 class 文件 动态编译一个 java 源文件, 并执行加载  类加载器java 中的类加载器">
 <meta property="og:updated_time" content="2016-11-10T15:08:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA ClassLoader">
-<meta name="twitter:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象.
-字节码文件通常有一下来源:
-
-本地磁盘文件系统 class 文件
-JAR 包中加载 class 文件
-网络地址加载 class 文件
-动态编译一个 java 源文件, 并执行加载
-
-类加载器java 中的类加载器">
+<meta name="twitter:description" content="java 类加载器概述要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 .class 文件加载到内存中, 并生成一个 java.lang.Class 对象. 字节码文件通常有一下来源:  本地磁盘文件系统 class 文件 JAR 包中加载 class 文件 网络地址加载 class 文件 动态编译一个 java 源文件, 并执行加载  类加载器java 中的类加载器">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   

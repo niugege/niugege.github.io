@@ -8,28 +8,16 @@
   <link rel="dns-prefetch" href="http://yangsui.me">
   <title>为什么String类被设计为不可变 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.
-
-字符串池的要求
-
-字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
+  <meta name="description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.  字符串池的要求  字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么String类被设计为不可变">
 <meta property="og:url" content="http://yangsui.me/2016-10-13/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.
-
-字符串池的要求
-
-字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
+<meta property="og:description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.  字符串池的要求  字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
 <meta property="og:updated_time" content="2016-11-06T06:45:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么String类被设计为不可变">
-<meta name="twitter:description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.
-
-字符串池的要求
-
-字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
+<meta name="twitter:description" content="翻译 为什么 String 被设计成不可变的在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.  字符串池的要求  字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
