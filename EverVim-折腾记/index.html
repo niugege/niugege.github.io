@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>JVM 学习笔记 | 日拱一卒,功不唐捐</title>
+  <title>EverVim 折腾记 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
+  <meta name="description" content="最近在折腾 vim，刚好看 EverVim ，挺符合我的审美，哈哈。 neovimneovim 应该说是更好的 vim，没理由不折腾下，mac上的安装方法  1brew install neovim/neovim/neovim 安装完成之后，一定要做下 :CheckHealth 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没">
+<meta name="keywords" content="vim,tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM 学习笔记">
-<meta property="og:url" content="http://yangsui.me/JVM学习笔记/index.html">
+<meta property="og:title" content="EverVim 折腾记">
+<meta property="og:url" content="http://yangsui.me/EverVim-折腾记/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
-<meta property="og:image" content="http://yangsui.me/media/14774983908543.jpg">
-<meta property="og:image" content="http://yangsui.me/media/14857046734762.jpg">
-<meta property="og:image" content="http://yangsui.me/media/14856196096389.jpg">
-<meta property="og:updated_time" content="2017-01-29T15:49:35.000Z">
+<meta property="og:description" content="最近在折腾 vim，刚好看 EverVim ，挺符合我的审美，哈哈。 neovimneovim 应该说是更好的 vim，没理由不折腾下，mac上的安装方法  1brew install neovim/neovim/neovim 安装完成之后，一定要做下 :CheckHealth 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没">
+<meta property="og:updated_time" content="2017-05-08T06:43:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM 学习笔记">
-<meta name="twitter:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
-<meta name="twitter:image" content="http://yangsui.me/media/14774983908543.jpg">
+<meta name="twitter:title" content="EverVim 折腾记">
+<meta name="twitter:description" content="最近在折腾 vim，刚好看 EverVim ，挺符合我的审美，哈哈。 neovimneovim 应该说是更好的 vim，没理由不折腾下，mac上的安装方法  1brew install neovim/neovim/neovim 安装完成之后，一定要做下 :CheckHealth 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -157,66 +154,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-EverVim-折腾记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JVM 学习笔记
+      EverVim 折腾记
     </h1>
   
 
         
-        <a href="/JVM学习笔记/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
+        <a href="/EverVim-折腾记/" class="archive-article-date">
+  	<time datetime="2017-05-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JVM-的基本结构"><a href="#JVM-的基本结构" class="headerlink" title="JVM 的基本结构"></a>JVM 的基本结构</h1><p>下图是 JVM 执行流程的基本介绍</p>
-<p><img src="/media/14774983908543.jpg" alt=""></p>
-<p>ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为</p>
-<ul>
-<li>方法区</li>
-<li>JAVA堆</li>
-<li>JAVA栈</li>
-<li>本地方法区</li>
-</ul>
-<p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
-<h1 id="JAVA-内存模型"><a href="#JAVA-内存模型" class="headerlink" title="JAVA 内存模型"></a>JAVA 内存模型</h1><p><img src="/media/14857046734762.jpg" alt=""></p>
-<p>JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图我们可以看到，运行时模型，分为 <strong>线程私有</strong> 和 <strong>共享数据</strong> ， 两大类。 我将上图重新画了一下。</p>
-<h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
-<li>每个线程拥有一个 PC 寄存器</li>
-<li>在线程创建的时候创建</li>
-<li>总是指向下一条指令的地址</li>
-<li>执行本地方法的时候值为 undefined</li>
-</ul>
-<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>保存和装载类的元数据信息, 对类进行描述</p>
-<ul>
-<li>类型的常量池</li>
-<li>字段, 方法信息</li>
-<li>方法字节码</li>
-</ul>
-<p>方法区通常同永久区(Perm)关联在一起, 用于保存相对稳定和静止的数据</p>
-<h2 id="JAVA-堆"><a href="#JAVA-堆" class="headerlink" title="JAVA 堆"></a>JAVA 堆</h2><p>堆具有以下特点:</p>
-<ul>
-<li>应用系统分配的对象保存在堆区</li>
-<li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
-<li>对分代的 GC 来说, 堆也是分代的</li>
-</ul>
-<p><img src="/media/14856196096389.jpg" alt=""></p>
-<h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
-<ul>
-<li>线程私有</li>
-<li>栈由一系列帧组成(栈帧),  </li>
-<li>栈帧由三部分组成:栈帧保存一个方法的局部变量, 操作数栈, 常量池指针</li>
-<li>每一个方法调用都会创建一个帧, 并压栈</li>
-</ul>
-<h1 id="JVM-的运行机制"><a href="#JVM-的运行机制" class="headerlink" title="JVM 的运行机制"></a>JVM 的运行机制</h1>
+        <p>最近在折腾 vim，刚好看 <a href="https://github.com/LER0ever/EverVim" target="_blank" rel="external">EverVim</a> ，挺符合我的审美，哈哈。</p>
+<h1 id="neovim"><a href="#neovim" class="headerlink" title="neovim"></a><a href="https://github.com/neovim/neovim" target="_blank" rel="external">neovim</a></h1><p>neovim 应该说是更好的 vim，没理由不折腾下，<a href="https://github.com/neovim/homebrew-neovim#installation" target="_blank" rel="external">mac上的安装方法</a> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install neovim/neovim/neovim</div></pre></td></tr></table></figure>
+<p>安装完成之后，一定要做下 <code>:CheckHealth</code> 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没安装。需要提醒的一句是，health check 提到的python2模块很重要，有可能会导致 <code>You-Complete-Me</code> 的代码提示不起作用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 2:</div><div class="line">    /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 2:</div><div class="line">          /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - INFO: Executable: Not found</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div></pre></td></tr></table></figure>
+<p>赶紧装上 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user --upgrade neovim</div></pre></td></tr></table></figure>
+<p>在检查下就正常了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - INFO: `g:python_host_prog` is not set.  Searching for python2 in the environment.</div><div class="line">  - INFO: Executable: /usr/local/bin/python2</div><div class="line">  - INFO: Python2 version: 2.7.13</div><div class="line">  - INFO: python2-neovim version: 0.1.13</div><div class="line">  - SUCCESS: Latest python2-neovim is installed: 0.1.13</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div><div class="line">    python3.3 not found in search path or not executable.</div><div class="line">    /usr/local/bin/python is Python 2.7 and cannot provide Python 3.</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 3:</div><div class="line">          python3 not found in search path or not executable.</div><div class="line">          python3.7 not found in search path or not executable.</div><div class="line">          python3.6 not found in search path or not executable.</div><div class="line">          python3.5 not found in search path or not executable.</div><div class="line">          python3.4 not found in search path or not executable.</div><div class="line">          python3.3 not found in search path or not executable.</div><div class="line">          /usr/local/bin/python is Python 2.7 and cannot provide Python 3.</div><div class="line">  - INFO: Executable: Not found</div></pre></td></tr></table></figure>
+<p>安装成功之后，使用 <code>nvim</code> 就大公告成了。</p>
+<p>有问题可以查阅neovim 的相关<a href="https://github.com/neovim/neovim/wiki" target="_blank" rel="external">文档</a> 和 FAQ。</p>
+<h1 id="vim-plug-安装"><a href="#vim-plug-安装" class="headerlink" title="vim-plug 安装"></a><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">vim-plug</a> 安装</h1><p>由于 <code>EverVim</code> 使用 <code>vim-plug</code> 来管理插件，要先安装插件管理工具，不然启动 nvim 会报插件相关的错误。</p>
+<p>按照文档的要求，直接安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure>
+<h1 id="EverVim-安装"><a href="#EverVim-安装" class="headerlink" title="EverVim 安装"></a><a href="https://github.com/LER0ever/EverVim" target="_blank" rel="external">EverVim</a> 安装</h1><p>终于到了关键的一步了，参考文档的 <a href="https://github.com/LER0ever/EverVim/wiki/Installation-on-macOS" target="_blank" rel="external">mac安装方法</a> 进行安装。</p>
+<p>我使用python2.7，所以不需要安装python3</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ctags cmake</div></pre></td></tr></table></figure>
+<p>clone 代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/LER0ever/EverVim ~/.EverVim</div></pre></td></tr></table></figure>
+<p>执行初始化安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.EverVim</div><div class="line">sh Boot-EverVim.sh</div></pre></td></tr></table></figure>
+<p>安装结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">➜  ~ cd ~/.EverVim</div><div class="line">➜  .EverVim (master) ✔ sh Boot-EverVim.sh</div><div class="line">Welcome to EverVim, a powerful &amp; modern vim distribution</div><div class="line">Booting EverVim ...</div><div class="line">Soft-Linking Vim/NeoVim Config ...</div><div class="line">/Users/yangsui/.vim/.EverVim -&gt; /Users/yangsui/.EverVim</div><div class="line">/Users/yangsui/.config/nvim -&gt; /Users/yangsui/.EverVim</div><div class="line">/Users/yangsui/.EverVim/init.vim -&gt; /Users/yangsui/.EverVim/vimrc</div><div class="line">/Users/yangsui/.EverVim/ginit.vim -&gt; /Users/yangsui/.EverVim/core/gui.vim</div><div class="line">Copied EverVim configuration sample to ~/.EverVim.vimrc</div><div class="line">Downloading Vim-Plug</div><div class="line"><span class="meta">  %</span> Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100 71947  100 71947    0     0  57150      0  0:00:01  0:00:01 --:--:-- 57191</div><div class="line">Configuring CTags ...</div><div class="line">/Users/yangsui/.ctags -&gt; /Users/yangsui/.EverVim/tools/ctags/ctags</div><div class="line">All done with this script, now run vim/neovim and execute ":PlugInstall"</div></pre></td></tr></table></figure>
+<p>现在可以通过 vim-plug 来安装插件了，使用 <code>nvim</code> 打开 vim，命令模式下，执行 <code>:PlugInstall</code> ，然后就是一路的非常愉快的安装成功了。</p>
+
       
 
       
@@ -245,7 +227,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vim/" class="article-tag-list-link color4">vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -295,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/JVM学习笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/EverVim-折腾记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/redis基本安装和安全设置/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis基础(安装和安全设置)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-10-13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为什么String类被设计为不可变</div>
+    <a href="/upgrade-nodejs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">升级nodejs</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -336,8 +335,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yangsui.me/JVM学习笔记/", 
-    sourceId: "JVM学习笔记",
+    url: "http://yangsui.me/EverVim-折腾记/", 
+    sourceId: "EverVim-折腾记",
     productKey: "d40582898a844c60ae3a6044e3742944",
     target: "cloud-tie-wrapper"
   };

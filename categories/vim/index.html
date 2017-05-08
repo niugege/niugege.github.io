@@ -6,22 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>JVM 学习笔记 | 日拱一卒,功不唐捐</title>
+  <title>Category: vim | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JVM 学习笔记">
-<meta property="og:url" content="http://yangsui.me/JVM学习笔记/index.html">
+  <meta name="description" content="思考">
+<meta property="og:type" content="website">
+<meta property="og:title" content="日拱一卒,功不唐捐">
+<meta property="og:url" content="http://yangsui.me/categories/vim/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
-<meta property="og:image" content="http://yangsui.me/media/14774983908543.jpg">
-<meta property="og:image" content="http://yangsui.me/media/14857046734762.jpg">
-<meta property="og:image" content="http://yangsui.me/media/14856196096389.jpg">
-<meta property="og:updated_time" content="2017-01-29T15:49:35.000Z">
+<meta property="og:description" content="思考">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM 学习笔记">
-<meta name="twitter:description" content="JVM 的基本结构下图是 JVM 执行流程的基本介绍  ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为  方法区 JAVA堆 JAVA栈 本地方法区  虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器执行引擎负责执行类的代码 JAVA 内存模型 JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图">
-<meta name="twitter:image" content="http://yangsui.me/media/14774983908543.jpg">
+<meta name="twitter:title" content="日拱一卒,功不唐捐">
+<meta name="twitter:description" content="思考">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -157,197 +152,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JVM 学习笔记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/EverVim-折腾记/" class="archive-article-date">
+  	<time datetime="2017-05-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/EverVim-折腾记/">EverVim 折腾记</a>
     </h1>
   
 
-        
-        <a href="/JVM学习笔记/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JVM-的基本结构"><a href="#JVM-的基本结构" class="headerlink" title="JVM 的基本结构"></a>JVM 的基本结构</h1><p>下图是 JVM 执行流程的基本介绍</p>
-<p><img src="/media/14774983908543.jpg" alt=""></p>
-<p>ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为</p>
-<ul>
-<li>方法区</li>
-<li>JAVA堆</li>
-<li>JAVA栈</li>
-<li>本地方法区</li>
-</ul>
-<p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
-<h1 id="JAVA-内存模型"><a href="#JAVA-内存模型" class="headerlink" title="JAVA 内存模型"></a>JAVA 内存模型</h1><p><img src="/media/14857046734762.jpg" alt=""></p>
-<p>JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图我们可以看到，运行时模型，分为 <strong>线程私有</strong> 和 <strong>共享数据</strong> ， 两大类。 我将上图重新画了一下。</p>
-<h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
-<li>每个线程拥有一个 PC 寄存器</li>
-<li>在线程创建的时候创建</li>
-<li>总是指向下一条指令的地址</li>
-<li>执行本地方法的时候值为 undefined</li>
-</ul>
-<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>保存和装载类的元数据信息, 对类进行描述</p>
-<ul>
-<li>类型的常量池</li>
-<li>字段, 方法信息</li>
-<li>方法字节码</li>
-</ul>
-<p>方法区通常同永久区(Perm)关联在一起, 用于保存相对稳定和静止的数据</p>
-<h2 id="JAVA-堆"><a href="#JAVA-堆" class="headerlink" title="JAVA 堆"></a>JAVA 堆</h2><p>堆具有以下特点:</p>
-<ul>
-<li>应用系统分配的对象保存在堆区</li>
-<li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
-<li>对分代的 GC 来说, 堆也是分代的</li>
-</ul>
-<p><img src="/media/14856196096389.jpg" alt=""></p>
-<h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
-<ul>
-<li>线程私有</li>
-<li>栈由一系列帧组成(栈帧),  </li>
-<li>栈帧由三部分组成:栈帧保存一个方法的局部变量, 操作数栈, 常量池指针</li>
-<li>每一个方法调用都会创建一个帧, 并压栈</li>
-</ul>
-<h1 id="JVM-的运行机制"><a href="#JVM-的运行机制" class="headerlink" title="JVM 的运行机制"></a>JVM 的运行机制</h1>
-      
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vim/" class="article-tag-list-link color4">vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/JVM学习笔记/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/redis基本安装和安全设置/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis基础(安装和安全设置)
-        
-      </div>
-    </a>
   
   
-    <a href="/2016-10-13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">为什么String类被设计为不可变</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yangsui.me/JVM学习笔记/", 
-    sourceId: "JVM学习笔记",
-    productKey: "d40582898a844c60ae3a6044e3742944",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -370,10 +243,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
