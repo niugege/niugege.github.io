@@ -154,36 +154,44 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-原码 反码 补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于restful api设计的一些探讨" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
+      <a class="article-title" href="/关于restful api设计的一些探讨/">RESTful简单介绍</a>
     </h1>
   
 
         
-        <a href="/原码 反码 补码/" class="archive-article-date">
-  	<time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-01</time>
+        <a href="/关于restful api设计的一些探讨/" class="archive-article-date">
+  	<time datetime="2016-06-08T07:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- toc -->
-<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title" target="_blank" rel="external">原码反码补码</a>，觉得写的非常的好 </p>
-<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
-<li><p>机器数</p>
-<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
-<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
+        <h1 id="RESTful介绍"><a href="#RESTful介绍" class="headerlink" title="RESTful介绍"></a>RESTful介绍</h1><p>本文主要包含以下内容:</p>
+<ul>
+<li>为什么要用RESTful</li>
+<li>RESTful的定义</li>
+<li>RESTful的五个关键内容<ul>
+<li>资源与URI(Resource URI)</li>
+<li>统一资源接口(Uniform Interface)</li>
+<li>资源的表述 (Representation)</li>
+<li>状态的转移 (State Transfer)</li>
+<li>超文本驱动 (Hypertext Driven)</li>
+</ul>
 </li>
-</ol>
+<li>简单比较下REST和RPC两种API调用风格 </li>
+</ul>
+<p>需要注意的是本文只对RESTful进行简单的介绍, 很多内容可探讨的就比较多, 比如安全及授权, 超文本驱动, 所以只对这些内容做简单介绍. 另外文章中的很多内容在实际开发中会有所取舍, 因此本文不是实际开发中的规范, 但是对理解规范是有很大作用的. 另外, 权衡各方面利弊后, 我们会在短期内给出相应的开发规范.</p>
+<p>文中出现的错误或表述不清楚的地方, 欢迎大家指正.</p>
         
-          <a class="article-more-a" href="/原码 反码 补码/#more">more >></a>
+          <a class="article-more-a" href="/关于restful api设计的一些探讨/#more">more >></a>
         
       
 
@@ -196,7 +204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/原码 反码 补码/">展开全文 >></a>
+          <a class="article-more-a" href="/关于restful api设计的一些探讨/">展开全文 >></a>
         </p>
       
 
@@ -375,6 +383,63 @@ no-appendfsync-on-rewrite no
       
         <p class="article-more-link">
           <a class="article-more-a" href="/redis持久化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-原码 反码 补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
+    </h1>
+  
+
+        
+        <a href="/原码 反码 补码/" class="archive-article-date">
+  	<time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title" target="_blank" rel="external">原码反码补码</a>，觉得写的非常的好 </p>
+<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
+<li><p>机器数</p>
+<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
+<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/原码 反码 补码/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/原码 反码 补码/">展开全文 >></a>
         </p>
       
 
