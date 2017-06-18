@@ -154,6 +154,168 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-py-itr-generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: python迭代器，迭代器对象，生成器<br>date: 2017-06-10 11:30<br>tags: [python]<br>categories: python</p>
+<hr>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/relationships.png" alt="container-generator-iterator">dfdf</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/py-itr-generator/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-nginx启动80端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nginx启动80端口/">nginx启动80端口</a>
+    </h1>
+  
+
+        
+        <a href="/nginx启动80端口/" class="archive-article-date">
+  	<time datetime="2017-06-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过brew安装了nginx，<code>普通用户</code>登录，且监听 <code>1024</code> 以下端口，如把端口修改为 <code>80</code>，需要赋予管理员权限</p>
+<p>launchd用于为系统和用户管理进程，主要通过launchctl对其进行操作，用户无法直接调用launchd。<br>启动时由内核调用launchd，运行第一个进程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons</div><div class="line">sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.nginx.plist</div></pre></td></tr></table></figure>
+<p>参考 <a href="http://www.cnblogs.com/kavlez/p/start-nginx-on-port-80-at-os-x.html" target="_blank" rel="external"><a href="http://www.cnblogs.com/kavlez/p/start-nginx-on-port-80-at-os-x.html" target="_blank" rel="external">在80端口启动Nginx</a></a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/nginx/" class="article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/nginx启动80端口/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-java-thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Thread-类分析"><a href="#Thread-类分析" class="headerlink" title="Thread 类分析"></a>Thread 类分析</h1><p>Thread 类声明，Thread类是实现了 Runnable 接口的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Runnable 接口的定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * When an object implementing interface &lt;code&gt;Runnable&lt;/code&gt; is used</div><div class="line">     * to create a thread, starting the thread causes the object's</div><div class="line">     * &lt;code&gt;run&lt;/code&gt; method to be called in that separately executing</div><div class="line">     * thread.</div><div class="line">     * </div><div class="line">     * 当一个对象实现了 Runnable 接口被用于创建一个线程，运行一个线程将导致，在独立执行</div><div class="line">     * 的线程中调用改对象的 run() 方法</div><div class="line">     *</div><div class="line">     * The general contract of the method &lt;code&gt;run&lt;/code&gt; is that it may</div><div class="line">     * take any action whatsoever.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@see</span>     java.lang.Thread#run()</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Runnable接口是一个函数式接口，那么就可以用于jdk8的函数式编程中</li>
+<li>Thread 类实现了 Runnable接口，那么我在创建一个Thread类的时候需要重写 run() 方法</li>
+</ul>
+<p>Thread类start() 方法注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Causes this thread to begin execution; the Java Virtual Machine</div><div class="line"> * calls the &lt;code&gt;run&lt;/code&gt; method of this thread.</div><div class="line"> *</div><div class="line"> * 调用 start() 方法是线程开始执行， jvm 会自动调用该线程的 run() 方法</div><div class="line"> *</div><div class="line"> * &lt;p&gt;</div><div class="line"> * The result is that two threads are running concurrently: the</div><div class="line"> * current thread (which returns from the call to the</div><div class="line"> * &lt;code&gt;start&lt;/code&gt; method) and the other thread (which executes its</div><div class="line"> * &lt;code&gt;run&lt;/code&gt; method).</div><div class="line"> * &lt;p&gt;</div><div class="line"> *</div><div class="line"> * 调用start()方法的结果是：两个线程并发地运行，当前的线程(从调用返回给 start 方法)，和其它线程(执行其 run 方法)。</div><div class="line"> *</div><div class="line"> * It is never legal to start a thread more than once.</div><div class="line"> * In particular, a thread may not be restarted once it has completed</div><div class="line"> * execution.</div><div class="line"> *</div><div class="line"> * 多次启动一个线程是非法的，特别是线程已经结束执行完毕的时候，不能够在启动新的线程</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     * A zero status value corresponds to state "NEW".</div><div class="line">     * 调用start()方法线程状态为 NEW 状态 </div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="keyword">if</span> (threadStatus != <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalThreadStateException();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Thread类run()方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * If this thread was constructed using a separate</div><div class="line"> * &lt;code&gt;Runnable&lt;/code&gt; run object, then that</div><div class="line"> * &lt;code&gt;Runnable&lt;/code&gt; object's &lt;code&gt;run&lt;/code&gt; method is called;</div><div class="line"> * otherwise, this method does nothing and returns.</div><div class="line"> * &lt;p&gt;</div><div class="line"> *</div><div class="line"> * 如果该线程通过传入单独的 Runnable 参数进行创建，那么 Runnable 对象的 run 方法会被调用</div><div class="line"> * 否则，该方法不执行任何操作并返回。</div><div class="line"> *</div><div class="line"> *</div><div class="line"> * Subclasses of &lt;code&gt;Thread&lt;/code&gt; should override this method.</div><div class="line"> * Thread 的之类应该重写该方法</div><div class="line"> *</div><div class="line"> * <span class="doctag">@see</span>     #start()</div><div class="line"> * <span class="doctag">@see</span>     #stop()</div><div class="line"> * <span class="doctag">@see</span>     #Thread(ThreadGroup, Runnable, String)</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">  	<span class="comment">//这里的 target 是一个 Runnable 对象</span></div><div class="line">    <span class="comment">// What will be run</span></div><div class="line">    <span class="comment">// private Runnable target;</span></div><div class="line">    <span class="keyword">if</span> (target != <span class="keyword">null</span>) &#123;</div><div class="line">        target.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到，</p>
+<ul>
+<li>调用 <code>start()</code> 方法会自动调用该线程的<code>run()</code> 方法；</li>
+<li>如果一个线程是通过 new Thread这种方式创建的，而不是传入一个<code>Runnable</code> 对象。如果不调用 <code>start()</code> 方法，而是直接调用 <code>run()</code> 方法，不会有任何效果。通过源代码可以看到，只有 <code>Runnable</code> 对象不为空的情况下才执行 run() 方法的逻辑</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/java-thread/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-python-using-unicode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -330,25 +492,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 2:</div><div class="line">    /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 2:</div><div class="line">          /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - INFO: Executable: Not found</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div></pre></td></tr></table></figure>
 <p>赶紧装上 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user --upgrade neovim</div></pre></td></tr></table></figure>
-<p>&lt;– more –&gt;</p>
-<p>在检查下就正常了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - INFO: `g:python_host_prog` is not set.  Searching for python2 in the environment.</div><div class="line">  - INFO: Executable: /usr/local/bin/python2</div><div class="line">  - INFO: Python2 version: 2.7.13</div><div class="line">  - INFO: python2-neovim version: 0.1.13</div><div class="line">  - SUCCESS: Latest python2-neovim is installed: 0.1.13</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div><div class="line">    python3.3 not found in search path or not executable.</div><div class="line">    /usr/local/bin/python is Python 2.7 and cannot provide Python 3.</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 3:</div><div class="line">          python3 not found in search path or not executable.</div><div class="line">          python3.7 not found in search path or not executable.</div><div class="line">          python3.6 not found in search path or not executable.</div><div class="line">          python3.5 not found in search path or not executable.</div><div class="line">          python3.4 not found in search path or not executable.</div><div class="line">          python3.3 not found in search path or not executable.</div><div class="line">          /usr/local/bin/python is Python 2.7 and cannot provide Python 3.</div><div class="line">  - INFO: Executable: Not found</div></pre></td></tr></table></figure>
-<p>安装成功之后，使用 <code>nvim</code> 就大公告成了。</p>
-<p>有问题可以查阅neovim 的相关<a href="https://github.com/neovim/neovim/wiki" target="_blank" rel="external">文档</a> 和 FAQ。</p>
-<h1 id="vim-plug-安装"><a href="#vim-plug-安装" class="headerlink" title="vim-plug 安装"></a><a href="https://github.com/junegunn/vim-plug" target="_blank" rel="external">vim-plug</a> 安装</h1><p>由于 <code>EverVim</code> 使用 <code>vim-plug</code> 来管理插件，要先安装插件管理工具，不然启动 nvim 会报插件相关的错误。</p>
-<p>按照文档的要求，直接安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \</div><div class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</div></pre></td></tr></table></figure>
-<h1 id="EverVim-安装"><a href="#EverVim-安装" class="headerlink" title="EverVim 安装"></a><a href="https://github.com/LER0ever/EverVim" target="_blank" rel="external">EverVim</a> 安装</h1><p>终于到了关键的一步了，参考文档的 <a href="https://github.com/LER0ever/EverVim/wiki/Installation-on-macOS" target="_blank" rel="external">mac安装方法</a> 进行安装。</p>
-<p>我使用python2.7，所以不需要安装python3</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ctags cmake</div></pre></td></tr></table></figure>
-<p>clone 代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/LER0ever/EverVim ~/.EverVim</div></pre></td></tr></table></figure>
-<p>执行初始化安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.EverVim</div><div class="line">sh Boot-EverVim.sh</div></pre></td></tr></table></figure>
-<p>安装结果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">➜  ~ cd ~/.EverVim</div><div class="line">➜  .EverVim (master) ✔ sh Boot-EverVim.sh</div><div class="line">Welcome to EverVim, a powerful &amp; modern vim distribution</div><div class="line">Booting EverVim ...</div><div class="line">Soft-Linking Vim/NeoVim Config ...</div><div class="line">/Users/yangsui/.vim/.EverVim -&gt; /Users/yangsui/.EverVim</div><div class="line">/Users/yangsui/.config/nvim -&gt; /Users/yangsui/.EverVim</div><div class="line">/Users/yangsui/.EverVim/init.vim -&gt; /Users/yangsui/.EverVim/vimrc</div><div class="line">/Users/yangsui/.EverVim/ginit.vim -&gt; /Users/yangsui/.EverVim/core/gui.vim</div><div class="line">Copied EverVim configuration sample to ~/.EverVim.vimrc</div><div class="line">Downloading Vim-Plug</div><div class="line"><span class="meta">  %</span> Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line">100 71947  100 71947    0     0  57150      0  0:00:01  0:00:01 --:--:-- 57191</div><div class="line">Configuring CTags ...</div><div class="line">/Users/yangsui/.ctags -&gt; /Users/yangsui/.EverVim/tools/ctags/ctags</div><div class="line">All done with this script, now run vim/neovim and execute ":PlugInstall"</div></pre></td></tr></table></figure>
-<p>现在可以通过 vim-plug 来安装插件了，使用 <code>nvim</code> 打开 vim，命令模式下，执行 <code>:PlugInstall</code> ，然后就是一路的非常愉快的安装成功了。</p>
-
+        
+          <a class="article-more-a" href="/EverVim-折腾记/#more">more >></a>
+        
       
 
       
@@ -722,275 +868,6 @@
 
 
   
-    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
-    </h1>
-  
-
-        
-        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
-<p>严重参考并组合了以下几篇文章。</p>
-<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
-<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
-<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
-<ol>
-<li>等待数据准备 (Waiting for the data to be ready)</li>
-<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
-</ol>
-<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
-<ul>
-<li>阻塞 I/O（blocking IO）</li>
-<li>非阻塞 I/O（nonblocking IO）</li>
-<li>I/O 多路复用（ IO multiplexing）</li>
-<li>信号驱动 I/O（ signal driven IO）</li>
-<li>异步 I/O（asynchronous IO）</li>
-</ul>
-        
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-春节期间读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/春节期间读书计划/">春节读书计划</a>
-    </h1>
-  
-
-        
-        <a href="/春节期间读书计划/" class="archive-article-date">
-  	<time datetime="2017-01-26T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>难得放假，读读书也是不错的。过年也就这么几天，准备读这几本书。</p>
-<ul>
-<li>大话处理器:处理器基础知识读本</li>
-</ul>
-<p>这本到今天已经读完，算是提前完成任务了。作为入门级的读本，本书幽默风趣，真是在适合不过。</p>
-<p><img src="https://images-cn.ssl-images-amazon.com/images/I/518xv9USK-L.jpg" alt="大话处理器:处理器基础知识读本"></p>
-<ul>
-<li>Java并发编程的艺术</li>
-</ul>
-<p>草草翻了2章，不点到为止，系统化从底层讲起应该算是本书区别于市面上其它书籍的显著特征。</p>
-<p><img src="https://images-cn.ssl-images-amazon.com/images/I/41b6tl-PQ8L.jpg" alt="Java并发编程的艺术"></p>
-<ul>
-<li>实战Java虚拟机:JVM故障诊断与性能优化</li>
-</ul>
-<p>读过周志明的<a href="https://www.amazon.cn/dp/B00BTCMPKG/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1485362731&amp;sr=1-2&amp;keywords=%E5%91%A8%E5%BF%97%E6%98%8E" target="_blank" rel="external">深入理解Java虚拟机:JVM高级特性与最佳实践(第1版) </a><br>个人感觉，还是葛一鸣写得更加简单明了</p>
-<p><img src="https://images-cn.ssl-images-amazon.com/images/I/51hi2W7slDL._SX377_BO1,204,203,200_.jpg" alt="实战Java虚拟机:JVM故障诊断与性能优化"></p>
-<p>春节期间的任务就是读书，带娃，串门。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reading/" class="article-tag-list-link color3">reading</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/春节期间读书计划/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA8-OverView/" class="archive-article-date">
-  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>最近一周 JAVA8 的学习总结</p>
-<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
-<li>Predicate<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Consumer<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Function<t, r=""></t,></li>
-</ul>
-<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
-<ul>
-<li>Supplier<t></t></li>
-</ul>
-<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
-        
-          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1128,6 +1005,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
             
             <div class="clearfix"></div>

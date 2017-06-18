@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>Tag: search | 日拱一卒,功不唐捐</title>
+  <title>日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="思考">
-<meta property="og:type" content="website">
+  <meta name="description" content="Thread 类分析Thread 类声明，Thread类是实现了 Runnable 接口的 123public class Thread implements Runnable &amp;#123;    &amp;#125; Runnable 接口的定义 123456789101112131415161718@FunctionalInterfacepublic interface Runnable &amp;#123;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="日拱一卒,功不唐捐">
-<meta property="og:url" content="http://yangsui.me/tags/search/index.html">
+<meta property="og:url" content="http://yangsui.me/java-thread/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="思考">
+<meta property="og:description" content="Thread 类分析Thread 类声明，Thread类是实现了 Runnable 接口的 123public class Thread implements Runnable &amp;#123;    &amp;#125; Runnable 接口的定义 123456789101112131415161718@FunctionalInterfacepublic interface Runnable &amp;#123;">
+<meta property="og:updated_time" content="2017-06-05T14:46:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日拱一卒,功不唐捐">
-<meta name="twitter:description" content="思考">
+<meta name="twitter:description" content="Thread 类分析Thread 类声明，Thread类是实现了 Runnable 接口的 123public class Thread implements Runnable &amp;#123;    &amp;#125; Runnable 接口的定义 123456789101112131415161718@FunctionalInterfacepublic interface Runnable &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -152,83 +153,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java-thread" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Thread-类分析"><a href="#Thread-类分析" class="headerlink" title="Thread 类分析"></a>Thread 类分析</h1><p>Thread 类声明，Thread类是实现了 Runnable 接口的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Thread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Runnable 接口的定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FunctionalInterface</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * When an object implementing interface &lt;code&gt;Runnable&lt;/code&gt; is used</div><div class="line">     * to create a thread, starting the thread causes the object's</div><div class="line">     * &lt;code&gt;run&lt;/code&gt; method to be called in that separately executing</div><div class="line">     * thread.</div><div class="line">     * </div><div class="line">     * 当一个对象实现了 Runnable 接口被用于创建一个线程，运行一个线程将导致，在独立执行</div><div class="line">     * 的线程中调用改对象的 run() 方法</div><div class="line">     *</div><div class="line">     * The general contract of the method &lt;code&gt;run&lt;/code&gt; is that it may</div><div class="line">     * take any action whatsoever.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@see</span>     java.lang.Thread#run()</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Runnable接口是一个函数式接口，那么就可以用于jdk8的函数式编程中</li>
+<li>Thread 类实现了 Runnable接口，那么我在创建一个Thread类的时候需要重写 run() 方法</li>
+</ul>
+<p>Thread类start() 方法注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Causes this thread to begin execution; the Java Virtual Machine</div><div class="line"> * calls the &lt;code&gt;run&lt;/code&gt; method of this thread.</div><div class="line"> *</div><div class="line"> * 调用 start() 方法是线程开始执行， jvm 会自动调用该线程的 run() 方法</div><div class="line"> *</div><div class="line"> * &lt;p&gt;</div><div class="line"> * The result is that two threads are running concurrently: the</div><div class="line"> * current thread (which returns from the call to the</div><div class="line"> * &lt;code&gt;start&lt;/code&gt; method) and the other thread (which executes its</div><div class="line"> * &lt;code&gt;run&lt;/code&gt; method).</div><div class="line"> * &lt;p&gt;</div><div class="line"> *</div><div class="line"> * 调用start()方法的结果是：两个线程并发地运行，当前的线程(从调用返回给 start 方法)，和其它线程(执行其 run 方法)。</div><div class="line"> *</div><div class="line"> * It is never legal to start a thread more than once.</div><div class="line"> * In particular, a thread may not be restarted once it has completed</div><div class="line"> * execution.</div><div class="line"> *</div><div class="line"> * 多次启动一个线程是非法的，特别是线程已经结束执行完毕的时候，不能够在启动新的线程</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     * A zero status value corresponds to state "NEW".</div><div class="line">     * 调用start()方法线程状态为 NEW 状态 </div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="keyword">if</span> (threadStatus != <span class="number">0</span>)</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalThreadStateException();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Thread类run()方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * If this thread was constructed using a separate</div><div class="line"> * &lt;code&gt;Runnable&lt;/code&gt; run object, then that</div><div class="line"> * &lt;code&gt;Runnable&lt;/code&gt; object's &lt;code&gt;run&lt;/code&gt; method is called;</div><div class="line"> * otherwise, this method does nothing and returns.</div><div class="line"> * &lt;p&gt;</div><div class="line"> *</div><div class="line"> * 如果该线程通过传入单独的 Runnable 参数进行创建，那么 Runnable 对象的 run 方法会被调用</div><div class="line"> * 否则，该方法不执行任何操作并返回。</div><div class="line"> *</div><div class="line"> *</div><div class="line"> * Subclasses of &lt;code&gt;Thread&lt;/code&gt; should override this method.</div><div class="line"> * Thread 的之类应该重写该方法</div><div class="line"> *</div><div class="line"> * <span class="doctag">@see</span>     #start()</div><div class="line"> * <span class="doctag">@see</span>     #stop()</div><div class="line"> * <span class="doctag">@see</span>     #Thread(ThreadGroup, Runnable, String)</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">  	<span class="comment">//这里的 target 是一个 Runnable 对象</span></div><div class="line">    <span class="comment">// What will be run</span></div><div class="line">    <span class="comment">// private Runnable target;</span></div><div class="line">    <span class="keyword">if</span> (target != <span class="keyword">null</span>) &#123;</div><div class="line">        target.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到，</p>
+<ul>
+<li>调用 <code>start()</code> 方法会自动调用该线程的<code>run()</code> 方法；</li>
+<li>如果一个线程是通过 new Thread这种方式创建的，而不是传入一个<code>Runnable</code> 对象。如果不调用 <code>start()</code> 方法，而是直接调用 <code>run()</code> 方法，不会有任何效果。通过源代码可以看到，只有 <code>Runnable</code> 对象不为空的情况下才执行 run() 方法的逻辑</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hibernate-search-elasticsearch/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hibernate-search-elasticsearch/">hibernate-search-elasticsearch 集成</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">search</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/java-thread/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/nginx启动80端口/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nginx启动80端口
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/python-using-unicode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python中使用unicode字符</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yangsui.me/java-thread/", 
+    sourceId: "java-thread",
+    productKey: "d40582898a844c60ae3a6044e3742944",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -251,9 +329,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

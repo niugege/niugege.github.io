@@ -154,6 +154,275 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-同步异步阻塞非阻塞理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/同步异步阻塞非阻塞理解/">阻塞，非阻塞，同步，异步概念理解</a>
+    </h1>
+  
+
+        
+        <a href="/同步异步阻塞非阻塞理解/" class="archive-article-date">
+  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>对于阻塞，非阻塞，同步，异步这几个概念，心里知道意思，但是要仔细讲出来发现又不是那么容易。</p>
+<p>严重参考并组合了以下几篇文章。</p>
+<p><a href="https://segmentfault.com/a/1190000003063859#articleHeader11" target="_blank" rel="external">Linux IO模式及 select、poll、epoll详解</a></p>
+<p><a href="https://www.zhihu.com/question/19732473" target="_blank" rel="external">怎样理解阻塞非阻塞与同步异步的区别</a></p>
+<p>我们知道应用程序是跑在用户空间的，对一次 IO 访问，比如 read, 实际上是数据首先被拷贝到操作系统内核的缓冲区，然后才是从内核的缓冲区拷贝到用户空间应用程序的地址空间。所以一个 read 操作会尽力两个阶段：</p>
+<ol>
+<li>等待数据准备 (Waiting for the data to be ready)</li>
+<li>将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</li>
+</ol>
+<p>在 <strong>UNIX 网络编程卷一</strong> 中列举了五种 I/O 模型。</p>
+<ul>
+<li>阻塞 I/O（blocking IO）</li>
+<li>非阻塞 I/O（nonblocking IO）</li>
+<li>I/O 多路复用（ IO multiplexing）</li>
+<li>信号驱动 I/O（ signal driven IO）</li>
+<li>异步 I/O（asynchronous IO）</li>
+</ul>
+        
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/system/" class="article-tag-list-link color2">system</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/同步异步阻塞非阻塞理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-春节期间读书计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/春节期间读书计划/">春节读书计划</a>
+    </h1>
+  
+
+        
+        <a href="/春节期间读书计划/" class="archive-article-date">
+  	<time datetime="2017-01-26T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>难得放假，读读书也是不错的。过年也就这么几天，准备读这几本书。</p>
+<ul>
+<li>大话处理器:处理器基础知识读本</li>
+</ul>
+<p>这本到今天已经读完，算是提前完成任务了。作为入门级的读本，本书幽默风趣，真是在适合不过。</p>
+<p><img src="https://images-cn.ssl-images-amazon.com/images/I/518xv9USK-L.jpg" alt="大话处理器:处理器基础知识读本"></p>
+<ul>
+<li>Java并发编程的艺术</li>
+</ul>
+<p>草草翻了2章，不点到为止，系统化从底层讲起应该算是本书区别于市面上其它书籍的显著特征。</p>
+<p><img src="https://images-cn.ssl-images-amazon.com/images/I/41b6tl-PQ8L.jpg" alt="Java并发编程的艺术"></p>
+<ul>
+<li>实战Java虚拟机:JVM故障诊断与性能优化</li>
+</ul>
+<p>读过周志明的<a href="https://www.amazon.cn/dp/B00BTCMPKG/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1485362731&amp;sr=1-2&amp;keywords=%E5%91%A8%E5%BF%97%E6%98%8E" target="_blank" rel="external">深入理解Java虚拟机:JVM高级特性与最佳实践(第1版) </a><br>个人感觉，还是葛一鸣写得更加简单明了</p>
+<p><img src="https://images-cn.ssl-images-amazon.com/images/I/51hi2W7slDL._SX377_BO1,204,203,200_.jpg" alt="实战Java虚拟机:JVM故障诊断与性能优化"></p>
+<p>春节期间的任务就是读书，带娃，串门。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/reading/" class="article-tag-list-link color3">reading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/春节期间读书计划/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-位运算的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -670,217 +939,6 @@
 
 
   
-    <article id="post-redis基本安装和安全设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/redis基本安装和安全设置/">redis基础(安装和安全设置)</a>
-    </h1>
-  
-
-        
-        <a href="/redis基本安装和安全设置/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/redis基本安装和安全设置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/redis基本安装和安全设置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JVM学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JVM学习笔记/">JVM 学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/JVM学习笔记/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JVM-的基本结构"><a href="#JVM-的基本结构" class="headerlink" title="JVM 的基本结构"></a>JVM 的基本结构</h1><p>下图是 JVM 执行流程的基本介绍</p>
-<p><img src="/media/14774983908543.jpg" alt=""></p>
-<p>ClassLoader 负责将编译后的 Class文件加载到内存当中, JVM 的内存模型将内存空间分为</p>
-<ul>
-<li>方法区</li>
-<li>JAVA堆</li>
-<li>JAVA栈</li>
-<li>本地方法区</li>
-</ul>
-<p>虚拟机运行时, 需要记录下一条指令的地址, 就是 PC寄存器<br>执行引擎负责执行类的代码</p>
-<h1 id="JAVA-内存模型"><a href="#JAVA-内存模型" class="headerlink" title="JAVA 内存模型"></a>JAVA 内存模型</h1><p><img src="/media/14857046734762.jpg" alt=""></p>
-<p>JAVA 内存模型(JMM), 指的是 JAVA 虚拟机在运行时候的内存模型。由上图我们可以看到，运行时模型，分为 <strong>线程私有</strong> 和 <strong>共享数据</strong> ， 两大类。 我将上图重新画了一下。</p>
-<h2 id="PC-寄存器"><a href="#PC-寄存器" class="headerlink" title="PC 寄存器"></a>PC 寄存器</h2><ul>
-<li>每个线程拥有一个 PC 寄存器</li>
-<li>在线程创建的时候创建</li>
-<li>总是指向下一条指令的地址</li>
-<li>执行本地方法的时候值为 undefined</li>
-</ul>
-<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>保存和装载类的元数据信息, 对类进行描述</p>
-<ul>
-<li>类型的常量池</li>
-<li>字段, 方法信息</li>
-<li>方法字节码</li>
-</ul>
-<p>方法区通常同永久区(Perm)关联在一起, 用于保存相对稳定和静止的数据</p>
-<h2 id="JAVA-堆"><a href="#JAVA-堆" class="headerlink" title="JAVA 堆"></a>JAVA 堆</h2><p>堆具有以下特点:</p>
-<ul>
-<li>应用系统分配的对象保存在堆区</li>
-<li>所有线程共享堆. 也就是说在堆上分配了一个对象, 所有的线程都可以访问</li>
-<li>对分代的 GC 来说, 堆也是分代的</li>
-</ul>
-<p><img src="/media/14856196096389.jpg" alt=""></p>
-<h2 id="JAVA-栈"><a href="#JAVA-栈" class="headerlink" title="JAVA 栈"></a>JAVA 栈</h2><p>栈具有以下特点:</p>
-<ul>
-<li>线程私有</li>
-<li>栈由一系列帧组成(栈帧),  </li>
-<li>栈帧由三部分组成:栈帧保存一个方法的局部变量, 操作数栈, 常量池指针</li>
-<li>每一个方法调用都会创建一个帧, 并压栈</li>
-</ul>
-<h1 id="JVM-的运行机制"><a href="#JVM-的运行机制" class="headerlink" title="JVM 的运行机制"></a>JVM 的运行机制</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JVM学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-2016-10-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-10-13/">为什么String类被设计为不可变</a>
-    </h1>
-  
-
-        
-        <a href="/2016-10-13/" class="archive-article-date">
-  	<time datetime="2016-10-22T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="翻译-为什么-String-被设计成不可变的"><a href="#翻译-为什么-String-被设计成不可变的" class="headerlink" title="翻译 为什么 String 被设计成不可变的"></a>翻译 为什么 String 被设计成不可变的</h2><p>在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.</p>
-<ul>
-<li>字符串池的要求</li>
-</ul>
-<p>字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个字符串已经在常量池中存在, 会返回字符串的引用而不是在重新创建一个字符串 </p>
-<ul>
-<li>缓存 hashcode</li>
-</ul>
-<p>String 的 hashcode 方法在 JAVA 中被频繁的被使用, 比如 <code>HashMap</code>. 不可变可以保证 hashcode 总是一样的, 这样能够被缓存而不必担心改变.  也就是说, 没有必须在每次使用的时候都去计算一次  hashcode. 这样效率更高.</p>
-<p>在 <code>String</code> 类中, 有这样的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Cache the hash code for the string */</div><div class="line">private int hash; // Default to 0</div></pre></td></tr></table></figure>
-<ul>
-<li>促进使用其它相关的对象</li>
-</ul>
-<p>参考下面的例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"a"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"b"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"c"</span>));</div><div class="line">     </div><div class="line"><span class="keyword">for</span>(String a : set)&#123;</div><div class="line">    a.value = <span class="string">"a"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的例子中, 如果 a 是可变的, 那么就违背了集合的设计(set 表示集合中包含不重复的元素), 上面的例子是为了简单起见而设计的, 事实上 String 类中并不存在 value 这个字段.</p>
-<ul>
-<li>安全</li>
-</ul>
-<p>String 被广泛地用着其它类的参数, 比如: 网络连接, 文件创建等等. 如果 String 是可变的, 一个连接或是文件就能够被改变, 这样会导致很严重的安全问题. 方法认为它连接上了一台机器, 但是事实上不是. 字符串作为参数的时候, 可变的字符串在反射的时候也可能引起安全问题. </p>
-<ul>
-<li>不可变对象天然是线程安全的</li>
-</ul>
-<p>因为不可变对象不能被改变, 他们能够在多线程之间被共享, 这就消除了执行同步的要求.</p>
-<p><strong>简而言之, 因为安全和效率的原因 String 类被设计为不可变. </strong></p>
-<p>参考: <a href="http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/" target="_blank" rel="external">http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016-10-13/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1018,6 +1076,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
             
             <div class="clearfix"></div>

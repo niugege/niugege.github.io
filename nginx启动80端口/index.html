@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>Tag: search | 日拱一卒,功不唐捐</title>
+  <title>nginx启动80端口 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="思考">
-<meta property="og:type" content="website">
-<meta property="og:title" content="日拱一卒,功不唐捐">
-<meta property="og:url" content="http://yangsui.me/tags/search/index.html">
+  <meta name="description" content="通过brew安装了nginx，普通用户登录，且监听 1024 以下端口，如把端口修改为 80，需要赋予管理员权限 launchd用于为系统和用户管理进程，主要通过launchctl对其进行操作，用户无法直接调用launchd。启动时由内核调用launchd，运行第一个进程。 12sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemonss">
+<meta name="keywords" content="linux,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx启动80端口">
+<meta property="og:url" content="http://yangsui.me/nginx启动80端口/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="思考">
+<meta property="og:description" content="通过brew安装了nginx，普通用户登录，且监听 1024 以下端口，如把端口修改为 80，需要赋予管理员权限 launchd用于为系统和用户管理进程，主要通过launchctl对其进行操作，用户无法直接调用launchd。启动时由内核调用launchd，运行第一个进程。 12sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemonss">
+<meta property="og:updated_time" content="2017-06-18T02:27:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日拱一卒,功不唐捐">
-<meta name="twitter:description" content="思考">
+<meta name="twitter:title" content="nginx启动80端口">
+<meta name="twitter:description" content="通过brew安装了nginx，普通用户登录，且监听 1024 以下端口，如把端口修改为 80，需要赋予管理员权限 launchd用于为系统和用户管理进程，主要通过launchctl对其进行操作，用户无法直接调用launchd。启动时由内核调用launchd，运行第一个进程。 12sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemonss">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -152,83 +154,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nginx启动80端口" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hibernate-search-elasticsearch/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hibernate-search-elasticsearch/">hibernate-search-elasticsearch 集成</a>
+    <h1 class="article-title" itemprop="name">
+      nginx启动80端口
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/nginx启动80端口/" class="archive-article-date">
+  	<time datetime="2017-06-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过brew安装了nginx，<code>普通用户</code>登录，且监听 <code>1024</code> 以下端口，如把端口修改为 <code>80</code>，需要赋予管理员权限</p>
+<p>launchd用于为系统和用户管理进程，主要通过launchctl对其进行操作，用户无法直接调用launchd。<br>启动时由内核调用launchd，运行第一个进程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp /usr/local/opt/nginx/*.plist /Library/LaunchDaemons</div><div class="line">sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.nginx.plist</div></pre></td></tr></table></figure>
+<p>参考 <a href="http://www.cnblogs.com/kavlez/p/start-nginx-on-port-80-at-os-x.html" target="_blank" rel="external"><a href="http://www.cnblogs.com/kavlez/p/start-nginx-on-port-80-at-os-x.html" target="_blank" rel="external">在80端口启动Nginx</a></a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">search</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/nginx/" class="article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/nginx启动80端口/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/py-itr-generator/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/java-thread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yangsui.me/nginx启动80端口/", 
+    sourceId: "nginx启动80端口",
+    productKey: "d40582898a844c60ae3a6044e3742944",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -251,9 +358,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
