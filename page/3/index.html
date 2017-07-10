@@ -154,31 +154,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-redis基本安装和安全设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2016-11-10-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/redis基本安装和安全设置/">redis基础(安装和安全设置)</a>
+      <a class="article-title" href="/2016-11-10-1/">linux 基础命令</a>
     </h1>
   
 
         
-        <a href="/redis基本安装和安全设置/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
+        <a href="/2016-11-10-1/" class="archive-article-date">
+  	<time datetime="2016-11-10T10:54:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/redis基本安装和安全设置/#more">more >></a>
-        
+        <h1 id="top"><a href="#top" class="headerlink" title="top"></a>top</h1><h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1>
       
 
       
@@ -190,7 +186,102 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/redis基本安装和安全设置/">展开全文 >></a>
+          <a class="article-more-a" href="/2016-11-10-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-nginx基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nginx基础/">Nginx 复习</a>
+    </h1>
+  
+
+        
+        <a href="/nginx基础/" class="archive-article-date">
+  	<time datetime="2016-11-10T06:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>对自己学习 nginx 的一个总结, 能熟练使用和配置 nginx , 熟悉相关知识和原理. </p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>基本安装和配置文件位置</li>
+</ul>
+<p>我这里使用的是 openresty, 我使用的是 ubuntu 安装非常简单, 具体请参考 <a href="https://openresty.org/cn/installation.html" target="_blank" rel="external">openresty官网</a></p>
+<p>执行 <code>./configure</code> 之后可以看到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">nginx path prefix: &quot;/usr/local/openresty/nginx&quot;</div><div class="line">nginx binary file: &quot;/usr/local/openresty/nginx/sbin/nginx&quot;</div><div class="line">nginx modules path: &quot;/usr/local/openresty/nginx/modules&quot;</div><div class="line">nginx configuration prefix: &quot;/usr/local/openresty/nginx/conf&quot;</div><div class="line">nginx configuration file: &quot;/usr/local/openresty/nginx/conf/nginx.conf&quot;</div><div class="line">nginx pid file: &quot;/usr/local/openresty/nginx/logs/nginx.pid&quot;</div><div class="line">nginx error log file: &quot;/usr/local/openresty/nginx/logs/error.log&quot;</div><div class="line">nginx http access log file: &quot;/usr/local/openresty/nginx/logs/access.log&quot;</div><div class="line">nginx http client request body temporary files: &quot;client_body_temp&quot;</div><div class="line">nginx http proxy temporary files: &quot;proxy_temp&quot;</div><div class="line">nginx http fastcgi temporary files: &quot;fastcgi_temp&quot;</div><div class="line">nginx http uwsgi temporary files: &quot;uwsgi_temp&quot;</div><div class="line">nginx http scgi temporary files: &quot;scgi_temp&quot;</div></pre></td></tr></table></figure>
+<p>执行 <code>make &amp;&amp; make install</code> 安装, 安装完成最后一行有如下提示, 我们可以直接执行 <code>openresty</code> 命令.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -sf /usr/local/openresty/nginx/sbin/nginx /usr/local/openresty/bin/openresty</div></pre></td></tr></table></figure>
+<ul>
+<li>设置环境变量</li>
+</ul>
+<p>为了后面启动 OpenResty 的命令简单一些, 不用在 OpenResty 的安装目录下进行启动, 修改环境变量添加一下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/profile</div><div class="line">export PATH=/usr/local/openresty/nginx/sbin:$PATH</div><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+<ul>
+<li>非 root 用户启动</li>
+</ul>
+<p>我这里使用自己创建的 <code>admin</code> 账户启动 nginx 报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">admin@iZ2zecl4i8oy1qsj9vq9ivZ:/usr/local/openresty/bin$ ./openresty</div><div class="line">nginx: [alert] could not open error log file: open() &quot;/usr/local/openresty/nginx/logs/error.log&quot; failed (13: Permission denied)</div><div class="line">2016/11/10 15:08:48 [emerg] 9765#0: mkdir() &quot;/usr/local/openresty/nginx/client_body_temp&quot; failed (13: Permission denied)</div></pre></td></tr></table></figure>
+<p><strong>为了方便普通用户执行一些特权命令, SUID/SGID程序允许普通用户以root身份暂时执行该程序,并在执行结束后再恢复身份</strong> 需要设置下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod u+s nginx</div></pre></td></tr></table></figure>
+<h2 id="nginx-命令"><a href="#nginx-命令" class="headerlink" title="nginx 命令"></a>nginx 命令</h2><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx</div></pre></td></tr></table></figure>
+<p>平滑启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx s- reload</div><div class="line">kill -HUP `cat /usr/local/openresty/nginx/logs/nginx.pid`</div></pre></td></tr></table></figure>
+<p>检查 nginx.conf 配置文件是否正确</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx -t</div><div class="line">nginx -t /usr/local/openresty/nginx/conf</div></pre></td></tr></table></figure>
+<p>停止 nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -s stop</div></pre></td></tr></table></figure>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><p>一般来说大家通常说的代理指的是正向代理(forward proxy), 正向代理和反向代理(reverse proxy)的区别如下图:</p>
+<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/14787575642159.jpg" alt="正向代理和反向代理的区别"></p>
+<p>参考 <a href="http://z00w00.blog.51cto.com/515114/1031287" target="_blank" rel="external">正向代理和反向代理</a></p>
+<p>一句话总结:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">正向代理: 代理端 代理的是 客户端</div><div class="line">反向代理: 代理端 代理的是 服务端</div></pre></td></tr></table></figure>
+<ul>
+<li>nginx 做为反向代理服务器配置</li>
+</ul>
+<ul>
+<li>nginx 作为 lb 的配置</li>
+</ul>
+<p>nginx 做负载均衡, 后端其中一个 upstream 挂掉 nginx 并不知道, 需要配置, 参考如下链接</p>
+<p><a href="http://serverfault.com/questions/480241/nginx-failover-without-load-balancing" target="_blank" rel="external">http://serverfault.com/questions/480241/nginx-failover-without-load-balancing</a><br><a href="http://serverfault.com/questions/140990/nginx-automatic-failover-load-balancing" target="_blank" rel="external">http://serverfault.com/questions/140990/nginx-automatic-failover-load-balancing</a></p>
+<p>需要设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proxy_next_upstream</div><div class="line">proxy_connect_timeout</div></pre></td></tr></table></figure>
+<p>具体设置方式参考nginx官方文档<br><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_next_upstream" target="_blank" rel="external">http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_next_upstream</a></p>
+<ul>
+<li>打发打发</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/nginx基础/">展开全文 >></a>
         </p>
       
 
@@ -277,6 +368,57 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/JVM学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-redis基本安装和安全设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/redis基本安装和安全设置/">redis基础(安装和安全设置)</a>
+    </h1>
+  
+
+        
+        <a href="/redis基本安装和安全设置/" class="archive-article-date">
+  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/redis基本安装和安全设置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/redis基本安装和安全设置/">展开全文 >></a>
         </p>
       
 
@@ -430,19 +572,19 @@
 
 
   
-    <article id="post-原码 反码 补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
+      <a class="article-title" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">vmware fusion安装vmware tools</a>
     </h1>
   
 
         
-        <a href="/原码 反码 补码/" class="archive-article-date">
+        <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" class="archive-article-date">
   	<time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-01</time>
 </a>
         
@@ -450,16 +592,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- toc -->
-<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title" target="_blank" rel="external">原码反码补码</a>，觉得写的非常的好 </p>
-<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
-<li><p>机器数</p>
-<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
-<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
-</li>
-</ol>
+        <h1 id="mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools"><a href="#mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools" class="headerlink" title="mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools"></a>mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools</h1><p>首先要挂在<code>cdrom</code></p>
+<pre><code>sudo mount -t auto /dev/cdrom /mnt/cdrom
+</code></pre><p>如果提示该文件夹不存在, 创建一个</p>
+<pre><code>sudo mkdir -p /mnt/cdrom
+</code></pre><p>然后在执行上面的加载步奏, 挂载成功后会有如下的提示</p>
+<pre><code>mount: block device /dev/cdrom is write-protected, mounting read-only
+</code></pre>
         
-          <a class="article-more-a" href="/原码 反码 补码/#more">more >></a>
+          <a class="article-more-a" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/#more">more >></a>
         
       
 
@@ -472,7 +613,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/原码 反码 补码/">展开全文 >></a>
+          <a class="article-more-a" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">展开全文 >></a>
         </p>
       
 
@@ -609,19 +750,19 @@ no-appendfsync-on-rewrite no
 
 
   
-    <article id="post-mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-原码 反码 补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">vmware fusion安装vmware tools</a>
+      <a class="article-title" href="/原码 反码 补码/">原码反码补码的理解</a>
     </h1>
   
 
         
-        <a href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/" class="archive-article-date">
+        <a href="/原码 反码 补码/" class="archive-article-date">
   	<time datetime="2013-03-01T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-03-01</time>
 </a>
         
@@ -629,15 +770,16 @@ no-appendfsync-on-rewrite no
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools"><a href="#mac上vmware-fusion虚拟机在ubuntu-14-04-LTS上安装vmware-tools" class="headerlink" title="mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools"></a>mac上vmware fusion虚拟机在ubuntu 14.04 LTS上安装vmware tools</h1><p>首先要挂在<code>cdrom</code></p>
-<pre><code>sudo mount -t auto /dev/cdrom /mnt/cdrom
-</code></pre><p>如果提示该文件夹不存在, 创建一个</p>
-<pre><code>sudo mkdir -p /mnt/cdrom
-</code></pre><p>然后在执行上面的加载步奏, 挂载成功后会有如下的提示</p>
-<pre><code>mount: block device /dev/cdrom is write-protected, mounting read-only
-</code></pre>
+        <!-- toc -->
+<p>转载文章<a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" title="Title" target="_blank" rel="external">原码反码补码</a>，觉得写的非常的好 </p>
+<h1 id="一-机器数和真值"><a href="#一-机器数和真值" class="headerlink" title="一. 机器数和真值"></a>一. 机器数和真值</h1><ol>
+<li><p>机器数</p>
+<p> 一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
+<p> 比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是0000那么，这里的 00000011 和 10000011 。就是机器数。0011。如果是 -3 ，就是 10000011 。</p>
+</li>
+</ol>
         
-          <a class="article-more-a" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/#more">more >></a>
+          <a class="article-more-a" href="/原码 反码 补码/#more">more >></a>
         
       
 
@@ -650,7 +792,7 @@ no-appendfsync-on-rewrite no
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/mac上vmware_fusion虚拟机在ubuntu_14.04_lts上安装vmware_tools/">展开全文 >></a>
+          <a class="article-more-a" href="/原码 反码 补码/">展开全文 >></a>
         </p>
       
 
@@ -806,6 +948,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
               </li>
             
             <div class="clearfix"></div>

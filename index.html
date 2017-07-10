@@ -154,6 +154,157 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-redis删除key" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/redis删除key/">redis删除key</a>
+    </h1>
+  
+
+        
+        <a href="/redis删除key/" class="archive-article-date">
+  	<time datetime="2017-07-10T02:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>假设redis中有key名称为如下规则的key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">h_&#123;id&#125;_name</div></pre></td></tr></table></figure>
+<ol>
+<li><p>删除单个key</p>
+<p>如要删除 <code>h_100_name</code> 这个key，可以直接使用 <code>del</code> 命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">del</span> h_100_name</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除指定模式的key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli keys <span class="string">"h_*_name"</span> | xargs redis-cli <span class="keyword">del</span></div></pre></td></tr></table></figure>
+<p>需要数据库密码的要这样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli -a password keys <span class="string">"h_*_name"</span> | xargs redis-cli -a password <span class="keyword">del</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>删除所有的key</p>
+<p>删除当前数据库中的所有Key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flushdb</div></pre></td></tr></table></figure>
+<p>删除所有数据库中的key </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flushall</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/redis/" class="article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/redis删除key/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-reset-iTerm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>执行命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults delete com.googlecode.iterm2</div></pre></td></tr></table></figure>
+<p><code>~/.zshrc</code> 的值还不会变, 太好了。</p>
+<p>这个网站也很赞， <a href="http://wulfric.me/2015/08/iterm2/" target="_blank" rel="external">你应该知道的 iTerm2 使用方法–MAC终端工具</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">iterm2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tools/" class="article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/reset-iTerm/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-py-itr-generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -722,180 +873,6 @@
 
 
   
-    <article id="post-vim-python-ide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/vim-python-ide/">vim python IDE</a>
-    </h1>
-  
-
-        
-        <a href="/vim-python-ide/" class="archive-article-date">
-  	<time datetime="2017-05-03T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录下python vim 的搭建，以备以后查询方便</p>
-<h1 id="vim-安装"><a href="#vim-安装" class="headerlink" title="vim 安装"></a>vim 安装</h1><p>我使用的是mac，直接使用brew安装，一键搞定</p>
-<p><code>brew install vim</code></p>
-<p>安装之后查看安装结果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">vim --version</div><div class="line"></div><div class="line">~ vim --version</div><div class="line">VIM - Vi IMproved <span class="number">8.0</span> (<span class="number">2016</span> Sep <span class="number">12</span>, compiled May  <span class="number">2</span> <span class="number">2017</span> <span class="number">03</span>:<span class="number">55</span>:<span class="number">34</span>)</div><div class="line"><span class="function">MacOS <span class="title">X</span> <span class="params">(unix)</span> version</span></div><div class="line">Included patches: 1-596</div><div class="line">Compiled by Homebrew</div><div class="line">Huge version without GUI.  Features <span class="title">included</span> <span class="params">(+)</span> or <span class="title">not</span> <span class="params">(-)</span>:</div><div class="line">+acl             +file_in_path    +mouse_sgr       +tag_old_static</div><div class="line">+arabic          +find_in_path    -mouse_sysmouse  -tag_any_white</div><div class="line">+autocmd         +<span class="keyword">float</span>           +mouse_urxvt     -tcl</div><div class="line">-balloon_eval    +folding         +mouse_xterm     +termguicolors</div><div class="line">-browse          -footer          +multi_byte      +terminfo</div><div class="line">++builtin_terms  +<span class="title">fork</span><span class="params">()</span>          +multi_lang      +termresponse</div><div class="line">+byte_offset     -gettext         -mzscheme        +textobjects</div><div class="line">+channel         -hangul_input    +netbeans_intg   +timers</div><div class="line">+cindent         +iconv           +num64           +title</div><div class="line">-clientserver    +insert_expand   +packages        -toolbar</div><div class="line">+clipboard       +job             +path_extra      +user_commands</div><div class="line">+cmdline_compl   +jumplist        +perl            +vertsplit</div><div class="line">+cmdline_hist    +keymap          +persistent_undo +virtualedit</div><div class="line">+cmdline_info    +lambda          +postscript      +visual</div><div class="line">+comments        +langmap         +printer         +visualextra</div><div class="line">+conceal         +libcall         +profile         +viminfo</div><div class="line">+cryptv          +linebreak       +python          +vreplace</div><div class="line">+cscope          +lispindent      -python3         +wildignore</div><div class="line">+cursorbind      +listcmds        +quickfix        +wildmenu</div><div class="line">+cursorshape     +localmap        +reltime         +windows</div><div class="line">+dialog_con      -lua             +rightleft       +writebackup</div><div class="line">+diff            +menu            +ruby            -X11</div><div class="line">+digraphs        +mksession       +scrollbind      -xfontset</div><div class="line">-dnd             +modify_fname    +signs           -xim</div><div class="line">-ebcdic          +mouse           +smartindent     -xpm</div><div class="line">+emacs_tags      -mouseshape      +startuptime     -xsmp</div><div class="line">+eval            +mouse_dec       +statusline      -xterm_clipboard</div><div class="line">+ex_extra        -mouse_gpm       -sun_workshop    -xterm_save</div><div class="line">+extra_search    -mouse_jsbterm   +syntax</div><div class="line">+farsi           +mouse_netterm   +tag_binary</div><div class="line">   system vimrc file: "$VIM/vimrc"</div><div class="line">     user vimrc file: "$HOME/.vimrc"</div><div class="line"> 2nd user vimrc file: "~/.vim/vimrc"</div><div class="line">      user exrc file: "$HOME/.exrc"</div><div class="line">       defaults file: "$VIMRUNTIME/defaults.vim"</div><div class="line">  fall-back <span class="keyword">for</span> $VIM: "/usr/local/share/vim"</div><div class="line">Compilation: clang -c -I. -Iproto -DHAVE_CONFIG_H   -DMACOS_X_UNIX  -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=<span class="number">1</span></div><div class="line">Linking: clang   -L. -fstack-protector -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib  -L/usr/local/lib -o vim        -lncurses -liconv -framework Cocoa   -mmacosx-version-min=<span class="number">10.12</span> -fstack-protector-strong -L/usr/local/lib  -L/usr/local/Cellar/perl/<span class="number">5.24</span>.1/lib/perl5/<span class="number">5.24</span>.1/darwin-thread-multi-<span class="number">2l</span>evel/CORE -lperl -lm -lutil -lc -F/usr/local/opt/python/</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/vim-python-ide/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/vim-python-ide/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-hibernate-search-elasticsearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hibernate-search-elasticsearch/">hibernate-search-elasticsearch 集成</a>
-    </h1>
-  
-
-        
-        <a href="/hibernate-search-elasticsearch/" class="archive-article-date">
-  	<time datetime="2017-02-02T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期将 elasticsearch 集成到了系统里面, 做一些记录</p>
-<h1 id="jpa-hibernate-search-集成"><a href="#jpa-hibernate-search-集成" class="headerlink" title="jpa hibernate-search 集成"></a>jpa hibernate-search 集成</h1><p>为了让框架能够自动维护索引(创建，更新，删除)，需要手动写一个 AOP 框架，在实体维护的时候同时维护索引。发现 hibernate 官方的  <code>hibernate-search-elasticsearch</code> 已经做了这块儿工作了，开心。</p>
-<p>我这里使用的是 JPA 所有的配置如下:</p>
-<p>部分 pom.xml 配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;properties&gt;</div><div class="line">    &lt;hibernate.core.version&gt;5.1.3.Final&lt;/hibernate.core.version&gt;</div><div class="line">    &lt;hibernate.search.version&gt;5.6.0.Final&lt;/hibernate.search.version&gt;</div><div class="line">    &lt;hibernate.search.elasticsearch.version&gt;5.6.0.Final&lt;/hibernate.search.elasticsearch.version&gt;</div><div class="line">&lt;/properties&gt;</div><div class="line">    </div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hibernate-search-elasticsearch&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;hibernate.search.version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hibernate-search-orm&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;$&#123;hibernate.search.version&#125;&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<p>这里有 2 个坑:</p>
-<ol>
-<li><p>hibernate core 的版本不要太高，如果使用 hibernate 5.2 以上的版本，都会出现和 hibernate search 不相容的错，<a href="https://hibernate.atlassian.net/browse/HSEARCH-2298" target="_blank" rel="external">Hibernate 5.2 is not compatible with any version of hibernate search
-</a></p>
-</li>
-<li><p>必须添加 hibernate search orm 支持，不然无法自动创建索引</p>
-</li>
-</ol>
-<h1 id="实体映射"><a href="#实体映射" class="headerlink" title="实体映射"></a>实体映射</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">search</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">elasticsearch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/hibernate-search-elasticsearch/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1037,6 +1014,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
               </li>
             
             <div class="clearfix"></div>
