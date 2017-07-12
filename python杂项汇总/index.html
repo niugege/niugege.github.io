@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yangsui.me">
-  <title>redis基础(安装和安全设置) | 日拱一卒,功不唐捐</title>
+  <title>python杂项汇总 | 日拱一卒,功不唐捐</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装 123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server">
+  <meta name="description" content="虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘  合并字典 我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。 参考 怎样合并字典最符合Python语言习惯？ 我使用了最简单明了的一种方式，大致如下 123fmt = &amp;#123;&amp;#125;fmt.update(default_format_di">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis基础(安装和安全设置)">
-<meta property="og:url" content="http://yangsui.me/redis基本安装和安全设置/index.html">
+<meta property="og:title" content="python杂项汇总">
+<meta property="og:url" content="http://yangsui.me/python杂项汇总/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
-<meta property="og:description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装 123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server">
-<meta property="og:updated_time" content="2016-11-21T08:29:05.000Z">
+<meta property="og:description" content="虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘  合并字典 我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。 参考 怎样合并字典最符合Python语言习惯？ 我使用了最简单明了的一种方式，大致如下 123fmt = &amp;#123;&amp;#125;fmt.update(default_format_di">
+<meta property="og:updated_time" content="2017-07-12T01:59:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis基础(安装和安全设置)">
-<meta name="twitter:description" content="redis基本操作安装推荐通过源代码安装, 我这里是测试使用 apt-get 安装 123sudo apt-get update sudo apt-get upgradesudo apt-get -y install redis-server">
+<meta name="twitter:title" content="python杂项汇总">
+<meta name="twitter:description" content="虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘  合并字典 我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。 参考 怎样合并字典最符合Python语言习惯？ 我使用了最简单明了的一种方式，大致如下 123fmt = &amp;#123;&amp;#125;fmt.update(default_format_di">
   
     <link rel="alternative" href="/atom.xml" title="日拱一卒,功不唐捐" type="application/atom+xml">
   
@@ -153,60 +154,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-redis基本安装和安全设置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python杂项汇总" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      redis基础(安装和安全设置)
+      python杂项汇总
     </h1>
   
 
         
-        <a href="/redis基本安装和安全设置/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
+        <a href="/python杂项汇总/" class="archive-article-date">
+  	<time datetime="2017-07-12T01:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><p>安装之后的配置文件在 <code>/etc/redis</code>目录下, 需要做一些安全性的配置</p>
-<ul>
-<li>bind 指令不能绑定除本地网卡ip外的其他ip. 也就是说, 不能通过bind外部主机的ip来允许外部主机的访问, 这只能通过防火墙来实现</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind 127.0.0.1</div></pre></td></tr></table></figure>
-<p>我这里是测试使用, 会修改 ip 地址</p>
-<ul>
-<li>修改端口</li>
-</ul>
-<p>这个步奏不是必须</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">port 6379</div></pre></td></tr></table></figure>
-<ul>
-<li>设置密码</li>
-</ul>
-<p>redis的执行效率非常快, 外部设备每秒可以测试相当多数量的密码, 所以密码要尽量长尽量复杂redis的密码是明文存储在redis.conf文件, 因此不需要管理员记住, 所以可以使用相当长的密码. 密码验证的目标是提供第二层的安全保障. 这样当防火墙失效的话, 外部主机在没有密码的情况下仍然不能访问redis.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">requirepass your-password</div></pre></td></tr></table></figure>
-<ul>
-<li>指令重命名</li>
-</ul>
-<p>将一些高危的指令重命名为难以猜出的名字，或者直接重命名为空字符串<code>&quot;&quot;</code>来禁用该指令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 重命名CONFIG指令</div><div class="line">rename-command CONFIG   XXX_CONFIG</div><div class="line"></div><div class="line"># 禁用FLUSHALL指令</div><div class="line">rename-command FLUSHALL &quot;&quot;</div><div class="line">rename-command FLUSHDB  &quot;&quot;</div><div class="line"></div><div class="line"># 禁用EVAL指令</div><div class="line">rename-command EVAL     &quot;&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>修改redis运行账户</li>
-</ul>
-<p>新建一个无登陆权限的redis用户, 然后修改redis目录的所有者, 最后使用<code>sudo -u redis</code>来执行redis命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">useradd -s /sbin/nologin redis</div><div class="line">sudo -u redis /usr/local/bin/redis-server /etc/redis/redis.conf</div></pre></td></tr></table></figure>
-<h2 id="登录命令"><a href="#登录命令" class="headerlink" title="登录命令"></a>登录命令</h2><p>使用 <code>redis-cli</code> 命令登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333 -a mypassword</div></pre></td></tr></table></figure>
-<p>-h 指定主机<br>-p 指定端口<br>-a 指定密码</p>
-<p>登录时候也可以不指定密码, 而在执行的时候进行认证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">redis-cli -h 127.0.0.1 -p 6333</div><div class="line">127.0.0.1:6379&gt;auth mypassword</div><div class="line">OK</div></pre></td></tr></table></figure>
+        <p>虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘</p>
+<ol>
+<li><p>合并字典</p>
+<p>我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。</p>
+<p>参考 <a href="http://codingpy.com/article/the-idiomatic-way-to-merge-dicts-in-python/" target="_blank" rel="external">怎样合并字典最符合Python语言习惯？</a></p>
+<p>我使用了最简单明了的一种方式，大致如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fmt = &#123;&#125;</div><div class="line">fmt.update(default_format_dict)</div><div class="line">fmt.update(format_dict)</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>python redis clinet hgetall 返回数据类型全是字符串</p>
+<p>我们知道，redis中hash对象的属性和值全是字符串类型的，但是取出来之后就需要我们转换为对应的数据类型。这方面java的client就做得好很多，不需要用户在手动设置。</p>
+<p>查看 <a href="https://github.com/andymccurdy/redis-**py" target="_blank" rel="external">redis-py文档说明</a> ，<strong>Response Callbacks</strong> 这段有说，我们只需要设置下 <code>set_response_callback</code> 就可以了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hgetall_response_parser</span><span class="params">(item, format_dict=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    格式化redis命令response的结构</div><div class="line">    :param item:</div><div class="line">    :param format_dict:</div><div class="line">    :return:</div><div class="line">    """</div><div class="line"></div><div class="line">    <span class="comment"># 默认格式化参数</span></div><div class="line">    fmt = &#123;&#125;</div><div class="line">    default_format_dict = &#123;</div><div class="line">        <span class="string">'id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'seq'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'type'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'status'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_area_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'discount'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'price'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'category_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'group_buy'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'unit'</span>: <span class="string">'int'</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> format_dict <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        fmt = default_format_dict</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        fmt.update(default_format_dict)</div><div class="line">        fmt.update(format_dict)</div><div class="line"></div><div class="line">    result = &#123;&#125;</div><div class="line">    dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div><div class="line">    <span class="keyword">for</span> key, val <span class="keyword">in</span> dt.iteritems():</div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> fmt:</div><div class="line">            fmt_type = fmt[key]</div><div class="line">            <span class="keyword">if</span> fmt_type == <span class="string">'int'</span>:</div><div class="line">                dt[key] = int(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'float'</span>:</div><div class="line">                dt[key] = float(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'decimal'</span>:</div><div class="line">                dt[key] = Decimal(val)</div><div class="line"></div><div class="line">        result[key] = dt[key]</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">redis_hash</span><span class="params">(key, format_dict=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> redis_store.exists(key):</div><div class="line">        <span class="keyword">if</span> format_dict:</div><div class="line">            redis_store.set_response_callback(<span class="string">'HGETALL'</span>, <span class="keyword">lambda</span> item: hgetall_response_parser(item, format_dict))</div><div class="line">        <span class="keyword">return</span> redis_store.hgetall(key)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div></pre></td></tr></table></figure>
+<p>​</p>
+<p>由于 <code>hgetall</code> 是按照 <code>[property value property value property value ....]</code> 这样返回的一个列表，首先需要将这个列表解析为对应的key value，方便判断具体哪一个属性需要转换的具体的数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<p>然后根据传入的需要格式化的字典数据，转换响应的数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">result = &#123;&#125;</div><div class="line">dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div><div class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> dt.iteritems():</div><div class="line">    <span class="keyword">if</span> key <span class="keyword">in</span> fmt:</div><div class="line">        fmt_type = fmt[key]</div><div class="line">        <span class="keyword">if</span> fmt_type == <span class="string">'int'</span>:</div><div class="line">            dt[key] = int(val)</div><div class="line">        <span class="keyword">elif</span> fmt_type == <span class="string">'float'</span>:</div><div class="line">            dt[key] = float(val)</div><div class="line">        <span class="keyword">elif</span> fmt_type == <span class="string">'decimal'</span>:</div><div class="line">            dt[key] = Decimal(val)</div><div class="line"></div><div class="line">    result[key] = dt[key]</div><div class="line"><span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<p>最后就是在命令调用前设置下parser</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">redis_store.set_response_callback(<span class="string">'HGETALL'</span>, <span class="keyword">lambda</span> item: hgetall_response_parser(item, format_dict))</div><div class="line">redis_store.hgetall(key)</div></pre></td></tr></table></figure>
+<p>有好心人已经将 redis-py 翻译成中文了 <a href="https://www.teakki.com/p/57e224490906a5d20a8f9107" target="_blank" rel="external">redis-py中文文档</a> </p>
+<p>解决问题的过程中参考了 <a href="https://stackoverflow.com/questions/13060632/getting-values-with-the-right-type-in-redis" target="_blank" rel="external">getting values with the right type in redis</a></p>
+</li>
+<li><p>几个相关文档的地址</p>
+<p><a href="http://flask-restful.readthedocs.io/en/0.3.5/quickstart.html#resourceful-routing" target="_blank" rel="external">flask restful quick start</a></p>
+<p><a href="http://www.pythondoc.com/flask-restful/second.html#id4" target="_blank" rel="external">flask restful quick start chinese version</a></p>
+<p>​</p>
+</li>
+<li><p>装饰器相关</p>
+<p>装饰器要好好写写，先留一个链接，等忙完这个功能补回来</p>
+<p><a href="http://www.wklken.me/posts/2012/10/27/python-base-decorator.html" target="_blank" rel="external">PYTHON-进阶-装饰器小结</a></p>
+<p><a href="https://github.com/flask-restful/flask-restful/issues/585" target="_blank" rel="external">stackoverflow 上关于装饰器的讨论</a></p>
+<p>​</p>
+</li>
+<li><p>itertools相关模块</p>
+<p>也是先扔一个链接</p>
+<p><a href="http://www.wklken.me/posts/2013/08/20/python-extra-itertools.html" target="_blank" rel="external">PYTHON-进阶-ITERTOOLS模块小结</a></p>
+<p>​</p>
+</li>
+<li><p>python 性能分析</p>
+<p><a href="http://selfboot.cn/2016/06/13/python_performance_analysis/" target="_blank" rel="external">python性能分析</a></p>
+</li>
+</ol>
 
       
 
@@ -236,7 +246,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -286,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/redis基本安装和安全设置/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yangsui.me/python杂项汇总/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/nginx基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Nginx 复习
-        
-      </div>
-    </a>
   
-  
-    <a href="/JVM学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JVM 学习笔记</div>
+    <a href="/redis删除key/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis删除key</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,8 +350,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yangsui.me/redis基本安装和安全设置/", 
-    sourceId: "redis基本安装和安全设置",
+    url: "http://yangsui.me/python杂项汇总/", 
+    sourceId: "python杂项汇总",
     productKey: "d40582898a844c60ae3a6044e3742944",
     target: "cloud-tie-wrapper"
   };

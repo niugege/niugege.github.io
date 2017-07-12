@@ -154,6 +154,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-hard-way" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/python-hard-way/">python hard way 读书笔记</a>
+    </h1>
+  
+
+        
+        <a href="/python-hard-way/" class="archive-article-date">
+  	<time datetime="2017-05-04T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>在读 <strong>python hard way</strong> 虽然是本在简单不过的书，还是会发现自己的错误，实践才是王道啊。</p>
+<ol>
+<li><p>字符串替换中 <code>%s</code> <code>$r</code> 的区别</p>
+<p>stackoverflow 上曾经有人问过 <a href="http://stackoverflow.com/questions/2354329/whats-the-meaning-of-r-in-python" target="_blank" rel="external">what’s the meaning of %r in python</a> 回答得很清楚</p>
+        
+          <a class="article-more-a" href="/python-hard-way/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/reading/" class="article-tag-list-link color3">reading</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/python-hard-way/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-vim-python-ide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -890,73 +966,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/tmux基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-2016-11-10-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-11-10-2/">JAVA ClassLoader</a>
-    </h1>
-  
-
-        
-        <a href="/2016-11-10-2/" class="archive-article-date">
-  	<time datetime="2016-11-10T14:22:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="java-类加载器概述"><a href="#java-类加载器概述" class="headerlink" title="java 类加载器概述"></a>java 类加载器概述</h1><p>要使用一个类必须要先将这个类加载到内存中, JVM 将编译后的字节码文件, 即 <code>.class</code> 文件加载到内存中, 并生成一个 <code>java.lang.Class</code> 对象.</p>
-<p>字节码文件通常有一下来源:</p>
-<ul>
-<li>本地磁盘文件系统 class 文件</li>
-<li>JAR 包中加载 class 文件</li>
-<li>网络地址加载 class 文件</li>
-<li>动态编译一个 java 源文件, 并执行加载</li>
-</ul>
-<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><p>java 中的类加载器是通过双亲委派模型来实现的, 有如下特点</p>
-<ul>
-<li><p>类的加载过程采用委托模式实现. 某个特定的类加载器在接到加载类的请求时, 首先将加载任务委托给父类加载器, 依次递归, 如果父类加载器可以完成类加载任务, 就成功返回; 只有父类加载器无法完成此加载任务时, 才自己去加载.</p>
-</li>
-<li><p>JVM 预定义了三种类加载器</p>
-<ul>
-<li>根类加载器(Bootstrap ClassLoader). 由C++实现, 负责将<code>&lt;Java_Runtime_Home&gt;/lib</code>下面的类库加载到内存中, 如 rt.jar</li>
-<li>扩展类加载器(Extension ClassLoader). 负责将 <code>&lt;Java_Runtime_Home &gt;/lib/ext</code> 或者由系统变量 java.ext.dir指定位置中的类库加载到内存中. 开发者可以直接使用标准扩展类加载器.</li>
-<li>系统类加载器(System ClassLoader). 负责将系统类路径（CLASSPATH）中指定的类库加载到内存中. 开发者可以直接使用系统类加载器。</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016-11-10-2/">展开全文 >></a>
         </p>
       
 
