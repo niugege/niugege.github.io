@@ -154,6 +154,231 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-ref-fn-to-termianl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/python-ref-fn-to-termianl/">python终端引用文件中定义的内容</a>
+    </h1>
+  
+
+        
+        <a href="/python-ref-fn-to-termianl/" class="archive-article-date">
+  	<time datetime="2017-05-15T15:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实很简单，如果我有一个文件名为 <code>test.py</code> ，要引用里面的对象或函数，只需要简单的 <code>import</code> 下就行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python_hard_way (master) ✗ python</div><div class="line">Python 2.7.13 (default, May  3 2017, 12:48:58)</div><div class="line">[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin</div><div class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</div><div class="line">&gt;&gt;&gt; import test</div><div class="line">&gt;&gt;&gt; test.do(5)</div></pre></td></tr></table></figure>
+<p>这样即可</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/python-ref-fn-to-termianl/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-EverVim-折腾记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/EverVim-折腾记/">EverVim 折腾记</a>
+    </h1>
+  
+
+        
+        <a href="/EverVim-折腾记/" class="archive-article-date">
+  	<time datetime="2017-05-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在折腾 vim，刚好看 <a href="https://github.com/LER0ever/EverVim" target="_blank" rel="external">EverVim</a> ，挺符合我的审美，哈哈。</p>
+<h1 id="neovim"><a href="#neovim" class="headerlink" title="neovim"></a><a href="https://github.com/neovim/neovim" target="_blank" rel="external">neovim</a></h1><p>neovim 应该说是更好的 vim，没理由不折腾下，<a href="https://github.com/neovim/homebrew-neovim#installation" target="_blank" rel="external">mac上的安装方法</a> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install neovim/neovim/neovim</div></pre></td></tr></table></figure>
+<p>安装完成之后，一定要做下 <code>:CheckHealth</code> 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没安装。需要提醒的一句是，health check 提到的python2模块很重要，有可能会导致 <code>You-Complete-Me</code> 的代码提示不起作用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 2:</div><div class="line">    /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 2:</div><div class="line">          /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - INFO: Executable: Not found</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div></pre></td></tr></table></figure>
+<p>赶紧装上 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user --upgrade neovim</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/EverVim-折腾记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vim/" class="article-tag-list-link color4">vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/EverVim-折腾记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-upgrade-nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/upgrade-nodejs/">升级nodejs</a>
+    </h1>
+  
+
+        
+        <a href="/upgrade-nodejs/" class="archive-article-date">
+  	<time datetime="2017-05-05T13:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>node</code> 的 <code>n</code> 模块可以升级版本，不错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装 n 模块</div><div class="line"><span class="meta">$</span> sudo npm install -g n</div><div class="line"><span class="meta"></span></div><div class="line"># 选择一个流行版本安装</div><div class="line"><span class="meta">$</span> sudo n v6.10.3 </div><div class="line"><span class="meta"></span></div><div class="line"># 自动安装最新的稳定版本</div><div class="line"><span class="meta">$</span> sudo n stable  </div><div class="line"><span class="meta"></span></div><div class="line"># 查看所有node版本</div><div class="line"><span class="meta">$</span> sudo n ls</div><div class="line"><span class="meta"></span></div><div class="line"># 查看Node的版本，检查升级是否成功</div><div class="line"><span class="meta">$</span> node -v</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node/" class="article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/upgrade-nodejs/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-python-hard-way" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -584,6 +809,95 @@
 
 
   
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-位运算的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -689,300 +1003,9 @@
 
 
   
-    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA8-OverView/" class="archive-article-date">
-  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- toc -->
-<p>最近一周 JAVA8 的学习总结</p>
-<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
-<li>Predicate<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Consumer<t></t></li>
-</ul>
-<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
-<ul>
-<li>Function<t, r=""></t,></li>
-</ul>
-<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
-<ul>
-<li>Supplier<t></t></li>
-</ul>
-<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
-        
-          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-time" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/time/">珍惜好每一刻</a>
-    </h1>
-  
-
-        
-        <a href="/time/" class="archive-article-date">
-  	<time datetime="2016-11-25T00:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>加油!</p>
-<p><img src="http://7xlqpv.com1.z0.glb.clouddn.com/14800350354012.jpg" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/time/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JAVA基础--数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/JAVA基础--数据结构/">java 基础 ----基本数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/JAVA基础--数据结构/" class="archive-article-date">
-  	<time datetime="2016-11-20T06:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><ul>
-<li>字符型(char)</li>
-</ul>
-<p>java 采用 unicode 编码， 使用 2 个字节表示一个字符，所以java中的一个字符是 <code>2 个字节</code><br>c 语言使用的是 ASCII 编码，一个 char 占用 1 个字节。</p>
-<p>由于是无符号的，且 2 个字节 32 位长度，那么其范围是 0 到 65535 。</p>
-<ul>
-<li><p>布尔类型: boolean</p>
-</li>
-<li><p>数值类型: 有符号数值类型，最高位表示符号位<br>  byte : 1 字节<br>  short : 2 字节<br>  int : 4 字节<br>  long : 8 字节<br>  float : 4 字节<br>  double : 8 字节</p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/JAVA基础--数据结构/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/JAVA基础--数据结构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-tmux基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tmux基础/">编辑器之 tmux</a>
-    </h1>
-  
-
-        
-        <a href="/tmux基础/" class="archive-article-date">
-  	<time datetime="2016-11-11T06:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>mac 上安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tmux</div></pre></td></tr></table></figure>
-<p>需要使用的时候只需要在命令行输入  <code>tmux</code><br>tmux 所有的操作都带了一个 prefix , 这也是 tmux 用起来比较麻烦的地方. 默认的 prefix 是 <code>ctrl + b</code></p>
-<h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><p>直接在终端查看 session 相关信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tmux ls 列出会话</div><div class="line">tmux attach -t session 进入某个会话</div><div class="line">tmux -r 连接上个断开的session</div><div class="line">tmux new -s session -d 在后台建立会话</div></pre></td></tr></table></figure>
-<p>进入 tmux 后查看 session 相关信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ctrl+b s 查看/切换session</div><div class="line">ctrl+b d 离开(detach)session</div><div class="line">ctrl+b $ 重命名当前session</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/tmux基础/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tmux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tmux基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1129,6 +1152,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">assembly</a>
               </li>
             
             <div class="clearfix"></div>

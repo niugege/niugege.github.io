@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yangsui.me/python杂项汇总/index.html">
 <meta property="og:site_name" content="日拱一卒,功不唐捐">
 <meta property="og:description" content="虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘  合并字典 我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。 参考 怎样合并字典最符合Python语言习惯？ 我使用了最简单明了的一种方式，大致如下 123fmt = &amp;#123;&amp;#125;fmt.update(default_format_di">
-<meta property="og:updated_time" content="2017-07-12T02:02:32.000Z">
+<meta property="og:updated_time" content="2017-08-06T08:32:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python杂项汇总">
 <meta name="twitter:description" content="虽然撸过一遍书，新上手python还是有不少问题，开发任务比较紧急，先记录下来避免遗忘  合并字典 我有一个这样的需要，一个方法有默认配置项(字典)，用户也可以传入自定义配置项(字典)，这就涉及到两个字典的合并。 参考 怎样合并字典最符合Python语言习惯？ 我使用了最简单明了的一种方式，大致如下 123fmt = &amp;#123;&amp;#125;fmt.update(default_format_di">
@@ -186,10 +186,15 @@
 <li><p>python redis clinet hgetall 返回数据类型全是字符串</p>
 <p>我们知道，redis中hash对象的属性和值全是字符串类型的，但是取出来之后就需要我们转换为对应的数据类型。这方面java的client就做得好很多，不需要用户在手动设置。</p>
 <p>查看 <a href="https://github.com/andymccurdy/redis-**py" target="_blank" rel="external">redis-py文档说明</a> ，<strong>Response Callbacks</strong> 这段有说，我们只需要设置下 <code>set_response_callback</code> 就可以了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hgetall_response_parser</span><span class="params">(item, format_dict=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    格式化redis命令response的结构</div><div class="line">    :param item:</div><div class="line">    :param format_dict:</div><div class="line">    :return:</div><div class="line">    """</div><div class="line"></div><div class="line">    <span class="comment"># 默认格式化参数</span></div><div class="line">    fmt = &#123;&#125;</div><div class="line">    default_format_dict = &#123;</div><div class="line">        <span class="string">'id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'seq'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'type'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'status'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_area_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'discount'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'price'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'category_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'group_buy'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'unit'</span>: <span class="string">'int'</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> format_dict <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        fmt = default_format_dict</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        fmt.update(default_format_dict)</div><div class="line">        fmt.update(format_dict)</div><div class="line"></div><div class="line">    result = &#123;&#125;</div><div class="line">    dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div><div class="line">    <span class="keyword">for</span> key, val <span class="keyword">in</span> dt.iteritems():</div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> fmt:</div><div class="line">            fmt_type = fmt[key]</div><div class="line">            <span class="keyword">if</span> fmt_type == <span class="string">'int'</span>:</div><div class="line">                dt[key] = int(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'float'</span>:</div><div class="line">                dt[key] = float(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'decimal'</span>:</div><div class="line">                dt[key] = Decimal(val)</div><div class="line"></div><div class="line">        result[key] = dt[key]</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">redis_hash</span><span class="params">(key, format_dict=None)</span>:</span></div><div class="line">    <span class="keyword">if</span> redis_store.exists(key):</div><div class="line">        <span class="keyword">if</span> format_dict:</div><div class="line">            redis_store.set_response_callback(<span class="string">'HGETALL'</span>, <span class="keyword">lambda</span> item: hgetall_response_parser(item, format_dict))</div><div class="line">        <span class="keyword">return</span> redis_store.hgetall(key)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div></pre></td></tr></table></figure>
-<p>​</p>
-<p>由于 <code>hgetall</code> 是按照 <code>[property value property value property value ....]</code> 这样返回的一个列表，首先需要将这个列表解析为对应的key value，方便判断具体哪一个属性需要转换的具体的数据类型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hgetall_response_parser</span><span class="params">(item, format_dict=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    格式化redis命令response的结构</div><div class="line">    :param item:</div><div class="line">    :param format_dict:</div><div class="line">    :return:</div><div class="line">    """</div><div class="line"></div><div class="line">    <span class="comment"># 默认格式化参数</span></div><div class="line">    fmt = &#123;&#125;</div><div class="line">    default_format_dict = &#123;</div><div class="line">        <span class="string">'id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'seq'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'type'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'status'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'shop_area_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'discount'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'price'</span>: <span class="string">'decimal'</span>,</div><div class="line">        <span class="string">'category_id'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'group_buy'</span>: <span class="string">'int'</span>,</div><div class="line">        <span class="string">'unit'</span>: <span class="string">'int'</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> format_dict <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        fmt = default_format_dict</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        fmt.update(default_format_dict)</div><div class="line">        fmt.update(format_dict)</div><div class="line"></div><div class="line">    result = &#123;&#125;</div><div class="line">    dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div><div class="line">    <span class="keyword">for</span> key, val <span class="keyword">in</span> dt.iteritems():</div><div class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> fmt:</div><div class="line">            fmt_type = fmt[key]</div><div class="line">            <span class="keyword">if</span> fmt_type == <span class="string">'int'</span>:</div><div class="line">                dt[key] = int(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'float'</span>:</div><div class="line">                dt[key] = float(val)</div><div class="line">            <span class="keyword">elif</span> fmt_type == <span class="string">'decimal'</span>:</div><div class="line">                dt[key] = Decimal(val)</div><div class="line"></div><div class="line">        result[key] = dt[key]</div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<p>def redis_hash(key, format_dict=None):</p>
+<pre><code>if redis_store.exists(key):
+    if format_dict:
+        redis_store.set_response_callback(&apos;HGETALL&apos;, lambda item: hgetall_response_parser(item, format_dict))
+    return redis_store.hgetall(key)
+else:
+    return None
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">由于 `hgetall` 是按照 `[property value property value property value ....]` 这样返回的一个列表，首先需要将这个列表解析为对应的key value，方便判断具体哪一个属性需要转换的具体的数据类型</div><div class="line"></div><div class="line">```python</div><div class="line">dt = dict(zip(item[0::2], item[1::2]))</div></pre></td></tr></table></figure>
 <p>然后根据传入的需要格式化的字典数据，转换响应的数据类型</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">result = &#123;&#125;</div><div class="line">dt = dict(zip(item[<span class="number">0</span>::<span class="number">2</span>], item[<span class="number">1</span>::<span class="number">2</span>]))</div><div class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> dt.iteritems():</div><div class="line">    <span class="keyword">if</span> key <span class="keyword">in</span> fmt:</div><div class="line">        fmt_type = fmt[key]</div><div class="line">        <span class="keyword">if</span> fmt_type == <span class="string">'int'</span>:</div><div class="line">            dt[key] = int(val)</div><div class="line">        <span class="keyword">elif</span> fmt_type == <span class="string">'float'</span>:</div><div class="line">            dt[key] = float(val)</div><div class="line">        <span class="keyword">elif</span> fmt_type == <span class="string">'decimal'</span>:</div><div class="line">            dt[key] = Decimal(val)</div><div class="line"></div><div class="line">    result[key] = dt[key]</div><div class="line"><span class="keyword">return</span> result</div></pre></td></tr></table></figure>
 <p>最后就是在命令调用前设置下parser</p>
@@ -212,6 +217,70 @@
 </li>
 <li><p>python 性能分析</p>
 <p><a href="http://selfboot.cn/2016/06/13/python_performance_analysis/" target="_blank" rel="external">python性能分析</a></p>
+</li>
+<li><p>flask sqlalchemy 只查询单列数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Shop.query.filter(Shop.id == shop_id).with_entities(Shop.id).one_or_none()</div></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/11530196/flask-sqlalchemy-query-specify-column-names" target="_blank" rel="external">Flask SQLAlchemy query, specify column names</a></p>
+<p><a href="https://stackoverflow.com/questions/37133774/how-can-i-select-only-one-column-using-sqlalchemy" target="_blank" rel="external">how can i select only one column using sqlchemy</a></p>
+</li>
+<li><p>python中Decimal类型的数据不能够序列化为json字符串</p>
+<p>参考 <a href="https://stackoverflow.com/questions/1960516/python-json-serialize-a-decimal-object" target="_blank" rel="external">python json serialize a decimal object</a> Elias Zamaria的答案是正确的</p>
+<p><a href="https://stackoverflow.com/questions/31202956/json-typeerror-decimal34-3-is-not-json-serializable" target="_blank" rel="external">json typeeror</a></p>
+<p>flask restful 中有处理，还未来得及看</p>
+</li>
+<li><p>mysql数据文件位置</p>
+<p>使用HomeBrew安装为  <code>/usr/local/var/mysql</code></p>
+<p>使用官方下载的dmg镜像安装为  <code>/usr/local/mysql</code></p>
+</li>
+<li><p>sqlalchemy 相关</p>
+<p>sqlalchemy seesion的理解, 这篇文章讲得基础细致 <a href="http://pythoncentral.io/understanding-python-sqlalchemy-session/" target="_blank" rel="external">understanding python sqlalchemy session</a></p>
+<p><a href="https://fangs.work/blog/sqlalchemy-hybrid-property/" target="_blank" rel="external">hybrid_proerty hybrid_method</a></p>
+<p><a href="https://fangs.work/blog/%E7%A8%8B%E5%BA%8F/python/sqlalchemy-mapper-inheritance/" target="_blank" rel="external">sqlalchemy中的继承</a></p>
+<p><a href="http://docs.sqlalchemy.org/en/latest/orm/events.html#mapper-events" target="_blank" rel="external">sqlalchemy events</a></p>
+</li>
+</ol>
+<p><a href="https://www.keakon.net/2012/12/03/SQLAlchemy%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C" target="_blank" rel="external">sqlalchemy使用经验</a></p>
+<ol>
+<li><p>pycharm 工具类提醒</p>
+<p><a href="http://www.jetbrains.com/help/pycharm/2017.1/using-docstrings-to-specify-types.html" target="_blank" rel="external">pycharm代码提示</a></p>
+</li>
+<li><p>python性能分析</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.wsgi_app = ProfilerMiddleware(app.wsgi_app, profile_dir=app.config[<span class="string">'PROFILE_DUMP_FOLDER'</span>])</div></pre></td></tr></table></figure>
+<p>会输入prof文件，使用 qcachegrind来图形化分析</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install qcachegrind</div></pre></td></tr></table></figure>
+<p>分析之前要将python生成的prof文件转换为qcachegrind可以识别的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install pyprof2calltree</div><div class="line">pyprof2calltree --help</div></pre></td></tr></table></figure>
+<p>开始转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyprof2calltree -i GET.api.v5.shop.area_style<span class="number">.000820</span>ms<span class="number">.1500360426</span>.prof -o callgrind.GET.api.v5.shop.area_style<span class="number">.000820</span>ms<span class="number">.1500360426</span>.prof</div></pre></td></tr></table></figure>
+<p>需要安装图形化工具不然无法使用 <code>dot</code> 命令，会报错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">failed to execute cmd：" dot -Tpng". stderr：`sh： dot：command not found`</div></pre></td></tr></table></figure>
+<p>安装好后在命令行输入 <code>qcachegrind</code> 选择刚刚成功转换的 <code>prof</code> 文件进行分析查看</p>
+<p>另外一个工具，地方<a href="https://github.com/jrfonseca/gprof2dot" target="_blank" rel="external">gprof2dot</a> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install gprof2dot</div></pre></td></tr></table></figure>
+<p>使用如下命令生成图形查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gprof2dot -f pstats mkm_run.prof | dot -Tpng -o mkm_run.png</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>优化db层</p>
+<p><a href="http://derrickgilland.com/posts/demystifying-flask-sqlalchemy/" target="_blank" rel="external">demystifying flask sqlalchemy</a></p>
+</li>
+<li><p>model转字典</p>
+<p><a href="http://ju.outofmemory.cn/entry/200879" target="_blank" rel="external">model to </a></p>
+</li>
+<li><p>关于Context等</p>
+<p><a href="http://www.cnblogs.com/autopenguin/p/6542926.html" target="_blank" rel="external">flask上下文解析</a></p>
+<p><a href="http://www.jianshu.com/p/7a7efbb7205f" target="_blank" rel="external">flask上下文</a></p>
+<p><a href="https://blog.tonyseek.com/post/the-context-mechanism-of-flask/#id12" target="_blank" rel="external">flask上下文</a></p>
+</li>
+<li><p>python unicode字符串</p>
+<p><a href="https://gist.github.com/x7hub/178c87f323fbad57ff91" target="_blank" rel="external">python2中字符串</a></p>
+<p><a href="http://pycoders-weekly-chinese.readthedocs.io/en/latest/issue5/unipain.html" target="_blank" rel="external">unicode之痛</a></p>
+<p><a href="http://www.wklken.me/posts/2013/08/31/python-extra-coding-intro.html" target="_blank" rel="external">编码处理小节</a></p>
+</li>
+<li><p>flask设置http response header</p>
+<p><a href="http://flask.pocoo.org/snippets/100/" target="_blank" rel="external">flask http response header</a></p>
+</li>
+<li><p>​</p>
 </li>
 </ol>
 
@@ -328,6 +397,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/汇编学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          汇编学习
+        
+      </div>
+    </a>
   
   
     <a href="/redis删除key/" id="article-nav-older" class="article-nav-link-wrap">
@@ -503,6 +581,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">assembly</a>
               </li>
             
             <div class="clearfix"></div>

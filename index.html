@@ -154,6 +154,256 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git回退到指定的提交版本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/git回退到指定的提交版本/">git回退到指定的版本</a>
+    </h1>
+  
+
+        
+        <a href="/git回退到指定的提交版本/" class="archive-article-date">
+  	<time datetime="2017-08-20T08:55:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我的开发分支合并了 <code>develop</code> ，发现代码有问题，现在需要回滚到合并之前的版本。</p>
+<p>使用 <code>git log</code> 查看下最近的提交，如果有如下的提交</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">G1 - G2 - G3 - B1 - B2 - B3</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">G1 - G2 - G3 - B1 - B2 - B3</div><div class="line">           \    \    \    \-- HEAD</div><div class="line">            \    \    \------ HEAD~1</div><div class="line">             \    \---------- HEAD~2</div><div class="line">              \-------------- HEAD~3</div></pre></td></tr></table></figure>
+<p>这里分两种情况，这里要回退 B1 ~ B3</p>
+<ol>
+<li><p>没有提交到服务器</p>
+<p>可以使用如下中的一种挨个回滚</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset --hard B1 B2 B3</div><div class="line">git reset --hard HEAD HEAD~1 HEAD~2</div></pre></td></tr></table></figure>
+<p>注意上面的 B1 B2 B3 都是指的提交的ID</p>
+</li>
+<li><p>已经提交到服务器</p>
+<p>如果代码已经提交了，最好使用 <code>revert</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git revert --no-commit B1 B2 B3</div><div class="line">git revert --no-commit HEAD HEAD~1 HEAD~2</div><div class="line">git revert --no-commit HEAD~2^..HEAD</div></pre></td></tr></table></figure>
+<p>这里 <code>--no-commit</code> 告诉 git 执行还原，但是不要自动提交</p>
+<p><code>&lt;rev1&gt;..&lt;rev2&gt;</code>  两个点  <code>..</code>  表示范围</p>
+<p>我这里的由于是要回退一个 <strong>merge</strong>过的提交，需要指定 <code>-m</code> 参数，可以使用 <code>man git-revert</code> 查看具体的使用方法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">man git-revert</div><div class="line">git revert --no-commit -m 1 具体的提交ID</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以参考 <a href="http://web.mit.edu/jhawk/mnt/spo/git/www/howto/revert-a-faulty-merge.html" target="_blank" rel="external">回退一个错误的merge</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/git/" class="article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/git回退到指定的提交版本/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-进制转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/进制转换/">进制转换</a>
+    </h1>
+  
+
+        
+        <a href="/进制转换/" class="archive-article-date">
+  	<time datetime="2017-08-19T01:47:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="16进制加减法"><a href="#16进制加减法" class="headerlink" title="16进制加减法"></a>16进制加减法</h2><p>理解几个关键点</p>
+<ol>
+<li><p>16进制的数是从 <strong>0 ~ f</strong> ，其中 A(10)，B(11)，C(12)，D(13)，E(14)，F(15)。</p>
+</li>
+<li><p>10进制借位每借一位是借的10，16进制每借一位借的是16。</p>
+<p>对16进制加法，位数相加如果结果大于 16 ，进 1 位 ，下一位需要加 1，该位要减去数值16</p>
+<p>如: 0x6AE9 + 0x4B7C</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 计算最低位</span></div><div class="line"><span class="number">9</span> + C = <span class="number">9</span> + <span class="number">12</span> = <span class="number">21</span> &gt; <span class="number">16</span> </div><div class="line"><span class="number">21</span> &gt; <span class="number">16</span> 进 <span class="number">1</span> 位， <span class="number">21</span>减去进<span class="number">1</span>位的值，<span class="number">21</span> - <span class="number">16</span> = <span class="number">5</span></div><div class="line"></div><div class="line"><span class="comment"># 计算第二位</span></div><div class="line">E + <span class="number">7</span> = <span class="number">1</span>(进位) + E + <span class="number">7</span> = <span class="number">1</span> + <span class="number">14</span> + <span class="number">7</span> = <span class="number">22</span></div><div class="line"><span class="number">22</span> &gt; <span class="number">16</span> 进 <span class="number">1</span> 位，减去进位的值 <span class="number">22</span> - <span class="number">16</span> = <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment"># 计算第三位</span></div><div class="line">A + B = <span class="number">1</span> (进位) + <span class="number">10</span> + <span class="number">11</span> = <span class="number">22</span></div><div class="line"><span class="number">22</span> &gt; <span class="number">16</span> 进 <span class="number">1</span> 位，减去进位的值 <span class="number">22</span> - <span class="number">16</span> = <span class="number">6</span></div><div class="line"></div><div class="line"><span class="comment"># 计算最高位</span></div><div class="line"><span class="number">6</span> + <span class="number">4</span> = <span class="number">1</span>(进位) + <span class="number">6</span> + <span class="number">4</span> = <span class="number">11</span> =  A</div><div class="line"></div><div class="line">所以结果是: <span class="number">0xA665</span></div></pre></td></tr></table></figure>
+<p>如: 0x1FA8 - 0x1DDD</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="number">8</span> - D = <span class="number">8</span> - <span class="number">13</span> = <span class="number">16</span>(向上借<span class="number">1</span>位) + <span class="number">8</span> - <span class="number">13</span> = <span class="number">11</span> = B</div><div class="line">A - D = <span class="number">10</span> - <span class="number">13</span> - <span class="number">1</span>(借出去的<span class="number">1</span>位) + <span class="number">16</span>(向上借<span class="number">1</span>位) = <span class="number">12</span> = C</div><div class="line">F - D = <span class="number">16</span> - <span class="number">14</span> - <span class="number">1</span>(借出去的<span class="number">1</span>位) = <span class="number">1</span></div><div class="line"><span class="number">1</span> - <span class="number">1</span> = <span class="number">0</span></div><div class="line"></div><div class="line">结果: <span class="number">0x01CB</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">assembly</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/assembly/" class="article-tag-list-link color4">assembly</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/进制转换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-汇编学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/汇编学习/">汇编学习</a>
+    </h1>
+  
+
+        
+        <a href="/汇编学习/" class="archive-article-date">
+  	<time datetime="2017-08-16T15:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于汇编学习的大概汇总</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p><a href="https://www.gnu.org/software/binutils/" target="_blank" rel="external">binutils</a> </p>
+<p>mac上可以通过一条命令安装 <code>brew install binutils</code></p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">global _start</div><div class="line"></div><div class="line">section .data</div><div class="line">    hello : db `hello world!\n`</div><div class="line"></div><div class="line">section .text</div><div class="line">    _start:</div><div class="line">        mov rax, 1</div><div class="line">        mov rdi, 1</div><div class="line">        mov rsi, hello</div><div class="line">        mov rdx, 14</div><div class="line">        syscall</div><div class="line"></div><div class="line">        mov rax, 60</div><div class="line">        xor rdi, rdi</div><div class="line">        syscall</div></pre></td></tr></table></figure>
+<p>首先编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nasm -f elf64 -o hello.o hello.s</div></pre></td></tr></table></figure>
+<p>链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ld -o hello hello.o</div></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./hello</div></pre></td></tr></table></figure>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">assembly</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/assembly/" class="article-tag-list-link color4">assembly</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/汇编学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-python杂项汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -650,234 +900,9 @@
 
 
   
-    <article id="post-python-ref-fn-to-termianl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/python-ref-fn-to-termianl/">python终端引用文件中定义的内容</a>
-    </h1>
-  
-
-        
-        <a href="/python-ref-fn-to-termianl/" class="archive-article-date">
-  	<time datetime="2017-05-15T15:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其实很简单，如果我有一个文件名为 <code>test.py</code> ，要引用里面的对象或函数，只需要简单的 <code>import</code> 下就行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">python_hard_way (master) ✗ python</div><div class="line">Python 2.7.13 (default, May  3 2017, 12:48:58)</div><div class="line">[GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.42.1)] on darwin</div><div class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</div><div class="line">&gt;&gt;&gt; import test</div><div class="line">&gt;&gt;&gt; test.do(5)</div></pre></td></tr></table></figure>
-<p>这样即可</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/python-ref-fn-to-termianl/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-EverVim-折腾记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/EverVim-折腾记/">EverVim 折腾记</a>
-    </h1>
-  
-
-        
-        <a href="/EverVim-折腾记/" class="archive-article-date">
-  	<time datetime="2017-05-08T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在折腾 vim，刚好看 <a href="https://github.com/LER0ever/EverVim" target="_blank" rel="external">EverVim</a> ，挺符合我的审美，哈哈。</p>
-<h1 id="neovim"><a href="#neovim" class="headerlink" title="neovim"></a><a href="https://github.com/neovim/neovim" target="_blank" rel="external">neovim</a></h1><p>neovim 应该说是更好的 vim，没理由不折腾下，<a href="https://github.com/neovim/homebrew-neovim#installation" target="_blank" rel="external">mac上的安装方法</a> </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install neovim/neovim/neovim</div></pre></td></tr></table></figure>
-<p>安装完成之后，一定要做下 <code>:CheckHealth</code> 查看下是否有模块没有安装。由于我使用的是python2.7，第一次做检查的时候发现 python2 的neovim模块没安装。需要提醒的一句是，health check 提到的python2模块很重要，有可能会导致 <code>You-Complete-Me</code> 的代码提示不起作用。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">health#</span>provider#check</div><div class="line">========================================================================</div><div class="line"><span class="meta">#</span># Clipboard (optional)</div><div class="line">  - SUCCESS: Clipboard tool found: pbcopy</div><div class="line"><span class="meta"></span></div><div class="line">## Python 2 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 2:</div><div class="line">    /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">    /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - ERROR: Python provider error</div><div class="line">    - SUGGESTIONS:</div><div class="line">      - provider/pythonx: Could not load Python 2:</div><div class="line">          /usr/local/bin/python2 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python2.7 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/bin/python2.6 does not have the "neovim" module. :help provider-python</div><div class="line">          /usr/local/bin/python does not have the "neovim" module. :help provider-python</div><div class="line">  - INFO: Executable: Not found</div><div class="line"><span class="meta"></span></div><div class="line">## Python 3 provider (optional)</div><div class="line">  - WARNING: No Python interpreter was found with the neovim module.  Using the first available for diagnostics.</div><div class="line">  - WARNING: provider/pythonx: Could not load Python 3:</div><div class="line">    python3 not found in search path or not executable.</div><div class="line">    python3.7 not found in search path or not executable.</div><div class="line">    python3.6 not found in search path or not executable.</div><div class="line">    python3.5 not found in search path or not executable.</div><div class="line">    python3.4 not found in search path or not executable.</div></pre></td></tr></table></figure>
-<p>赶紧装上 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user --upgrade neovim</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/EverVim-折腾记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vim/" class="article-tag-list-link color4">vim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/EverVim-折腾记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-upgrade-nodejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/upgrade-nodejs/">升级nodejs</a>
-    </h1>
-  
-
-        
-        <a href="/upgrade-nodejs/" class="archive-article-date">
-  	<time datetime="2017-05-05T13:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>node</code> 的 <code>n</code> 模块可以升级版本，不错</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装 n 模块</div><div class="line"><span class="meta">$</span> sudo npm install -g n</div><div class="line"><span class="meta"></span></div><div class="line"># 选择一个流行版本安装</div><div class="line"><span class="meta">$</span> sudo n v6.10.3 </div><div class="line"><span class="meta"></span></div><div class="line"># 自动安装最新的稳定版本</div><div class="line"><span class="meta">$</span> sudo n stable  </div><div class="line"><span class="meta"></span></div><div class="line"># 查看所有node版本</div><div class="line"><span class="meta">$</span> sudo n ls</div><div class="line"><span class="meta"></span></div><div class="line"># 查看Node的版本，检查升级是否成功</div><div class="line"><span class="meta">$</span> node -v</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node/" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/upgrade-nodejs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1024,6 +1049,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">iterm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">assembly</a>
               </li>
             
             <div class="clearfix"></div>
