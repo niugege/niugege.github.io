@@ -154,6 +154,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-位运算的作用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/位运算的作用/">位移运算与运算的基本作用</a>
+    </h1>
+  
+
+        
+        <a href="/位运算的作用/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近看了很多底层代码，大量使用到了基础的位移，与运算等，做一个总结。</p>
+<h1 id="位移与运算基础知识"><a href="#位移与运算基础知识" class="headerlink" title="位移与运算基础知识"></a>位移与运算基础知识</h1><ol>
+<li><p>数字在计算机中是以 补码 的形式保存的；正数的原码，补码，反码相同；负数的补码是原码取反加 1 得到的</p>
+</li>
+<li><p>位移操作涉及到类型转换</p>
+</li>
+</ol>
+<p>假设有 <code>x &lt;&lt; n</code></p>
+<ul>
+<li><p>x 是  byte short char int long 基本类型, n 只能是 int 类型</p>
+</li>
+<li><p>若 x 是 byte short char 类型，首先将类型转化为 int 然后才进行位移操作</p>
+</li>
+<li><p>若 x 是 byte short char int 类型，那么 n 会被重新赋值，计算方法是 n % 32，可以理解为超过如果 n 超过 32 进行取模</p>
+<p>   取 n 的补码的低 5 位， 然后转换为十进制的 int 值，相当于对 n 取 32 模： n = n % 32</p>
+<p>   为什么是 5，int 占用 32 位，刚好是 2 的 5 次方</p>
+</li>
+<li><p>若 x 是 long 类型，取 n 的补码的低 6 位， 计算 n 的方法是 n % 64</p>
+</li>
+<li><p>double float 类型不能进行移位运算 </p>
+</li>
+</ul>
+<ol>
+<li>左移运算 &lt;&lt;</li>
+</ol>
+<p>按照二进制方式将所有的数字向左移动对应的位数，高位舍弃，低位补 0 ；左移有可能导致溢出。</p>
+<p>数学意义：在没有溢出的情况下，对于 正数 和 负数， 左移一位相当于乘以 2 的 1 次方，移动 n 位相当于乘以 2 的 n 次方。</p>
+<ol>
+<li>有符号右移运算 &gt;&gt;<br>按照二进制形式把所有的数字向右移动对应的位数，低位舍弃，高位的空位补符号位，即正数补 <strong>0</strong> ，负数补 <strong>1</strong></li>
+</ol>
+<p>数学意义：右移一位相当于除以 2 ，右移 n 位相当于除以 2 的 n 次方， 取商，不要余数。</p>
+<ol>
+<li>无符号右移运算 &gt;&gt;&gt;<br>按照二进制方式把所有的数字向右移动对应位数，低位舍弃，高位空位补 <strong>0</strong></li>
+</ol>
+        
+          <a class="article-more-a" href="/位运算的作用/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/位运算的作用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-JAVA8-OverView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JAVA8-OverView/">JAVA 8 学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/JAVA8-OverView/" class="archive-article-date">
+  	<time datetime="2016-12-10T14:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<p>最近一周 JAVA8 的学习总结</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><ul>
+<li>Predicate<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; boolean</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Consumer<t></t></li>
+</ul>
+<p>方法: <code>boolean test(T t)</code><br>函数描述: <code>T -&gt; void</code><br>作用: 传入一个参数，返回一个bool结果<br>特征化原始类型: IntPredicate, LongPredicate, DoublePredicate </p>
+<ul>
+<li>Function<t, r=""></t,></li>
+</ul>
+<p>方法: <code>R apply(T t)</code><br>函数描述: <code>T -&gt; R</code><br>作用: 传入一个参数，返回一个结果<br>特征化原始类型: IntFunction<r>, IntToLongFunction, IntToDoubleFunction, LongFunction<r>, LongToIntFunction, LongToDoubleFunction, DoubleFunction<r>, ToIntFunction<t>, ToLongFunction<t>, ToDoubleFunction<t></t></t></t></r></r></r></p>
+<ul>
+<li>Supplier<t></t></li>
+</ul>
+<p>方法: <code>T get()</code><br>函数描述: <code>() -&gt; T</code><br>作用: 无参数传入，返回一个结果<br>特征化原始类型: BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier </p>
+        
+          <a class="article-more-a" href="/JAVA8-OverView/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JAVA8-OverView/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-time" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -430,7 +624,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/linux基础命令/">linux 基础命令</a>
+      <a class="article-title" href="/linux基础命令/">linux工具</a>
     </h1>
   
 
@@ -443,7 +637,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="top"><a href="#top" class="headerlink" title="top"></a>top</h1><h1 id="free"><a href="#free" class="headerlink" title="free"></a>free</h1>
+        <h2 id="dstat"><a href="#dstat" class="headerlink" title="dstat"></a>dstat</h2><p><a href="http://dag.wiee.rs/home-made/dstat/" target="_blank" rel="external">dstat官网</a>， ubuntu server 安装 <code>apt-get install dstat</code></p>
+<p><code>man dstat</code> 可以看到 dstat 是一个全能系统信息统计工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Dstat is a versatile replacement for vmstat, iostat and ifstat. Dstat overcomes some of the limitations and adds some extra features.</div><div class="line"></div><div class="line">Dstat allows you to view all of your system resources instantly, you can eg. compare disk usage in combination with interrupts from your IDE controller, or compare the network bandwidth numbers directly with the disk throughput (in the same interval).</div><div class="line"></div><div class="line">Dstat also cleverly gives you the most detailed information in columns and clearly indicates in what magnitude and unit the output is displayed. Less confusion, less mistakes, more efficient.</div><div class="line"></div><div class="line">Dstat is unique in letting you aggregate block device throughput for a certain diskset or network bandwidth for a group of interfaces, ie. you can see the throughput for all the block devices that make up a single filesystem or storage system.</div></pre></td></tr></table></figure>
+<h2 id="sysstat"><a href="#sysstat" class="headerlink" title="sysstat"></a>sysstat</h2><p><a href="http://sebastien.godard.pagesperso-orange.fr/" target="_blank" rel="external">sysstat官网</a> 安装 <code>sudo apt install sysstat</code> </p>
+<h2 id="perf"><a href="#perf" class="headerlink" title="perf"></a>perf</h2><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install linux-tools-common linux-tools-generic linux-tools-`uname -r`</div></pre></td></tr></table></figure>
+<p>可以按照 ubuntu 给出的提示来进行安装</p>
+<h2 id="gprof"><a href="#gprof" class="headerlink" title="gprof"></a>gprof</h2>
       
 
       
@@ -565,57 +766,6 @@
 
 
   
-    <article id="post-redis基本安装和安全设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/redis基本安装和安全设置/">redis基础(安装和安全设置)</a>
-    </h1>
-  
-
-        
-        <a href="/redis基本安装和安全设置/" class="archive-article-date">
-  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/redis基本安装和安全设置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/redis基本安装和安全设置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-JVM学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -702,118 +852,30 @@
 
 
   
-    <article id="post-2016-10-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-redis基本安装和安全设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-10-13/">为什么String类被设计为不可变</a>
+      <a class="article-title" href="/redis基本安装和安全设置/">redis基础(安装和安全设置)</a>
     </h1>
   
 
         
-        <a href="/2016-10-13/" class="archive-article-date">
-  	<time datetime="2016-10-22T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
+        <a href="/redis基本安装和安全设置/" class="archive-article-date">
+  	<time datetime="2016-10-26T14:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="翻译-为什么-String-被设计成不可变的"><a href="#翻译-为什么-String-被设计成不可变的" class="headerlink" title="翻译 为什么 String 被设计成不可变的"></a>翻译 为什么 String 被设计成不可变的</h2><p>在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.</p>
-<ul>
-<li>字符串池的要求</li>
-</ul>
-<p>字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个字符串已经在常量池中存在, 会返回字符串的引用而不是在重新创建一个字符串 </p>
-<ul>
-<li>缓存 hashcode</li>
-</ul>
-<p>String 的 hashcode 方法在 JAVA 中被频繁的被使用, 比如 <code>HashMap</code>. 不可变可以保证 hashcode 总是一样的, 这样能够被缓存而不必担心改变.  也就是说, 没有必须在每次使用的时候都去计算一次  hashcode. 这样效率更高.</p>
-<p>在 <code>String</code> 类中, 有这样的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Cache the hash code for the string */</div><div class="line">private int hash; // Default to 0</div></pre></td></tr></table></figure>
-<ul>
-<li>促进使用其它相关的对象</li>
-</ul>
-<p>参考下面的例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"a"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"b"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"c"</span>));</div><div class="line">     </div><div class="line"><span class="keyword">for</span>(String a : set)&#123;</div><div class="line">    a.value = <span class="string">"a"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的例子中, 如果 a 是可变的, 那么就违背了集合的设计(set 表示集合中包含不重复的元素), 上面的例子是为了简单起见而设计的, 事实上 String 类中并不存在 value 这个字段.</p>
-<ul>
-<li>安全</li>
-</ul>
-<p>String 被广泛地用着其它类的参数, 比如: 网络连接, 文件创建等等. 如果 String 是可变的, 一个连接或是文件就能够被改变, 这样会导致很严重的安全问题. 方法认为它连接上了一台机器, 但是事实上不是. 字符串作为参数的时候, 可变的字符串在反射的时候也可能引起安全问题. </p>
-<ul>
-<li>不可变对象天然是线程安全的</li>
-</ul>
-<p>因为不可变对象不能被改变, 他们能够在多线程之间被共享, 这就消除了执行同步的要求.</p>
-<p><strong>简而言之, 因为安全和效率的原因 String 类被设计为不可变. </strong></p>
-<p>参考: <a href="http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/" target="_blank" rel="external">http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016-10-13/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-关于restful api设计的一些探讨" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+        <h1 id="redis基本操作"><a href="#redis基本操作" class="headerlink" title="redis基本操作"></a>redis基本操作</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>推荐通过源代码安装, 我这里是测试使用 apt-get 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update </div><div class="line">sudo apt-get upgrade</div><div class="line">sudo apt-get -y install redis-server</div></pre></td></tr></table></figure>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/关于restful api设计的一些探讨/">RESTful简单介绍</a>
-    </h1>
-  
-
-        
-        <a href="/关于restful api设计的一些探讨/" class="archive-article-date">
-  	<time datetime="2016-06-08T07:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="RESTful介绍"><a href="#RESTful介绍" class="headerlink" title="RESTful介绍"></a>RESTful介绍</h1><p>本文主要包含以下内容:</p>
-<ul>
-<li>为什么要用RESTful</li>
-<li>RESTful的定义</li>
-<li>RESTful的五个关键内容<ul>
-<li>资源与URI(Resource URI)</li>
-<li>统一资源接口(Uniform Interface)</li>
-<li>资源的表述 (Representation)</li>
-<li>状态的转移 (State Transfer)</li>
-<li>超文本驱动 (Hypertext Driven)</li>
-</ul>
-</li>
-<li>简单比较下REST和RPC两种API调用风格 </li>
-</ul>
-<p>需要注意的是本文只对RESTful进行简单的介绍, 很多内容可探讨的就比较多, 比如安全及授权, 超文本驱动, 所以只对这些内容做简单介绍. 另外文章中的很多内容在实际开发中会有所取舍, 因此本文不是实际开发中的规范, 但是对理解规范是有很大作用的. 另外, 权衡各方面利弊后, 我们会在短期内给出相应的开发规范.</p>
-<p>文中出现的错误或表述不清楚的地方, 欢迎大家指正.</p>
-        
-          <a class="article-more-a" href="/关于restful api设计的一些探讨/#more">more >></a>
+          <a class="article-more-a" href="/redis基本安装和安全设置/#more">more >></a>
         
       
 
@@ -826,7 +888,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/关于restful api设计的一些探讨/">展开全文 >></a>
+          <a class="article-more-a" href="/redis基本安装和安全设置/">展开全文 >></a>
         </p>
       
 
@@ -998,6 +1060,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Source</a>
               </li>
             
             <div class="clearfix"></div>

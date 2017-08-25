@@ -154,6 +154,145 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2016-10-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-10-13/">为什么String类被设计为不可变</a>
+    </h1>
+  
+
+        
+        <a href="/2016-10-13/" class="archive-article-date">
+  	<time datetime="2016-10-22T12:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="翻译-为什么-String-被设计成不可变的"><a href="#翻译-为什么-String-被设计成不可变的" class="headerlink" title="翻译 为什么 String 被设计成不可变的"></a>翻译 为什么 String 被设计成不可变的</h2><p>在 JAVA 中 String 被设计为不可变, 也就是说 String 类的实例不能被修改。实例被创建的时候, 实例中所有的信息也被一并初始化好了, 所有的这些信息都不能再被修改. 不可变类有许多优点. 一个好的答案体现在对内存, 并发, 数据结构等的理解.</p>
+<ul>
+<li>字符串池的要求</li>
+</ul>
+<p>字符串常量池存储于 JVM 的方法区. 当创建一个字符串的时候, 如果一个字符串已经在常量池中存在, 会返回字符串的引用而不是在重新创建一个字符串 </p>
+<ul>
+<li>缓存 hashcode</li>
+</ul>
+<p>String 的 hashcode 方法在 JAVA 中被频繁的被使用, 比如 <code>HashMap</code>. 不可变可以保证 hashcode 总是一样的, 这样能够被缓存而不必担心改变.  也就是说, 没有必须在每次使用的时候都去计算一次  hashcode. 这样效率更高.</p>
+<p>在 <code>String</code> 类中, 有这样的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Cache the hash code for the string */</div><div class="line">private int hash; // Default to 0</div></pre></td></tr></table></figure>
+<ul>
+<li>促进使用其它相关的对象</li>
+</ul>
+<p>参考下面的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;String&gt;();</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"a"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"b"</span>));</div><div class="line">set.add(<span class="keyword">new</span> String(<span class="string">"c"</span>));</div><div class="line">     </div><div class="line"><span class="keyword">for</span>(String a : set)&#123;</div><div class="line">    a.value = <span class="string">"a"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的例子中, 如果 a 是可变的, 那么就违背了集合的设计(set 表示集合中包含不重复的元素), 上面的例子是为了简单起见而设计的, 事实上 String 类中并不存在 value 这个字段.</p>
+<ul>
+<li>安全</li>
+</ul>
+<p>String 被广泛地用着其它类的参数, 比如: 网络连接, 文件创建等等. 如果 String 是可变的, 一个连接或是文件就能够被改变, 这样会导致很严重的安全问题. 方法认为它连接上了一台机器, 但是事实上不是. 字符串作为参数的时候, 可变的字符串在反射的时候也可能引起安全问题. </p>
+<ul>
+<li>不可变对象天然是线程安全的</li>
+</ul>
+<p>因为不可变对象不能被改变, 他们能够在多线程之间被共享, 这就消除了执行同步的要求.</p>
+<p><strong>简而言之, 因为安全和效率的原因 String 类被设计为不可变. </strong></p>
+<p>参考: <a href="http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/" target="_blank" rel="external">http://www.programcreek.com/2013/04/why-string-is-immutable-in-java/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016-10-13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-关于restful api设计的一些探讨" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/关于restful api设计的一些探讨/">RESTful简单介绍</a>
+    </h1>
+  
+
+        
+        <a href="/关于restful api设计的一些探讨/" class="archive-article-date">
+  	<time datetime="2016-06-08T07:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RESTful介绍"><a href="#RESTful介绍" class="headerlink" title="RESTful介绍"></a>RESTful介绍</h1><p>本文主要包含以下内容:</p>
+<ul>
+<li>为什么要用RESTful</li>
+<li>RESTful的定义</li>
+<li>RESTful的五个关键内容<ul>
+<li>资源与URI(Resource URI)</li>
+<li>统一资源接口(Uniform Interface)</li>
+<li>资源的表述 (Representation)</li>
+<li>状态的转移 (State Transfer)</li>
+<li>超文本驱动 (Hypertext Driven)</li>
+</ul>
+</li>
+<li>简单比较下REST和RPC两种API调用风格 </li>
+</ul>
+<p>需要注意的是本文只对RESTful进行简单的介绍, 很多内容可探讨的就比较多, 比如安全及授权, 超文本驱动, 所以只对这些内容做简单介绍. 另外文章中的很多内容在实际开发中会有所取舍, 因此本文不是实际开发中的规范, 但是对理解规范是有很大作用的. 另外, 权衡各方面利弊后, 我们会在短期内给出相应的开发规范.</p>
+<p>文中出现的错误或表述不清楚的地方, 欢迎大家指正.</p>
+        
+          <a class="article-more-a" href="/关于restful api设计的一些探讨/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/关于restful api设计的一些探讨/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-redis持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -546,6 +685,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">assembly</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Source</a>
               </li>
             
             <div class="clearfix"></div>
